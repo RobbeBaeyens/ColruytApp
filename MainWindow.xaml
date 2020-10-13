@@ -6,10 +6,32 @@
         xmlns:local="clr-namespace:ColruytApp"
         mc:Ignorable="d"
         Title="MainWindow" Width="470" Height="820">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+   
+
+        </Grid.RowDefinitions>
+        <Image x:Name="ImgLogo" Source="image/colruytlogo.jpg" Margin="5" Grid.Column="1" HorizontalAlignment="Center" Height="60"/>
+        <Rectangle Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch" Fill="Black" Height="2"/>
+        <Button x:Name="btnAdd" Grid.Row="2"
+    Width="80" Height="80" Margin="20"
+    HorizontalAlignment="Right" VerticalContentAlignment="center"
+    FontSize="68">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="90"/>
+                </Style>
+            </Button.Resources>
+            <Image Source="image/addbutton.png"></Image>
+        </Button>
 
     </Grid>
+    
 </Window>
