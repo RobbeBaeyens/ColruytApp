@@ -10,26 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ColruytApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for GebruikerToevoegen.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GebruikerToevoegen : Window
     {
-        public MainWindow()
+        public GebruikerToevoegen()
         {
             InitializeComponent();
         }
 
-        private void btnToevoegen_Click(object sender, RoutedEventArgs e)
+        private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
-            GebruikerToevoegen gebruikerToevoegen = new GebruikerToevoegen();
-            gebruikerToevoegen.Hide();
-            gebruikerToevoegen.ShowDialog();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Hide();
+            mainWindow.ShowDialog();
             
         }
     }

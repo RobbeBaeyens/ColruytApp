@@ -10,28 +10,55 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="auto"/>
-   
-
+            <RowDefinition />
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Image x:Name="ImgLogo" Source="image/colruytlogo.jpg" Margin="5" Grid.Column="1" HorizontalAlignment="Center" Height="60"/>
-        <Rectangle Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch" Fill="Black" Height="2"/>
-        <Button x:Name="btnAdd" Grid.Row="2"
-    Width="80" Height="80" Margin="20"
-    HorizontalAlignment="Right" VerticalContentAlignment="center"
-    FontSize="68">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="90"/>
-                </Style>
-            </Button.Resources>
-            <Image Source="image/addbutton.png"></Image>
-        </Button>
+        <Image x:Name="ImgLogo" Source="image/colruytlogo.jpg" Margin="26,5,25.5,5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="180"/>
+        <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="4" Fill="Black" Height="2"/>
+
+
+        <StackPanel Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2" >
+            <Border Margin="20" 
+            BorderBrush="#FFE26D1B"
+            BorderThickness="5"
+            Background="White">
+                <Label Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Right">Profiel 1</Label>
+            </Border>
+            <Border Margin="20"
+            BorderBrush="#FFE26D1B"
+            BorderThickness="5"
+            Background="White">
+                <Label Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Right">Profiel 2</Label>
+            </Border>
+            <Border Margin="20"
+            BorderBrush="#FFE26D1B"
+            BorderThickness="5"
+            Background="White">
+                <Label Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Right">Profiel 3</Label>
+            </Border>
+        </StackPanel>
+
+        <Button Content="?" Grid.Column="2" Grid.Row="1" Background="{x:Null}" Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Margin="0,0,114.5,0"/>
+        <Button Content="?" Grid.Column="2" Grid.Row="2" Background="{x:Null}" Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Margin="0,0,114.5,0"/>
+        <Button Content="?" Grid.Column="2" Grid.Row="3" Background="{x:Null}" Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Grid.ColumnSpan="2" Margin="0,0,114.5,0"/>
+
+        <Button Content="x" Grid.Column="3" Grid.Row="1" Background="{x:Null}" Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Margin="0.5,0,-1.5,0"/>
+        <Button Content="x" Grid.Column="3" Grid.Row="2" Background="{x:Null}" Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Margin="0.5,0,-1.5,0"/>
+        <Button Content="x" Grid.Column="3" Grid.Row="3" Background="{x:Null}" Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Margin="0.5,0,-1.5,0"/>
+
+        <Button x:Name="btnToevoegen" Click="btnToevoegen_Click" Content="Nieuwe gebruiker toevoegen" Grid.Row="5" Grid.ColumnSpan="4" Background="#FFE26D1B" Foreground="White" FontSize="30" FontWeight="Bold"   BorderBrush="White" Margin="5 300 5 50" />
+
 
     </Grid>
-    
+
 </Window>
