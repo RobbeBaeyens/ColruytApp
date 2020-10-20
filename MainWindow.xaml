@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColruytApp"
         mc:Ignorable="d"
-        Title="MainWindow" Width="470" Height="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Colruyt boodschappenlijsten" Width="470" Height="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
 
     <Grid RenderTransformOrigin="0.51,0.651">
         <Grid.ColumnDefinitions>
@@ -60,7 +60,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Grid.Column="0" Content="{Binding}" Background="#FFE26D1B" Foreground="White" FontSize="25" FontWeight="Bold" Width="350" BorderBrush="White" Padding="5" Margin="0 5 10 5">
+                        <Button Click="btnGebruiker_Click" Grid.Column="0" Content="{Binding}" Background="#FFE26D1B" Foreground="White" FontSize="25" FontWeight="Bold" Width="350" BorderBrush="White" Padding="5" Margin="0 5 10 5">
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="16"/>

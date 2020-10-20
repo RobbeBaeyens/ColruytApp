@@ -40,5 +40,12 @@ namespace ColruytApp
             gebruikerToevoegen.Show();
             
         }
+
+        private void btnGebruiker_Click(object sender, RoutedEventArgs e)
+        {
+            OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten();
+            this.Hide();
+            overzichtBoodschappenlijsten.Show();
+        }
     }
 }
