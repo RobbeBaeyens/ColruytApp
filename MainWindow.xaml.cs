@@ -20,16 +20,24 @@ namespace ColruytApp
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        List<string> Gebruiker = new List<string>();
+
         public MainWindow()
         {
             InitializeComponent();
+            Gebruiker.Add("test1");
+            Gebruiker.Add("test2");
+            Gebruiker.Add("test3");
+            Gebruiker.Add("test4");
+            GebruikerLijst.ItemsSource = Gebruiker;
         }
 
         private void btnToevoegen_Click(object sender, RoutedEventArgs e)
         {
             GebruikerToevoegen gebruikerToevoegen = new GebruikerToevoegen();
-            gebruikerToevoegen.Hide();
-            gebruikerToevoegen.ShowDialog();
+            this.Hide();
+            gebruikerToevoegen.Show();
             
         }
     }

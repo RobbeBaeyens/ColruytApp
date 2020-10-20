@@ -27,8 +27,8 @@ namespace ColruytApp
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
-            mainWindow.Hide();
-            mainWindow.ShowDialog();
+            this.Hide();
+            mainWindow.Show();
             
         }
     }
