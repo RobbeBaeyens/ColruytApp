@@ -120,5 +120,11 @@
     <Resource Include="images\addbutton.png" />
     <Resource Include="images\colruytlogo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Colruyt_DAL\Colruyt_DAL.csproj">
+      <Project>{aab6c055-e59a-412f-95e4-5d268a408762}</Project>
+      <Name>Colruyt_DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
