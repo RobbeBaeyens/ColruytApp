@@ -60,8 +60,155 @@ namespace Colruyt_DAL
             }
         }
 
+
         //_____LIJST_____\\
 
-        //Ophalen 
+        //Ophalen lijstje
+        public static List<Lijst> OphalenLijstje(Login gebruiker)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Lijst
+                    .OrderBy(x => x.DatumAangemaakt)
+                    .Include(x => x.Login)
+                    .Where(x => x.Login_ID == gebruiker.Login_ID);
+                return query.ToList();
+            }
+        }
+
+        //Toevoegen lijstje
+        public static int ToevoegenLijstje(Lijst lijstje)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                entities.Lijst.Add(lijstje);
+                return entities.SaveChanges();
+            }
+        }
+
+        //Aanpassen lijstje
+        public static int AanpassenLijstje(Lijst lijstje)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                entities.Entry(lijstje).State = EntityState.Modified;
+                return entities.SaveChanges();
+            }
+        }
+
+        //Verwijderen lijstje
+        public static int VerwijderenLijstje(Lijst lijstje)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Lijst
+                    .Include(x => x.Lijst_Product)
+                    .Where(x => x.Lijst_ID == lijstje.Lijst_ID)
+                    .SingleOrDefault();
+                return entities.SaveChanges();
+            }
+        }
+
+
+        //____LIJST_PRODUCT_____\\
+
+        //Toevoegen product in lijst
+        public static int ToevoegenProductInLijst(Lijst_Product productInLijst)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                entities.Lijst_Product.Add(productInLijst);
+                return entities.SaveChanges();
+            }
+        }
+
+        //Verwijderen product in lijst
+        public static int VerwijderenProductInLijst(Lijst_Product productInLijst)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Lijst_Product
+                    .Where(x => x.Lijst_Product_ID == productInLijst.Lijst_Product_ID)
+                    .SingleOrDefault();
+                return entities.SaveChanges();
+            }
+        }
+
+        
+        //_____PRODUCT_____\\
+
+        //Producten ophalen uit winkel
+        public static List<Product> ProductenOphalen()
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Product
+                    .OrderBy(x => x.Locatie)
+                    .ThenBy(x => x.Categorie);
+                return query.ToList();
+            }
+        }
+
+        //Product toevoegen in winkel
+        public static int ToevoegenProduct(Product product)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                entities.Product.Add(product);
+                return entities.SaveChanges();
+            }
+        }
+
+        //Product aanpassen uit winkel??????
+
+        //Product verwijderen uit winkel
+        public static int VerwijderenProduct(Product product)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Product
+                    .Where(x => x.Product_ID == product.Product_ID)
+                    .SingleOrDefault();
+                return entities.SaveChanges();
+            }
+        }
+
+
+        //_____CATEGORIE_____\\
+
+        //Categorieën ophalen
+        public static List<Categorie> OphalennCatogorieën()
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Categorie
+                    .OrderBy(x => x.Routenummer)
+                    .ThenBy(x => x.Naam);
+                return query.ToList();
+            }
+        }
+
+        //Categorie toevoegen??????
+
+        //Categorie verwijderen??????
+
+
+        //_____LOCATIE_____\\
+
+        //Locaties ophalen
+        public static List<Locatie> OphalenLocaties()
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Locatie
+                    .OrderBy(x => x.Plaats);
+                return query.ToList();
+            }
+        }
+
+        //Locatie toevoegen???????
+
+        //Locatie verwijderen???????
+        
     }
 }
