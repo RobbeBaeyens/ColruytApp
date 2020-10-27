@@ -159,7 +159,15 @@ namespace Colruyt_DAL
             }
         }
 
-        //Product aanpassen uit winkel??????
+        //Product aanpassen uit winkel
+        public static int AanpassenProduct(Product product)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                entities.Entry(product).State = EntityState.Modified;
+                return entities.SaveChanges();
+            }
+        }
 
         //Product verwijderen uit winkel
         public static int VerwijderenProduct(Product product)
@@ -188,10 +196,6 @@ namespace Colruyt_DAL
             }
         }
 
-        //Categorie toevoegen??????
-
-        //Categorie verwijderen??????
-
 
         //_____LOCATIE_____\\
 
@@ -205,10 +209,6 @@ namespace Colruyt_DAL
                 return query.ToList();
             }
         }
-
-        //Locatie toevoegen???????
-
-        //Locatie verwijderen???????
         
     }
 }
