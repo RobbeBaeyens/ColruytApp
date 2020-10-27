@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PR_r0740160Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PR_r0740160Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categorie">
           <Key>
             <PropertyRef Name="Categorie_ID" />
@@ -44,6 +44,7 @@
           <Property Name="Login_ID" Type="int" Nullable="false" />
           <Property Name="Naam" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Voornaam" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Wachtwoord" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -144,8 +145,7 @@
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PR_r0740160Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -195,6 +195,7 @@
           <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Voornaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Lijst" Relationship="Self.FK__Lijst__Login_ID__534D60F1" FromRole="Login" ToRole="Lijst" />
+          <Property Name="Wachtwoord" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -343,6 +344,7 @@
           <EntitySetMapping Name="Login">
             <EntityTypeMapping TypeName="PR_r0740160Model.Login">
               <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Wachtwoord" ColumnName="Wachtwoord" />
                 <ScalarProperty Name="Login_ID" ColumnName="Login_ID" />
                 <ScalarProperty Name="Naam" ColumnName="Naam" />
                 <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
