@@ -29,20 +29,20 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Click="btnGebruiker_Click" Grid.Column="0" Background="#fff" Foreground="#C16212" FontSize="30" FontWeight="Bold" Width="350" Height="70" BorderBrush="#C16212" BorderThickness="5" Padding="5" Margin="0 5 10 5">
+                        <Button Click="btnGebruiker_Click" Grid.Column="0" Background="{StaticResource Light}" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" Width="350" Height="70" BorderBrush="{StaticResource Primary}" BorderThickness="5" Padding="5" Margin="0 5 10 5">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="70"/>
                                     <ColumnDefinition Width="280"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="T" HorizontalAlignment="left" HorizontalContentAlignment="Center" Background="#C16212" Foreground="#FFF" Width="50" Height="50">
+                                <Label Content="T" HorizontalAlignment="left" HorizontalContentAlignment="Center" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" Width="50" Height="50">
                                     <Label.Resources>
                                         <Style TargetType="{x:Type Border}">
                                             <Setter Property="CornerRadius" Value="90"/>
                                         </Style>
                                     </Label.Resources>
                                 </Label>
-                                <Label Grid.Column="1" Content="{Binding}" Foreground="#C16212"/>
+                                <Label Grid.Column="1" Content="{Binding}" Foreground="{StaticResource Primary}"/>
                             </Grid>
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
@@ -51,14 +51,14 @@
                             </Button.Resources>
                         </Button>
 
-                        <Button Content="?" Grid.Column="1" Background="{x:Null}" Foreground="#C16212" FontSize="25" Width="40" Height="40" BorderBrush="White" BorderThickness="0"/>
-                        <Button Content="X" Grid.Column="2" Background="{x:Null}" Foreground="#C16212" FontSize="25" Width="40" Height="40" BorderBrush="White" BorderThickness="0"/>
+                        <Button Content="?" Grid.Column="1" Background="{x:Null}" Foreground="{StaticResource Success}" FontWeight="Bold" FontSize="25" Width="40" Height="40" BorderBrush="{StaticResource Light}" BorderThickness="0"/>
+                        <Button Content="X" Grid.Column="2" Background="{x:Null}" Foreground="{StaticResource Danger}" FontWeight="Bold" FontSize="25" Width="40" Height="40" BorderBrush="{StaticResource Light}" BorderThickness="0"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="btnToevoegen" Click="btnToevoegen_Click" Grid.Row="2" Content="Nieuwe gebruiker toevoegen" Background="#C16212" Foreground="White" FontSize="25" FontWeight="Bold" BorderBrush="White" Padding="20" Margin="20">
+        <Button x:Name="btnToevoegen" Click="btnToevoegen_Click" Grid.Row="2" Content="Nieuwe gebruiker toevoegen" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="25" FontWeight="Bold" Padding="20" Margin="20">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="16"/>
