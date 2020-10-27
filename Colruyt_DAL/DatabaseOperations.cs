@@ -185,7 +185,7 @@ namespace Colruyt_DAL
         //_____CATEGORIE_____\\
 
         //Categorieën ophalen
-        public static List<Categorie> OphalennCatogorieën()
+        public static List<Categorie> OphalenCatogorieën()
         {
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
