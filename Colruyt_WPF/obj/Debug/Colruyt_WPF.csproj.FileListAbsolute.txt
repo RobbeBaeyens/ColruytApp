@@ -94,31 +94,3 @@ C:\Users\bryan\Desktop\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.csproj.CoreC
 C:\Users\bryan\Desktop\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.csproj.CopyComplete
 C:\Users\bryan\Desktop\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.exe
 C:\Users\bryan\Desktop\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.pdb
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\bin\Debug\Colruyt_WPF.exe.config
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\bin\Debug\Colruyt_WPF.exe
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\bin\Debug\Colruyt_WPF.pdb
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\bin\Debug\Colruyt_DAL.dll
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\bin\Debug\EntityFramework.dll
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\bin\Debug\Colruyt_DAL.pdb
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\bin\Debug\Colruyt_DAL.dll.config
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\bin\Debug\EntityFramework.xml
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.csprojAssemblyReference.cache
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Gebruikers.g.cs
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\GebruikerToevoegen.g.cs
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\LijstBewerkenToevoegen.g.cs
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\OverzichtBoodschappenlijsten.g.cs
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\App.g.cs
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF_MarkupCompile.cache
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF_MarkupCompile.lref
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\App.baml
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Gebruikers.baml
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\GebruikerToevoegen.baml
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\LijstBewerkenToevoegen.baml
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\OverzichtBoodschappenlijsten.baml
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.g.resources
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.Properties.Resources.resources
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.csproj.GenerateResource.cache
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.csproj.CoreCompileInputs.cache
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.csproj.CopyComplete
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.exe
-C:\Users\as\Desktop\Colruyt App\ColruytApp\Colruyt_WPF\obj\Debug\Colruyt_WPF.pdb
