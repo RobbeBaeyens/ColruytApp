@@ -21,37 +21,37 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnTerug" Click="btnTerug_Click" Content="x"  Background="{x:Null}" Foreground="red" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" />
-        <Image x:Name="ImgLogo" Source="image/colruytlogo.jpg" Margin="26,5,25.5,5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="180"/>
+        <Button x:Name="btnTerug" Click="btnTerug_Click" Content="x"  Background="{x:Null}" Foreground="{StaticResource Danger}" FontSize="30" FontWeight="Bold" BorderBrush="{x:Null}" />
+        <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="26,5,25.5,5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="180"/>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
-        <Button Content="V"  Background="{x:Null}" Foreground="Green" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Grid.Column="4"/>
+        <Button Content="V"  Background="{x:Null}" Foreground="{StaticResource Success}" FontSize="30" FontWeight="Bold" BorderBrush="{x:Null}" Grid.Column="4"/>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
             <Label Content="Naam: " FontSize="30" FontWeight="Bold"/>
             <Border Margin="20" 
-            BorderBrush="#FFE26D1B"
+            BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
-            Background="White">
-                <TextBox Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" ></TextBox>
+            Background="{StaticResource Light}">
+                <TextBox Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
             </Border>
             <Label Content="Voornaam: " FontSize="30" FontWeight="Bold"/>
             <Border Margin="20"
-            BorderBrush="#FFE26D1B"
+            BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
-            Background="White">
-                <TextBox Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" ></TextBox>
+            Background="{StaticResource Light}">
+                <TextBox Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
             </Border>
             <Label Content="Wachtwoord: " FontSize="30" FontWeight="Bold"/>
             <Border Margin="20"
-            BorderBrush="#FFE26D1B"
+            BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
-            Background="White">
-                <TextBlock Foreground="#FFE26D1B" FontSize="30" FontWeight="Black" ></TextBlock>
+            Background="{StaticResource Light}">
+                <TextBlock Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBlock>
             </Border>
         </StackPanel>
 
-        <Button Content="BIJWERKEN" Grid.Row="2"  Background="{x:Null}" Foreground="red" FontSize="30" FontWeight="Bold"  BorderBrush="White" Grid.ColumnSpan="5"/>
-        <Button Content="Verwijderen" Grid.Row="3" Background="#FFE26D1B" Foreground="White" FontSize="30" FontWeight="Bold"  BorderBrush="White" Margin="10" Grid.ColumnSpan="5"/>
+        <Button Content="BIJWERKEN" Grid.Row="2"  Background="{x:Null}" Foreground="{StaticResource Alert}" FontSize="30" FontWeight="Bold"  BorderBrush="White" Grid.ColumnSpan="5"/>
+        <Button Content="Verwijderen" Grid.Row="3" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10" Grid.ColumnSpan="5"/>
 
     </Grid>
 </Window>

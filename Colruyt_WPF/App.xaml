@@ -4,6 +4,22 @@
              xmlns:local="clr-namespace:Colruyt_WPF"
              StartupUri="Gebruikers.xaml">
     <Application.Resources>
-         
+        <Color x:Key="Green">#50532F</Color>
+        <Color x:Key="Beige">#D7B56E</Color>
+        <Color x:Key="Yellow">#C28428</Color>
+        <Color x:Key="Orange">#C16212</Color>
+        <Color x:Key="Red">#36191C</Color>
+
+        <Color x:Key="DarkColor">#222</Color>
+        <Color x:Key="LightColor">#EEE</Color>
+
+        <SolidColorBrush x:Key="Primary" Color="{DynamicResource Orange}"/>
+        <SolidColorBrush x:Key="Secondary" Color="{DynamicResource Beige}"/>
+        <SolidColorBrush x:Key="Success" Color="{DynamicResource Green}"/>
+        <SolidColorBrush x:Key="Danger" Color="{DynamicResource Red}"/>
+        <SolidColorBrush x:Key="Alert" Color="{DynamicResource Yellow}"/>
+        
+        <SolidColorBrush x:Key="Dark" Color="{DynamicResource DarkColor}"/>
+        <SolidColorBrush x:Key="Light" Color="{DynamicResource LightColor}"/>
     </Application.Resources>
 </Application>
