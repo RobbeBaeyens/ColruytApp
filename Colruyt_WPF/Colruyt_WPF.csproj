@@ -153,5 +153,8 @@
     <Resource Include="images\cat_8.jpg" />
     <Resource Include="images\cat_9.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icons8-checked-48.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Colruyt boodschappenlijsten" Width="470" Height="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Colruyt boodschappenlijsten" Width="1500" Height="750" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -26,9 +26,9 @@
         <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="60"/>
         <Rectangle Grid.Row="1" Grid.ColumnSpan="5" VerticalAlignment="Top" HorizontalAlignment="Stretch" Fill="Black" Height="2"/>
         <Button x:Name="btnTerug" Content="Terug" Background="White" FontSize="20" BorderBrush="{x:Null}" Click="btnTerug_Click"/>
-        <Image x:Name="btnBevestig" Source="image/confirm.png" Height="30" Grid.Column="4"/>
-        <Button x:Name="btnVerwijderen" BorderBrush="{StaticResource Dark}" Foreground="White" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.ColumnSpan="5" Height="50" Margin="26,19.6,38,18.4" VerticalContentAlignment="center"
-            FontSize="27" Content="Verwijderen">
+        <Image x:Name="btnBevestig" Source="images/icons8-checked-48.png" Height="30" Grid.Column="4"/>
+        <Button x:Name="btnVerwijderen" BorderBrush="{StaticResource Dark}" Foreground="White" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.ColumnSpan="3" Height="50" Margin="86.8,19.4,211.2,18.6" VerticalContentAlignment="center"
+            FontSize="27" Content="Verwijderen" Width="598" Grid.Column="1">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -36,10 +36,10 @@
             </Button.Resources>
         </Button>
 
-        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="5">
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Column="1">
             <Label Name="lblNaamLijst"  Foreground="Black" FontSize="30" FontWeight="Black" HorizontalAlignment="Left" Width="223" Margin="18,0,0,0">Naam</Label>
-            <Border  BorderBrush="{StaticResource Primary}"  BorderThickness="5" Background="{StaticResource Light}" CornerRadius="10" Margin="20,0">
-                <TextBox x:Name="tbNaam" Height="40" Grid.ColumnSpan="5"/>
+            <Border  BorderBrush="{StaticResource Primary}"  BorderThickness="5" Background="{StaticResource Light}" CornerRadius="10" Margin="28,0,171.6,0">
+                <TextBox x:Name="tbNaam" Height="40" Grid.ColumnSpan="5" Margin="0.2,0,-0.2,0" />
             </Border>
             <Label Content="Kleur" Foreground="Black" FontSize="30" FontWeight="Black" HorizontalAlignment="Left" Width="223" Margin="18,14,0,0"/>
             <Rectangle Fill="{StaticResource Dark}" Height="50" Width="100" HorizontalAlignment="Left" Margin="20,0,0,0"/>
