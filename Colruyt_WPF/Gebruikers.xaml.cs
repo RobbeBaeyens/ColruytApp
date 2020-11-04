@@ -20,15 +20,7 @@ namespace Colruyt_WPF
     public partial class Gebruikers : Window
     {
         List<string> Gebruiker = new List<string>();
-        public Gebruikers()
-        {
-            InitializeComponent();
-            Gebruiker.Add("test1");
-            Gebruiker.Add("test2");
-            Gebruiker.Add("test3");
-            Gebruiker.Add("test4");
-            GebruikerLijst.ItemsSource = Gebruiker;
-        }
+      
 
         private void btnToevoegen_Click(object sender, RoutedEventArgs e)
         {

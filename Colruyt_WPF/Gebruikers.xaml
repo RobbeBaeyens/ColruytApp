@@ -7,63 +7,49 @@
         mc:Ignorable="d"
         Title="Colruyt boodschappenlijsten" Height="750" Width="1500" ResizeMode="NoResize" WindowStyle="ToolWindow">
 
-    <Grid RenderTransformOrigin="0.51,0.651">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+          
         </Grid.RowDefinitions>
-        <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="26,5,25.5,5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="180"/>
-        <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="4" Fill="Black" Height="2"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
 
-        <ListView Grid.Row="1" Name="GebruikerLijst" BorderThickness="0">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1200"/>
-                            <ColumnDefinition Width="100"/>
-                            <ColumnDefinition Width="100"/>
-                        </Grid.ColumnDefinitions>
+       
+        <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="26,5,25.5,5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="180"/>
+        <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
+       
 
-                        <Button Click="btnGebruiker_Click" Grid.Column="0" Background="{StaticResource Light}" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" Width="850" Height="70" BorderBrush="{StaticResource Primary}" BorderThickness="5" Padding="5" Margin="0 5 10 5">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="270"/>
-                                    <ColumnDefinition Width="280"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Content="T" HorizontalAlignment="left" HorizontalContentAlignment="Center" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" Width="50" Height="50">
-                                    <Label.Resources>
-                                        <Style TargetType="{x:Type Border}">
-                                            <Setter Property="CornerRadius" Value="90"/>
-                                        </Style>
-                                    </Label.Resources>
-                                </Label>
-                                <Label Grid.Column="1" Content="{Binding}" Foreground="{StaticResource Primary}"/>
-                            </Grid>
-                            <Button.Resources>
-                                <Style TargetType="{x:Type Border}">
-                                    <Setter Property="CornerRadius" Value="10"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
+        <Border BorderBrush="Black" BorderThickness="5" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1">
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1" Margin="60" >
+            <Label Content="Gebruikersnaam " HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+            <Border Margin="20" 
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                <TextBox Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
+            </Border>
+            <Label Content="Wachtwoord " HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+            <Border Margin="20"
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                <TextBox Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
+            </Border>
+            
+        </StackPanel>
+        </Border>
 
-                        <Button Content="?" Grid.Column="1" Background="{x:Null}" Foreground="{StaticResource Success}" FontWeight="Bold" FontSize="25" Width="40" Height="40" BorderBrush="{StaticResource Light}" BorderThickness="0"/>
-                        <Button Content="X" Grid.Column="2" Background="{x:Null}" Foreground="{StaticResource Danger}" FontWeight="Bold" FontSize="25" Width="40" Height="40" BorderBrush="{StaticResource Light}" BorderThickness="0"/>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <Button x:Name="btnToevoegen" Click="btnToevoegen_Click" Grid.Row="2" Content="Nieuwe gebruiker toevoegen" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="25" FontWeight="Bold" Padding="20" Margin="334,10,324,30">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="16"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        <Button Content="Login" Grid.Row="2"  Background="{x:Null}" Foreground="{StaticResource Alert}" FontSize="30" FontWeight="Bold"  BorderBrush="White" Grid.Column="1"/>
+        <Button Content="Registreren" Grid.Row="2" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10"  Grid.Column="3"/>
+        
+       
     </Grid>
 </Window>

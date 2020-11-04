@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Colruyt boodschappenlijsten" Height="750" Width="1500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Colruyt boodschappenlijsten" Height="850" Width="1500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
-            <RowDefinition Height="80"/>
+           
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -21,37 +21,92 @@
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnTerug" Click="btnTerug_Click" Content="x"  Background="{x:Null}" Foreground="{StaticResource Danger}" FontSize="30" FontWeight="Bold" BorderBrush="{x:Null}" />
+        <Button x:Name="btnTerug" Click="btnTerug_Click" Content="Terug"  Background="{x:Null}" Foreground="{StaticResource Danger}" FontSize="30" FontWeight="Bold" BorderBrush="{x:Null}" />
         <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="26,5,25.5,5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="180"/>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
-        <Button Content="V"  Background="{x:Null}" Foreground="{StaticResource Success}" FontSize="30" FontWeight="Bold" BorderBrush="{x:Null}" Grid.Column="4"/>
+       
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1">
-            <Label Content="Naam: " FontSize="30" FontWeight="Bold"/>
-            <Border Margin="20" 
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Naam" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                <TextBox Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
-            </Border>
-            <Label Content="Voornaam: " FontSize="30" FontWeight="Bold"/>
-            <Border Margin="20"
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Voornaam" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                <TextBox Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
-            </Border>
-            <Label Content="Wachtwoord: " FontSize="30" FontWeight="Bold"/>
-            <Border Margin="20"
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="E-mail" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                <TextBlock Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBlock>
-            </Border>
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Wachtwoord" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Stad" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Straat" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Nummer" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Zip" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
         </StackPanel>
 
-        <Button Content="BIJWERKEN" Grid.Row="2"  Background="{x:Null}" Foreground="{StaticResource Alert}" FontSize="30" FontWeight="Bold"  BorderBrush="White" Grid.ColumnSpan="5"/>
-        <Button Content="Verwijderen" Grid.Row="3" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10" Grid.ColumnSpan="3" Grid.Column="1"/>
+      
+            
+           
+
+      
+        <Button Content="Registreren" Grid.Row="3" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10" Grid.ColumnSpan="3" Grid.Column="1"/>
 
     </Grid>
 </Window>
