@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Colruyt boodschappenlijsten" Width="470" Height="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Colruyt boodschappenlijsten" Height="750" Width="1500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -14,11 +14,11 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
 
         <Button x:Name="btnTerug" Click="btnTerug_Click" Content="x"  Background="{x:Null}" Foreground="{StaticResource Danger}" FontSize="30" FontWeight="Bold" BorderBrush="{x:Null}" />
@@ -26,7 +26,7 @@
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
         <Button Content="V"  Background="{x:Null}" Foreground="{StaticResource Success}" FontSize="30" FontWeight="Bold" BorderBrush="{x:Null}" Grid.Column="4"/>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1">
             <Label Content="Naam: " FontSize="30" FontWeight="Bold"/>
             <Border Margin="20" 
             BorderBrush="{StaticResource Primary}"
@@ -51,7 +51,7 @@
         </StackPanel>
 
         <Button Content="BIJWERKEN" Grid.Row="2"  Background="{x:Null}" Foreground="{StaticResource Alert}" FontSize="30" FontWeight="Bold"  BorderBrush="White" Grid.ColumnSpan="5"/>
-        <Button Content="Verwijderen" Grid.Row="3" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10" Grid.ColumnSpan="5"/>
+        <Button Content="Verwijderen" Grid.Row="3" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10" Grid.ColumnSpan="3" Grid.Column="1"/>
 
     </Grid>
 </Window>

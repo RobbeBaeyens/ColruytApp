@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Colruyt boodschappenlijsten" Width="470" Height="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Colruyt boodschappenlijsten" Height="750" Width="1500" ResizeMode="NoResize" WindowStyle="ToolWindow">
 
     <Grid RenderTransformOrigin="0.51,0.651">
         <Grid.ColumnDefinitions>
@@ -24,15 +24,15 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1200"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Click="btnGebruiker_Click" Grid.Column="0" Background="{StaticResource Light}" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" Width="350" Height="70" BorderBrush="{StaticResource Primary}" BorderThickness="5" Padding="5" Margin="0 5 10 5">
+                        <Button Click="btnGebruiker_Click" Grid.Column="0" Background="{StaticResource Light}" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" Width="850" Height="70" BorderBrush="{StaticResource Primary}" BorderThickness="5" Padding="5" Margin="0 5 10 5">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="270"/>
                                     <ColumnDefinition Width="280"/>
                                 </Grid.ColumnDefinitions>
                                 <Label Content="T" HorizontalAlignment="left" HorizontalContentAlignment="Center" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" Width="50" Height="50">
@@ -58,7 +58,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="btnToevoegen" Click="btnToevoegen_Click" Grid.Row="2" Content="Nieuwe gebruiker toevoegen" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="25" FontWeight="Bold" Padding="20" Margin="20">
+        <Button x:Name="btnToevoegen" Click="btnToevoegen_Click" Grid.Row="2" Content="Nieuwe gebruiker toevoegen" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="25" FontWeight="Bold" Padding="20" Margin="334,10,324,30">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="16"/>
