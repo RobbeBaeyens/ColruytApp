@@ -73,6 +73,9 @@
     <Compile Include="LijstBewerkenToevoegen.xaml.cs">
       <DependentUpon>LijstBewerkenToevoegen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LijstProducten.xaml.cs">
+      <DependentUpon>LijstProducten.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OverzichtBoodschappenlijsten.xaml.cs">
       <DependentUpon>OverzichtBoodschappenlijsten.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LijstBewerkenToevoegen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LijstProducten.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
