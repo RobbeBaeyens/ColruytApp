@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PR_r0740160Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BoodschappenLijstjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categorie">
           <Key>
             <PropertyRef Name="Categorie_ID" />
@@ -30,13 +30,6 @@
           <Property Name="Lijst_ID" Type="int" />
           <Property Name="Product_ID" Type="int" />
         </EntityType>
-        <EntityType Name="Locatie">
-          <Key>
-            <PropertyRef Name="Locatie_ID" />
-          </Key>
-          <Property Name="Locatie_ID" Type="int" Nullable="false" />
-          <Property Name="Plaats" Type="int" />
-        </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="Login_ID" />
@@ -44,6 +37,7 @@
           <Property Name="Login_ID" Type="int" Nullable="false" />
           <Property Name="Naam" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="Voornaam" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Wachtwoord" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -54,7 +48,6 @@
           <Property Name="Prijs" Type="numeric" Precision="10" Scale="2" />
           <Property Name="Aantal" Type="int" />
           <Property Name="Categorie_ID" Type="int" />
-          <Property Name="Locatie_ID" Type="int" />
         </EntityType>
         <Association Name="FK__Lijst__Login_ID__534D60F1">
           <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
@@ -104,23 +97,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Product__Locatie__5535A963">
-          <End Role="Locatie" Type="Self.Locatie" Multiplicity="0..1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locatie">
-              <PropertyRef Name="Locatie_ID" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="Locatie_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="PR_r0740160ModelStoreContainer">
+        <EntityContainer Name="BoodschappenLijstjeModelStoreContainer">
           <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lijst" EntityType="Self.Lijst" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lijst_Product" EntityType="Self.Lijst_Product" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Locatie" EntityType="Self.Locatie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Lijst__Login_ID__534D60F1" Association="Self.FK__Lijst__Login_ID__534D60F1">
@@ -139,16 +119,12 @@
             <End Role="Categorie" EntitySet="Categorie" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__Product__Locatie__5535A963" Association="Self.FK__Product__Locatie__5535A963">
-            <End Role="Locatie" EntitySet="Locatie" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PR_r0740160Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BoodschappenLijstjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Categorie">
           <Key>
             <PropertyRef Name="Categorie_ID" />
@@ -179,14 +155,6 @@
           <NavigationProperty Name="Lijst" Relationship="Self.FK__Lijst_Pro__Lijst__5629CD9C" FromRole="Lijst_Product" ToRole="Lijst" />
           <NavigationProperty Name="Product" Relationship="Self.FK__Lijst_Pro__Produ__571DF1D5" FromRole="Lijst_Product" ToRole="Product" />
         </EntityType>
-        <EntityType Name="Locatie">
-          <Key>
-            <PropertyRef Name="Locatie_ID" />
-          </Key>
-          <Property Name="Locatie_ID" Type="Int32" Nullable="false" />
-          <Property Name="Plaats" Type="Int32" />
-          <NavigationProperty Name="Product" Relationship="Self.FK__Product__Locatie__5535A963" FromRole="Locatie" ToRole="Product" />
-        </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="Login_ID" />
@@ -194,6 +162,7 @@
           <Property Name="Login_ID" Type="Int32" Nullable="false" />
           <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Voornaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Wachtwoord" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Lijst" Relationship="Self.FK__Lijst__Login_ID__534D60F1" FromRole="Login" ToRole="Lijst" />
         </EntityType>
         <EntityType Name="Product">
@@ -205,10 +174,8 @@
           <Property Name="Prijs" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="Aantal" Type="Int32" />
           <Property Name="Categorie_ID" Type="Int32" />
-          <Property Name="Locatie_ID" Type="Int32" />
           <NavigationProperty Name="Categorie" Relationship="Self.FK__Product__Categor__5441852A" FromRole="Product" ToRole="Categorie" />
           <NavigationProperty Name="Lijst_Product" Relationship="Self.FK__Lijst_Pro__Produ__571DF1D5" FromRole="Product" ToRole="Lijst_Product" />
-          <NavigationProperty Name="Locatie" Relationship="Self.FK__Product__Locatie__5535A963" FromRole="Product" ToRole="Locatie" />
         </EntityType>
         <Association Name="FK__Product__Categor__5441852A">
           <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
@@ -258,23 +225,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Product__Locatie__5535A963">
-          <End Role="Locatie" Type="Self.Locatie" Multiplicity="0..1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Locatie">
-              <PropertyRef Name="Locatie_ID" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="Locatie_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="PR_r0740160Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BoodschappenLijstjeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categorie" EntityType="Self.Categorie" />
           <EntitySet Name="Lijst" EntityType="Self.Lijst" />
           <EntitySet Name="Lijst_Product" EntityType="Self.Lijst_Product" />
-          <EntitySet Name="Locatie" EntityType="Self.Locatie" />
           <EntitySet Name="Login" EntityType="Self.Login" />
           <EntitySet Name="Product" EntityType="Self.Product" />
           <AssociationSet Name="FK__Product__Categor__5441852A" Association="Self.FK__Product__Categor__5441852A">
@@ -293,19 +247,15 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Lijst_Product" EntitySet="Lijst_Product" />
           </AssociationSet>
-          <AssociationSet Name="FK__Product__Locatie__5535A963" Association="Self.FK__Product__Locatie__5535A963">
-            <End Role="Locatie" EntitySet="Locatie" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PR_r0740160ModelStoreContainer" CdmEntityContainer="PR_r0740160Entities">
+        <EntityContainerMapping StorageEntityContainer="BoodschappenLijstjeModelStoreContainer" CdmEntityContainer="BoodschappenLijstjeEntities">
           <EntitySetMapping Name="Categorie">
-            <EntityTypeMapping TypeName="PR_r0740160Model.Categorie">
+            <EntityTypeMapping TypeName="BoodschappenLijstjeModel.Categorie">
               <MappingFragment StoreEntitySet="Categorie">
                 <ScalarProperty Name="Categorie_ID" ColumnName="Categorie_ID" />
                 <ScalarProperty Name="Naam" ColumnName="Naam" />
@@ -314,7 +264,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Lijst">
-            <EntityTypeMapping TypeName="PR_r0740160Model.Lijst">
+            <EntityTypeMapping TypeName="BoodschappenLijstjeModel.Lijst">
               <MappingFragment StoreEntitySet="Lijst">
                 <ScalarProperty Name="Lijst_ID" ColumnName="Lijst_ID" />
                 <ScalarProperty Name="Naam" ColumnName="Naam" />
@@ -324,7 +274,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Lijst_Product">
-            <EntityTypeMapping TypeName="PR_r0740160Model.Lijst_Product">
+            <EntityTypeMapping TypeName="BoodschappenLijstjeModel.Lijst_Product">
               <MappingFragment StoreEntitySet="Lijst_Product">
                 <ScalarProperty Name="Lijst_Product_ID" ColumnName="Lijst_Product_ID" />
                 <ScalarProperty Name="Lijst_ID" ColumnName="Lijst_ID" />
@@ -332,32 +282,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Locatie">
-            <EntityTypeMapping TypeName="PR_r0740160Model.Locatie">
-              <MappingFragment StoreEntitySet="Locatie">
-                <ScalarProperty Name="Locatie_ID" ColumnName="Locatie_ID" />
-                <ScalarProperty Name="Plaats" ColumnName="Plaats" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Login">
-            <EntityTypeMapping TypeName="PR_r0740160Model.Login">
+            <EntityTypeMapping TypeName="BoodschappenLijstjeModel.Login">
               <MappingFragment StoreEntitySet="Login">
                 <ScalarProperty Name="Login_ID" ColumnName="Login_ID" />
                 <ScalarProperty Name="Naam" ColumnName="Naam" />
                 <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="Wachtwoord" ColumnName="Wachtwoord" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="PR_r0740160Model.Product">
+            <EntityTypeMapping TypeName="BoodschappenLijstjeModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
                 <ScalarProperty Name="Productnaam" ColumnName="Productnaam" />
                 <ScalarProperty Name="Prijs" ColumnName="Prijs" />
                 <ScalarProperty Name="Aantal" ColumnName="Aantal" />
                 <ScalarProperty Name="Categorie_ID" ColumnName="Categorie_ID" />
-                <ScalarProperty Name="Locatie_ID" ColumnName="Locatie_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

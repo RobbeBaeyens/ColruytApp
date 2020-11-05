@@ -143,8 +143,7 @@ namespace Colruyt_DAL
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Product
-                    .OrderBy(x => x.Locatie)
-                    .ThenBy(x => x.Categorie);
+                    .OrderBy(x => x.Categorie);
                 return query.ToList();
             }
         }
@@ -185,7 +184,7 @@ namespace Colruyt_DAL
         //_____CATEGORIE_____\\
 
         //Categorieën ophalen
-        public static List<Categorie> OphalennCatogorieën()
+        public static List<Categorie> OphalenCatogorieën()
         {
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
@@ -195,20 +194,5 @@ namespace Colruyt_DAL
                 return query.ToList();
             }
         }
-
-
-        //_____LOCATIE_____\\
-
-        //Locaties ophalen
-        public static List<Locatie> OphalenLocaties()
-        {
-            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
-            {
-                var query = entities.Locatie
-                    .OrderBy(x => x.Plaats);
-                return query.ToList();
-            }
-        }
-        
     }
 }

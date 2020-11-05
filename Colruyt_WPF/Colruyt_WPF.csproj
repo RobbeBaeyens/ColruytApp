@@ -61,6 +61,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categorie.xaml.cs">
+      <DependentUpon>Categorie.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gebruikers.xaml.cs">
       <DependentUpon>Gebruikers.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Categorie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Gebruikers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +136,27 @@
     <Resource Include="images\alert.png" />
     <Resource Include="images\check.png" />
     <Resource Include="images\cross.png" />
+    <Resource Include="images\cat_1.jpg" />
+    <Resource Include="images\cat_10.jpg" />
+    <Resource Include="images\cat_11.jpg" />
+    <Resource Include="images\cat_12.jpg" />
+    <Resource Include="images\cat_13.jpg" />
+    <Resource Include="images\cat_14.jpg" />
+    <Resource Include="images\cat_15.jpg" />
+    <Resource Include="images\cat_16.jpg" />
+    <Resource Include="images\cat_17.jpg" />
+    <Resource Include="images\cat_18.jpg" />
+    <Resource Include="images\cat_2.jpg" />
+    <Resource Include="images\cat_3.jpg" />
+    <Resource Include="images\cat_4.jpg" />
+    <Resource Include="images\cat_5.jpg" />
+    <Resource Include="images\cat_6.jpg" />
+    <Resource Include="images\cat_7.jpg" />
+    <Resource Include="images\cat_8.jpg" />
+    <Resource Include="images\cat_9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icons8-checked-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

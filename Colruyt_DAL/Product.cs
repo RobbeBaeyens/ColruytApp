@@ -25,11 +25,9 @@ namespace Colruyt_DAL
         public Nullable<decimal> Prijs { get; set; }
         public Nullable<int> Aantal { get; set; }
         public Nullable<int> Categorie_ID { get; set; }
-        public Nullable<int> Locatie_ID { get; set; }
     
         public virtual Categorie Categorie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lijst_Product> Lijst_Product { get; set; }
-        public virtual Locatie Locatie { get; set; }
     }
 }

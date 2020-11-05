@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Colruyt boodschappenlijsten" Width="470" Height="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Colruyt boodschappenlijsten" Height="850" Width="1500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -23,38 +23,80 @@
         </Button>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
-            <Label Content="Naam: " FontSize="30" FontWeight="Bold"/>
-            <Border Margin="20" 
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Naam" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                <TextBox x:Name="TxtGebruikerNaam" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
-            </Border>
-            <Label Content="Voornaam: " FontSize="30" FontWeight="Bold"/>
-            <Border Margin="20"
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Voornaam" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                <TextBox x:Name="TxtGebruikerVoornaam" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
-            </Border>
-            <Label Content="Wachtwoord: " FontSize="30" FontWeight="Bold"/>
-            <Border Margin="20"
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="E-mail" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                <TextBox x:Name="TxtGebruikerWachtwoord" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
-            </Border>
-            <Label Content="Herhaal wachtwoord: " FontSize="30" FontWeight="Bold"/>
-            <Border Margin="20"
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Wachtwoord" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                <TextBox x:Name="TxtGebruikerWachtwoord2" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
-            </Border>
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Stad" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Straat" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Nummer" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Zip" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
+                <Border Margin="20" 
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                </Border>
+            </StackPanel>
         </StackPanel>
-
-        <Button Style="{StaticResource OrangeButton}" Click="btnToevoegen_Click" Grid.Row="2" Content="Verwijderen"/>
-
+        <Button Content="Registreren" Grid.Row="3" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10" Grid.ColumnSpan="3" Grid.Column="1"/>
     </Grid>
 </Window>
