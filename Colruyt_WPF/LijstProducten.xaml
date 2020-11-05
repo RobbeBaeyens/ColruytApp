@@ -1,0 +1,76 @@
+﻿<Window x:Class="Colruyt_WPF.LijstProducten"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Colruyt_WPF"
+        mc:Ignorable="d"
+        Title="LijstProducten" Height="750" Width="1500">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+
+                <RowDefinition Height="auto"/>
+
+
+            </Grid.RowDefinitions>
+
+            <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="60"/>
+            <Rectangle Grid.Row="1" Grid.ColumnSpan="5" VerticalAlignment="Top" HorizontalAlignment="Stretch" Fill="Black" Height="2"/>
+            <Button x:Name="btnTerug" Content="Terug" Background="White" FontSize="20" BorderBrush="{x:Null}" Click="btnTerug_Click"/>
+            <Image x:Name="btnBevestig" Source="images/icons8-checked-48.png" Height="30" Grid.Column="4"/>
+            <Label x:Name="lblNaamCategorie" Content="Groenten en fruit" Grid.Row="1" FontSize="30"/>
+
+            <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Stroke="Black" StrokeThickness="2"/>
+
+            <Label x:Name="lblLijst" Content="maandag 24/3" Grid.Column="5" Grid.Row="1" FontSize="25" />
+            <Rectangle Grid.Row="1" Grid.Column="5" Stroke="Black" StrokeThickness="2"/>
+            <Rectangle Grid.Row="2" Grid.RowSpan="2" Grid.Column="5" Stroke="Black" StrokeThickness="2"/>
+
+            <Button x:Name="btnNieuwProduct" BorderBrush="{StaticResource Dark}" Foreground="{StaticResource Light}" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.ColumnSpan="4" Height="50" Margin="111,24.2,155.2,25.8" VerticalContentAlignment="center"
+            FontSize="27" Content="Nieuw product toevoegen">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <StackPanel Grid.Row="2" Grid.Column="5">
+                <Border Height="50" Width="295" BorderBrush="{StaticResource Dark}" BorderThickness="1" >
+                    <Label x:Name="lblProductPrijs" FontSize="25">
+
+                        <Button Width="25" Height="25" Margin="250,5,0,0" Content="X" x:Name="btnVerwijder"/>
+                    </Label>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="4">
+                <Border BorderBrush="{StaticResource Dark}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
+
+                    <Label Name="lblNaamLijst" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600">Productnaam    +     Prijs</Label>
+                </Border>
+            </StackPanel>
+
+
+
+
+
+            <Label Content="Totaal:" Grid.Row="2" Grid.Column="4" VerticalAlignment="Bottom" Height="75" FontSize="25" HorizontalContentAlignment="Left" Margin="57,0,140,0" Grid.RowSpan="2"/>
+            <Label Content="€25.78" Grid.Row="2" Grid.Column="4" VerticalAlignment="Bottom" Height="75" FontSize="25" HorizontalContentAlignment="Right" Margin="107.8,0,63.6,-0.2" Grid.RowSpan="2" />
+            <Rectangle Grid.Row="3" Grid.Column="5" Stroke="Black" StrokeThickness="2" Height="100" VerticalAlignment="Bottom"/>
+
+
+        </Grid>
+    </Grid>
+</Window>
