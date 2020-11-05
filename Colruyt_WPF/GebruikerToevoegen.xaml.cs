@@ -31,5 +31,9 @@ namespace Colruyt_WPF
             gebruikers.Show();
 
         }
+
+        private void btnToevoegen_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

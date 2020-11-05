@@ -9,22 +9,19 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnTerug" Click="btnTerug_Click" Content="x"  Background="{x:Null}" Foreground="{StaticResource Danger}" FontSize="30" FontWeight="Bold" BorderBrush="{x:Null}" />
-        <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="26,5,25.5,5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="180"/>
+        <Button x:Name="btnTerug" Click="btnTerug_Click" HorizontalAlignment="Left" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
+            <Image Source="images/cross.png"/>
+        </Button>
+        <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" HorizontalAlignment="Center" Width="180"/>
+
+        <Button x:Name="btnToevoegen" Click="btnToevoegen_Click" HorizontalAlignment="Right" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
+            <Image Source="images/check.png"/>
+        </Button>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
-        <Button Content="V"  Background="{x:Null}" Foreground="{StaticResource Success}" FontSize="30" FontWeight="Bold" BorderBrush="{x:Null}" Grid.Column="4"/>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="5">
             <Label Content="Naam: " FontSize="30" FontWeight="Bold"/>
@@ -32,26 +29,32 @@
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                <TextBox Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
+                <TextBox x:Name="TxtGebruikerNaam" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
             </Border>
             <Label Content="Voornaam: " FontSize="30" FontWeight="Bold"/>
             <Border Margin="20"
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                <TextBox Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
+                <TextBox x:Name="TxtGebruikerVoornaam" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
             </Border>
             <Label Content="Wachtwoord: " FontSize="30" FontWeight="Bold"/>
             <Border Margin="20"
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                <TextBlock Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBlock>
+                <TextBox x:Name="TxtGebruikerWachtwoord" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
+            </Border>
+            <Label Content="Herhaal wachtwoord: " FontSize="30" FontWeight="Bold"/>
+            <Border Margin="20"
+            BorderBrush="{StaticResource Primary}"
+            BorderThickness="5"
+            Background="{StaticResource Light}">
+                <TextBox x:Name="TxtGebruikerWachtwoord2" Foreground="{StaticResource Primary}" FontSize="30" FontWeight="Bold" ></TextBox>
             </Border>
         </StackPanel>
 
-        <Button Content="BIJWERKEN" Grid.Row="2"  Background="{x:Null}" Foreground="{StaticResource Alert}" FontSize="30" FontWeight="Bold"  BorderBrush="White" Grid.ColumnSpan="5"/>
-        <Button Content="Verwijderen" Grid.Row="3" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10" Grid.ColumnSpan="5"/>
+        <Button Style="{StaticResource OrangeButton}" Click="btnToevoegen_Click" Grid.Row="2" Content="Verwijderen"/>
 
     </Grid>
 </Window>

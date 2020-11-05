@@ -7,10 +7,7 @@
         mc:Ignorable="d"
         Title="Colruyt boodschappenlijsten" Width="470" Height="820" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
 
-    <Grid RenderTransformOrigin="0.51,0.651">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -58,12 +55,6 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="btnToevoegen" Click="btnToevoegen_Click" Grid.Row="2" Content="Nieuwe gebruiker toevoegen" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="25" FontWeight="Bold" Padding="20" Margin="20">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="16"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        <Button Style="{StaticResource OrangeButton}" Click="btnToevoegen_Click" Grid.Row="2" Content="Nieuwe gebruiker toevoegen"/>
     </Grid>
 </Window>
