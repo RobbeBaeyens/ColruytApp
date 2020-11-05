@@ -16,7 +16,7 @@ namespace Colruyt_DAL
     public partial class BoodschappenLijstjeEntities : DbContext
     {
         public BoodschappenLijstjeEntities()
-            : base("name=PR_r0740160Entities")
+            : base("name=BoodschappenLijstjeEntities")
         {
         }
     
@@ -28,7 +28,6 @@ namespace Colruyt_DAL
         public virtual DbSet<Categorie> Categorie { get; set; }
         public virtual DbSet<Lijst> Lijst { get; set; }
         public virtual DbSet<Lijst_Product> Lijst_Product { get; set; }
-        public virtual DbSet<Locatie> Locatie { get; set; }
         public virtual DbSet<Login> Login { get; set; }
         public virtual DbSet<Product> Product { get; set; }
     }
