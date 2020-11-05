@@ -9,22 +9,19 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition/>
-           
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="300"/>
-        </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnTerug" Click="btnTerug_Click" Content="Terug"  Background="{x:Null}" Foreground="{StaticResource Danger}" FontSize="30" FontWeight="Bold" BorderBrush="{x:Null}" />
-        <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="26,5,25.5,5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="180"/>
+        <Button x:Name="btnTerug" Click="btnTerug_Click" HorizontalAlignment="Left" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
+            <Image Source="images/cross.png"/>
+        </Button>
+        <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" HorizontalAlignment="Center" Width="180"/>
+
+        <Button x:Name="btnToevoegen" Click="btnToevoegen_Click" HorizontalAlignment="Right" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
+            <Image Source="images/check.png"/>
+        </Button>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
-       
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1">
             <StackPanel Orientation="Horizontal" >
@@ -100,13 +97,6 @@
                 </Border>
             </StackPanel>
         </StackPanel>
-
-      
-            
-           
-
-      
         <Button Content="Registreren" Grid.Row="3" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10" Grid.ColumnSpan="3" Grid.Column="1"/>
-
     </Grid>
 </Window>

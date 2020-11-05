@@ -46,10 +46,8 @@
             
         </StackPanel>
         </Border>
-
         <Button Content="Login" Grid.Row="2"  Background="{x:Null}" Foreground="{StaticResource Alert}" FontSize="30" FontWeight="Bold"  BorderBrush="White" Grid.Column="1"/>
         <Button Content="Registreren" Grid.Row="2" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10"  Grid.Column="3"/>
-        
-       
+
     </Grid>
 </Window>
