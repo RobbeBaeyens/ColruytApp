@@ -78,9 +78,6 @@
     <Compile Include="Lijst_Product.cs">
       <DependentUpon>Boodschappenlijstje.tt</DependentUpon>
     </Compile>
-    <Compile Include="Locatie.cs">
-      <DependentUpon>Boodschappenlijstje.tt</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <DependentUpon>Boodschappenlijstje.tt</DependentUpon>
     </Compile>
@@ -101,6 +98,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Boodschappenlijstje.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Boodschappenlijstje.edmx</DependentUpon>
@@ -111,9 +111,6 @@
       <DependentUpon>Boodschappenlijstje.edmx</DependentUpon>
       <LastGenOutput>Boodschappenlijstje.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
