@@ -27,13 +27,15 @@ namespace Colruyt_WPF
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
             Gebruikers gebruikers = new Gebruikers();
-            this.Hide();
+            this.Close();
             gebruikers.Show();
-
         }
 
-        private void btnToevoegen_Click(object sender, RoutedEventArgs e)
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
+            Categorie gebruikers = new Categorie();
+            this.Close();
+            gebruikers.Show();
         }
     }
 }

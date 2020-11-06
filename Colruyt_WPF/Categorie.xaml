@@ -7,63 +7,79 @@
         mc:Ignorable="d"
         Title="Categorie" Height="750" Width="1500">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+
+
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Kies uit een categorie..." Grid.ColumnSpan="6" Grid.Column="3" FontSize="35" Margin="20" Foreground="Orange"/>
+        <Button x:Name="btnTerug" Click="btnTerug_Click" HorizontalAlignment="Left" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
+            <Image Source="images/cross.png"/>
+        </Button>
+        <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Grid.Column="1" HorizontalAlignment="Center" Width="180"/>
+        <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
 
-        <Button Grid.Column="1" Grid.Row="1" />
-        <Image Source="images/cat_1.jpg"   Grid.Column="1" Grid.Row="1"/>
-        <Button Grid.Column="2" Grid.Row="1" />
-        <Image Source="images/cat_2.jpg"   Grid.Column="2" Grid.Row="1"/>
-        <Button Grid.Column="3" Grid.Row="1" />
-        <Image Source="images/cat_3.jpg"   Grid.Column="3" Grid.Row="1"/>
-        <Button Grid.Column="4" Grid.Row="1" />
-        <Image Source="images/cat_4.jpg"   Grid.Column="4" Grid.Row="1"/>
-        <Button Grid.Column="5" Grid.Row="1" />
-        <Image Source="images/cat_5.jpg"   Grid.Column="5" Grid.Row="1"/>
-        <Button Grid.Column="6" Grid.Row="1" />
-        <Image Source="images/cat_6.jpg"   Grid.Column="6" Grid.Row="1"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-        <Button Grid.Column="1" Grid.Row="2" />
-        <Image Source="images/cat_7.jpg"   Grid.Column="1" Grid.Row="2"/>
-        <Button Grid.Column="2" Grid.Row="2" />
-        <Image Source="images/cat_8.jpg"   Grid.Column="2" Grid.Row="2"/>
-        <Button Grid.Column="3" Grid.Row="2" />
-        <Image Source="images/cat_9.jpg"   Grid.Column="3" Grid.Row="2"/>
-        <Button Grid.Column="4" Grid.Row="2" />
-        <Image Source="images/cat_10.jpg"   Grid.Column="4" Grid.Row="2"/>
-        <Button Grid.Column="5" Grid.Row="2" />
-        <Image Source="images/cat_11.jpg"   Grid.Column="5" Grid.Row="2"/>
-        <Button Grid.Column="6" Grid.Row="2" />
-        <Image Source="images/cat_12.jpg"   Grid.Column="6" Grid.Row="2"/>
+            <Label Content="Kies uit een categorie..." Grid.ColumnSpan="6" Grid.Column="3" FontSize="35" Margin="20" Foreground="Orange"/>
 
-        <Button Grid.Column="1" Grid.Row="3" />
-        <Image Source="images/cat_13.jpg"   Grid.Column="1" Grid.Row="3"/>
-        <Button Grid.Column="2" Grid.Row="3" />
-        <Image Source="images/cat_14.jpg"   Grid.Column="2" Grid.Row="3"/>
-        <Button Grid.Column="3" Grid.Row="3" />
-        <Image Source="images/cat_15.jpg"   Grid.Column="3" Grid.Row="3"/>
-        <Button Grid.Column="4" Grid.Row="3" />
-        <Image Source="images/cat_16.jpg"   Grid.Column="4" Grid.Row="3"/>
-        <Button Grid.Column="5" Grid.Row="3" />
-        <Image Source="images/cat_17.jpg"   Grid.Column="5" Grid.Row="3"/>
-        <Button Grid.Column="6" Grid.Row="3" />
-        <Image Source="images/cat_18.jpg"   Grid.Column="6" Grid.Row="3"/>
+            <Button Grid.Column="1" Grid.Row="1" />
+            <Image Source="images/cat_1.jpg"   Grid.Column="1" Grid.Row="1"/>
+            <Button Grid.Column="2" Grid.Row="1" />
+            <Image Source="images/cat_2.jpg"   Grid.Column="2" Grid.Row="1"/>
+            <Button Grid.Column="3" Grid.Row="1" />
+            <Image Source="images/cat_3.jpg"   Grid.Column="3" Grid.Row="1"/>
+            <Button Grid.Column="4" Grid.Row="1" />
+            <Image Source="images/cat_4.jpg"   Grid.Column="4" Grid.Row="1"/>
+            <Button Grid.Column="5" Grid.Row="1" />
+            <Image Source="images/cat_5.jpg"   Grid.Column="5" Grid.Row="1"/>
+            <Button Grid.Column="6" Grid.Row="1" />
+            <Image Source="images/cat_6.jpg"   Grid.Column="6" Grid.Row="1"/>
+
+            <Button Grid.Column="1" Grid.Row="2" />
+            <Image Source="images/cat_7.jpg"   Grid.Column="1" Grid.Row="2"/>
+            <Button Grid.Column="2" Grid.Row="2" />
+            <Image Source="images/cat_8.jpg"   Grid.Column="2" Grid.Row="2"/>
+            <Button Grid.Column="3" Grid.Row="2" />
+            <Image Source="images/cat_9.jpg"   Grid.Column="3" Grid.Row="2"/>
+            <Button Grid.Column="4" Grid.Row="2" />
+            <Image Source="images/cat_10.jpg"   Grid.Column="4" Grid.Row="2"/>
+            <Button Grid.Column="5" Grid.Row="2" />
+            <Image Source="images/cat_11.jpg"   Grid.Column="5" Grid.Row="2"/>
+            <Button Grid.Column="6" Grid.Row="2" />
+            <Image Source="images/cat_12.jpg"   Grid.Column="6" Grid.Row="2"/>
+
+            <Button Grid.Column="1" Grid.Row="3" />
+            <Image Source="images/cat_13.jpg"   Grid.Column="1" Grid.Row="3"/>
+            <Button Grid.Column="2" Grid.Row="3" />
+            <Image Source="images/cat_14.jpg"   Grid.Column="2" Grid.Row="3"/>
+            <Button Grid.Column="3" Grid.Row="3" />
+            <Image Source="images/cat_15.jpg"   Grid.Column="3" Grid.Row="3"/>
+            <Button Grid.Column="4" Grid.Row="3" />
+            <Image Source="images/cat_16.jpg"   Grid.Column="4" Grid.Row="3"/>
+            <Button Grid.Column="5" Grid.Row="3" />
+            <Image Source="images/cat_17.jpg"   Grid.Column="5" Grid.Row="3"/>
+            <Button Grid.Column="6" Grid.Row="3" />
+            <Image Source="images/cat_18.jpg"   Grid.Column="6" Grid.Row="3"/>
+        </Grid>
     </Grid>
 </Window>

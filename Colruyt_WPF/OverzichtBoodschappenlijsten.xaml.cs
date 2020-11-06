@@ -34,9 +34,6 @@ namespace Colruyt_WPF
 
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
-            Gebruikers gebruikers = new Gebruikers();
-            this.Hide();
-            gebruikers.Show();
 
         }
     }
