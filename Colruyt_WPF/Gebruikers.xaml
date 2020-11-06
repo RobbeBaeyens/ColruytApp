@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Colruyt boodschappenlijsten" Height="750" Width="1200" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        Title="Colruyt boodschappenlijsten" Height="750" Width="1200" ResizeMode="NoResize" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,13 +16,13 @@
         <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Grid.Column="1" HorizontalAlignment="Center" Width="180"/>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
 
-        <StackPanel Grid.Row="1"  Margin="150">
+        <StackPanel Grid.Row="1"  Margin="100">
             <Label Content="Gebruikersnaam " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
-            <TextBox Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10"/>
+            <TextBox x:Name="txtGebruikersnaamLogin" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10" TextChanged="txtGebruikersnaamLogin_TextChanged"/>
             <Label Content="Wachtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
-            <PasswordBox Style="{DynamicResource OrangePasswordBox}" Margin="0 0 0 60"/>
+            <PasswordBox x:Name="pswWachtwoordLogin" Style="{DynamicResource OrangePasswordBox}" Margin="0 0 0 60"/>
 
-            <Grid>
+            <Grid Margin="0 0 0 50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -30,6 +30,8 @@
                 <Button Content="Login" Style="{DynamicResource OrangeButton}" x:Name="btnLogin" Click="btnLogin_Click" Margin="0 0 10 0"/>
                 <Button Content="Registreren" Style="{DynamicResource OrangeButton}"  x:Name="btnRegister" Click="btnRegister_Click" Grid.Column="1" Margin="10 0 0 0"/>
             </Grid>
+            <Label x:Name="lblLoginWarnings" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+
         </StackPanel>
 
     </Grid>
