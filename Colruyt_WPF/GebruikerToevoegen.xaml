@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Colruyt boodschappenlijsten" Height="850" Width="1500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Colruyt boodschappenlijsten" Height="850" Width="1200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -19,15 +19,17 @@
         <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Grid.Column="1" HorizontalAlignment="Center" Width="180"/>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
 
-        <StackPanel Grid.Row="1"  Margin="150 150">
+        <StackPanel Grid.Row="1"  Margin="150 130">
             <Label Content="Gebruikersnaam " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
-            <TextBox Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10"/>
+            <TextBox x:Name="txtGebruikersnaam" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10"/>
             <Label Content="Wachtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
-            <PasswordBox Style="{DynamicResource OrangePasswordBox}" Margin="0 0 0 10"/>
+            <PasswordBox x:Name="pswWachtwoord" Style="{DynamicResource OrangePasswordBox}" PasswordChar="◈" PasswordChanged="pswWachtwoord_PasswordChanged" Margin="0 0 0 10"/>
             <Label Content="Herhaal achtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
-            <PasswordBox Style="{DynamicResource OrangePasswordBox}" Margin="0 0 0 60"/>
+            <PasswordBox x:Name="pswWachtwoord2" Style="{DynamicResource OrangePasswordBox}" PasswordChar="◈" PasswordChanged="pswWachtwoord2_PasswordChanged"/>
+            <Label x:Name="lblWachtwoordAlert" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center" Foreground="Red" Margin="0 0 0 30"/>
 
             <Button Content="Registreren" Style="{DynamicResource OrangeButton}"  x:Name="btnRegister" Click="btnRegister_Click" Grid.Column="1" Margin="10 0 0 0"/>
+            <Label x:Name="lblFormAlert" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center" Foreground="Red"/>
         </StackPanel>
     </Grid>
 </Window>
