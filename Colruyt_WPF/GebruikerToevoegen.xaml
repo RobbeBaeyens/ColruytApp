@@ -12,11 +12,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="300"/>
-        </Grid.ColumnDefinitions>
 
         <Button x:Name="btnTerug"  Click="btnTerug_Click" HorizontalAlignment="Left" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
             <Image Source="images/cross.png"/>
@@ -35,7 +30,7 @@
             BorderBrush="{StaticResource Primary}"
             BorderThickness="5"
             Background="{StaticResource Light}">
-                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
+                    <TextBox Style="{DynamicResource OrangeTextBox}" Width="400"/>
                 </Border>
             </StackPanel>
             <StackPanel Orientation="Horizontal" >
@@ -59,6 +54,6 @@
             </StackPanel>
            
         </StackPanel>
-        <Button Content="Registreren" Grid.Row="3" Background="{StaticResource Primary}" Foreground="{StaticResource Light}" FontSize="30" FontWeight="Bold" Margin="10"  Grid.Column="1"/>
+        <Button Content="Registreren" Grid.Row="2" Style="{DynamicResource OrangeButton}"/>
     </Grid>
 </Window>

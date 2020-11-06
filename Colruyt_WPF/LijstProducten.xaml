@@ -27,7 +27,7 @@
 
             <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="60"/>
             <Rectangle Grid.Row="1" Grid.ColumnSpan="5" VerticalAlignment="Top" HorizontalAlignment="Stretch" Fill="Black" Height="2"/>
-            <Button x:Name="btnTerug" Content="Terug" Background="White" FontSize="20" BorderBrush="{x:Null}" Click="btnTerug_Click"/>
+            <Button x:Name="btnTerug" Content="Terug" Background="White" FontSize="20" BorderBrush="{x:Null}"/>
             <Image x:Name="btnBevestig" Source="images/icons8-checked-48.png" Height="30" Grid.Column="4"/>
             <Label x:Name="lblNaamCategorie" Content="Groenten en fruit" Grid.Row="1" FontSize="30"/>
 
