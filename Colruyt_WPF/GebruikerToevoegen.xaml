@@ -17,43 +17,17 @@
             <Image Source="images/cross.png"/>
         </Button>
         <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Grid.Column="1" HorizontalAlignment="Center" Width="180"/>
-
-        <Button x:Name="btnToevoegen" Grid.Column="2" Click="btnToevoegen_Click" HorizontalAlignment="Right" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
-            <Image Source="images/check.png"/>
-        </Button>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1" Margin="50">
-            <StackPanel Orientation="Horizontal" >
-                <Label Content="Naam            " FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
-                <Border Margin="20" 
-            BorderBrush="{StaticResource Primary}"
-            BorderThickness="5"
-            Background="{StaticResource Light}">
-                    <TextBox Style="{DynamicResource OrangeTextBox}" Width="400"/>
-                </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Label Content="Voornaam    " FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
-                <Border Margin="20" 
-            BorderBrush="{StaticResource Primary}"
-            BorderThickness="5"
-            Background="{StaticResource Light}">
-                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
-                </Border>
-            </StackPanel>
-           
-            <StackPanel Orientation="Horizontal" >
-                <Label Content="Wachtwoord" FontSize="25" FontWeight="Bold" Grid.Column="1"></Label>
-                <Border Margin="20" 
-            BorderBrush="{StaticResource Primary}"
-            BorderThickness="5"
-            Background="{StaticResource Light}">
-                    <TextBox Foreground="{StaticResource Primary}" FontSize="20" FontWeight="Bold" Width="600"></TextBox>
-                </Border>
-            </StackPanel>
-           
+        <StackPanel Grid.Row="1"  Margin="150 150">
+            <Label Content="Gebruikersnaam " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+            <TextBox Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10"/>
+            <Label Content="Wachtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+            <PasswordBox Style="{DynamicResource OrangePasswordBox}" Margin="0 0 0 10"/>
+            <Label Content="Herhaal achtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+            <PasswordBox Style="{DynamicResource OrangePasswordBox}" Margin="0 0 0 60"/>
+
+            <Button Content="Registreren" Style="{DynamicResource OrangeButton}"  x:Name="btnRegister" Click="btnRegister_Click" Grid.Column="1" Margin="10 0 0 0"/>
         </StackPanel>
-        <Button Content="Registreren" Grid.Row="2" Style="{DynamicResource OrangeButton}"/>
     </Grid>
 </Window>

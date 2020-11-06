@@ -20,6 +20,10 @@ namespace Colruyt_WPF
     public partial class Gebruikers : Window
     {
         List<string> Gebruiker = new List<string>();
+        public Gebruikers()
+        {
+            InitializeComponent();
+        }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -28,7 +32,9 @@ namespace Colruyt_WPF
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-
+            GebruikerToevoegen gebruikerToevoegen = new GebruikerToevoegen();
+            this.Close();
+            gebruikerToevoegen.Show();
         }
     }
 }

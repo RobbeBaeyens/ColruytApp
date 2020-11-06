@@ -23,5 +23,12 @@ namespace Colruyt_WPF
         {
             InitializeComponent();
         }
+
+        private void btnTerug_Click(object sender, RoutedEventArgs e)
+        {
+            GebruikerToevoegen gebruikers = new GebruikerToevoegen();
+            this.Close();
+            gebruikers.Show();
+        }
     }
 }
