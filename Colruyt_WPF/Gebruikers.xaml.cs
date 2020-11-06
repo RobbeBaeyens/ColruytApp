@@ -20,21 +20,15 @@ namespace Colruyt_WPF
     public partial class Gebruikers : Window
     {
         List<string> Gebruiker = new List<string>();
-      
 
-        private void btnToevoegen_Click(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            GebruikerToevoegen gebruikerToevoegen = new GebruikerToevoegen();
-            this.Hide();
-            gebruikerToevoegen.Show();
 
         }
 
-        private void btnGebruiker_Click(object sender, RoutedEventArgs e)
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten();
-            this.Hide();
-            overzichtBoodschappenlijsten.Show();
+
         }
     }
 }
