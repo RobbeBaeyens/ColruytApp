@@ -21,9 +21,8 @@ namespace Colruyt_DAL
         }
     
         public int Login_ID { get; set; }
-        public string Naam { get; set; }
-        public string Voornaam { get; set; }
         public string Wachtwoord { get; set; }
+        public string Gebruikersnaam { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lijst> Lijst { get; set; }
