@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BoodschappenLijstjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naam" Type="varchar" MaxLength="255" />
+          <Property Name="routenummer" Type="int" />
+        </EntityType>
+        <EntityType Name="Lijst">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naam" Type="varchar" MaxLength="255" />
+          <Property Name="datumAangemaakt" Type="datetime" />
+          <Property Name="loginId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lijst_Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lijstId" Type="int" Nullable="false" />
+          <Property Name="productId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gebruikersnaam" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="wachtwoord" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naam" Type="varchar" MaxLength="255" />
+          <Property Name="prijs" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="aantal" Type="int" />
+          <Property Name="categorieId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Categorie_Product">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="categorieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lijst_Lijst_Product">
+          <End Role="Lijst" Type="Self.Lijst" Multiplicity="1" />
+          <End Role="Lijst_Product" Type="Self.Lijst_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lijst">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lijst_Product">
+              <PropertyRef Name="lijstId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Login_Lijst">
+          <End Role="Login" Type="Self.Login" Multiplicity="1" />
+          <End Role="Lijst" Type="Self.Lijst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lijst">
+              <PropertyRef Name="loginId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Lijst_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Lijst_Product" Type="Self.Lijst_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lijst_Product">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BoodschappenLijstjeModelStoreContainer">
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="Colruyt" store:Type="Tables" />
+          <EntitySet Name="Lijst" EntityType="Self.Lijst" Schema="Colruyt" store:Type="Tables" />
+          <EntitySet Name="Lijst_Product" EntityType="Self.Lijst_Product" Schema="Colruyt" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="Colruyt" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="Colruyt" store:Type="Tables" />
+          <AssociationSet Name="FK_Categorie_Product" Association="Self.FK_Categorie_Product">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lijst_Lijst_Product" Association="Self.FK_Lijst_Lijst_Product">
+            <End Role="Lijst" EntitySet="Lijst" />
+            <End Role="Lijst_Product" EntitySet="Lijst_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Login_Lijst" Association="Self.FK_Login_Lijst">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Lijst" EntitySet="Lijst" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Lijst_Product" Association="Self.FK_Product_Lijst_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Lijst_Product" EntitySet="Lijst_Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BoodschappenLijstjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="routenummer" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Categorie_Product" FromRole="Categorie" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Lijst">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="datumAangemaakt" Type="DateTime" Precision="3" />
+          <Property Name="loginId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Lijst_Product" Relationship="Self.FK_Lijst_Lijst_Product" FromRole="Lijst" ToRole="Lijst_Product" />
+          <NavigationProperty Name="Login" Relationship="Self.FK_Login_Lijst" FromRole="Lijst" ToRole="Login" />
+        </EntityType>
+        <EntityType Name="Lijst_Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lijstId" Type="Int32" Nullable="false" />
+          <Property Name="productId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Lijst" Relationship="Self.FK_Lijst_Lijst_Product" FromRole="Lijst_Product" ToRole="Lijst" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Lijst_Product" FromRole="Lijst_Product" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gebruikersnaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="wachtwoord" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Lijst" Relationship="Self.FK_Login_Lijst" FromRole="Login" ToRole="Lijst" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="prijs" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="aantal" Type="Int32" />
+          <Property Name="categorieId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK_Categorie_Product" FromRole="Product" ToRole="Categorie" />
+          <NavigationProperty Name="Lijst_Product" Relationship="Self.FK_Product_Lijst_Product" FromRole="Product" ToRole="Lijst_Product" />
+        </EntityType>
+        <Association Name="FK_Categorie_Product">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="categorieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lijst_Lijst_Product">
+          <End Role="Lijst" Type="Self.Lijst" Multiplicity="1" />
+          <End Role="Lijst_Product" Type="Self.Lijst_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lijst">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lijst_Product">
+              <PropertyRef Name="lijstId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Login_Lijst">
+          <End Role="Login" Type="Self.Login" Multiplicity="1" />
+          <End Role="Lijst" Type="Self.Lijst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lijst">
+              <PropertyRef Name="loginId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Lijst_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Lijst_Product" Type="Self.Lijst_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lijst_Product">
+              <PropertyRef Name="productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BoodschappenLijstjeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+          <EntitySet Name="Lijst" EntityType="Self.Lijst" />
+          <EntitySet Name="Lijst_Product" EntityType="Self.Lijst_Product" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <AssociationSet Name="FK_Categorie_Product" Association="Self.FK_Categorie_Product">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lijst_Lijst_Product" Association="Self.FK_Lijst_Lijst_Product">
+            <End Role="Lijst" EntitySet="Lijst" />
+            <End Role="Lijst_Product" EntitySet="Lijst_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Login_Lijst" Association="Self.FK_Login_Lijst">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Lijst" EntitySet="Lijst" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Lijst_Product" Association="Self.FK_Product_Lijst_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Lijst_Product" EntitySet="Lijst_Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BoodschappenLijstjeModelStoreContainer" CdmEntityContainer="BoodschappenLijstjeEntities">
+          <EntitySetMapping Name="Categorie">
+            <EntityTypeMapping TypeName="BoodschappenLijstjeModel.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naam" ColumnName="naam" />
+                <ScalarProperty Name="routenummer" ColumnName="routenummer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lijst">
+            <EntityTypeMapping TypeName="BoodschappenLijstjeModel.Lijst">
+              <MappingFragment StoreEntitySet="Lijst">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naam" ColumnName="naam" />
+                <ScalarProperty Name="datumAangemaakt" ColumnName="datumAangemaakt" />
+                <ScalarProperty Name="loginId" ColumnName="loginId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lijst_Product">
+            <EntityTypeMapping TypeName="BoodschappenLijstjeModel.Lijst_Product">
+              <MappingFragment StoreEntitySet="Lijst_Product">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lijstId" ColumnName="lijstId" />
+                <ScalarProperty Name="productId" ColumnName="productId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="BoodschappenLijstjeModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gebruikersnaam" ColumnName="gebruikersnaam" />
+                <ScalarProperty Name="wachtwoord" ColumnName="wachtwoord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="BoodschappenLijstjeModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naam" ColumnName="naam" />
+                <ScalarProperty Name="prijs" ColumnName="prijs" />
+                <ScalarProperty Name="aantal" ColumnName="aantal" />
+                <ScalarProperty Name="categorieId" ColumnName="categorieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

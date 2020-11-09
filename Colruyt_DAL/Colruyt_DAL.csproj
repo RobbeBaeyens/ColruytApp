@@ -53,47 +53,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boodschappenlijstje.Context.cs">
+    <Compile Include="BoodschappenLijstjeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Boodschappenlijstje.Context.tt</DependentUpon>
+      <DependentUpon>BoodschappenLijstjeModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Boodschappenlijstje.cs">
+    <Compile Include="BoodschappenLijstjeModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Boodschappenlijstje.tt</DependentUpon>
+      <DependentUpon>BoodschappenLijstjeModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Boodschappenlijstje.Designer.cs">
+    <Compile Include="BoodschappenLijstjeModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Boodschappenlijstje.edmx</DependentUpon>
+      <DependentUpon>BoodschappenLijstjeModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Categorie.cs">
-      <DependentUpon>Boodschappenlijstje.tt</DependentUpon>
+      <DependentUpon>BoodschappenLijstjeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DatabaseOperations.cs" />
     <Compile Include="Lijst.cs">
-      <DependentUpon>Boodschappenlijstje.tt</DependentUpon>
+      <DependentUpon>BoodschappenLijstjeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Lijst_Product.cs">
-      <DependentUpon>Boodschappenlijstje.tt</DependentUpon>
+      <DependentUpon>BoodschappenLijstjeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
-      <DependentUpon>Boodschappenlijstje.tt</DependentUpon>
+      <DependentUpon>BoodschappenLijstjeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>Boodschappenlijstje.tt</DependentUpon>
+      <DependentUpon>BoodschappenLijstjeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Boodschappenlijstje.edmx">
+    <EntityDeploy Include="BoodschappenLijstjeModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Boodschappenlijstje.Designer.cs</LastGenOutput>
+      <LastGenOutput>BoodschappenLijstjeModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Boodschappenlijstje.edmx.diagram">
-      <DependentUpon>Boodschappenlijstje.edmx</DependentUpon>
+    <None Include="BoodschappenLijstjeModel.edmx.diagram">
+      <DependentUpon>BoodschappenLijstjeModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -101,15 +101,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Boodschappenlijstje.Context.tt">
+    <Content Include="BoodschappenLijstjeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Boodschappenlijstje.edmx</DependentUpon>
-      <LastGenOutput>Boodschappenlijstje.Context.cs</LastGenOutput>
+      <DependentUpon>BoodschappenLijstjeModel.edmx</DependentUpon>
+      <LastGenOutput>BoodschappenLijstjeModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Boodschappenlijstje.tt">
+    <Content Include="BoodschappenLijstjeModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Boodschappenlijstje.edmx</DependentUpon>
-      <LastGenOutput>Boodschappenlijstje.cs</LastGenOutput>
+      <DependentUpon>BoodschappenLijstjeModel.edmx</DependentUpon>
+      <LastGenOutput>BoodschappenLijstjeModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

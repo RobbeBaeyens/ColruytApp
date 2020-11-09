@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
 using System.Data.Entity;
 
 
@@ -19,8 +19,8 @@ namespace Colruyt_DAL
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Login
-                    .OrderBy(x => x.Gebruikersnaam)
-                    .ThenBy(y => y.Wachtwoord);
+                    .OrderBy(x => x.gebruikersnaam)
+                    .ThenBy(x => x.wachtwoord);
                 return query.ToList();
             }
         }
@@ -52,7 +52,7 @@ namespace Colruyt_DAL
             {
                 var query = entities.Login
                     .Include(x => x.Lijst)
-                    .Where(y => y.Login_ID == gebruiker.Login_ID)
+                    .Where(x => x.id == gebruiker.id)
                     .SingleOrDefault();
                 entities.Lijst.Remove((Lijst)query.Lijst);
                 entities.Login.Remove(query);
@@ -69,9 +69,9 @@ namespace Colruyt_DAL
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Lijst
-                    .OrderBy(x => x.DatumAangemaakt)
-                    .Include(y => y.Login)
-                    .Where(z => z.Login_ID == gebruiker.Login_ID);
+                    .OrderBy(x => x.datumAangemaakt)
+                    .Include(x => x.Login)
+                    .Where(x => x.id == gebruiker.id);
                 return query.ToList();
             }
         }
@@ -103,7 +103,7 @@ namespace Colruyt_DAL
             {
                 var query = entities.Lijst
                     .Include(x => x.Lijst_Product)
-                    .Where(y => y.Lijst_ID == lijstje.Lijst_ID)
+                    .Where(x => x.id == lijstje.id)
                     .SingleOrDefault();
                 return entities.SaveChanges();
             }
@@ -128,7 +128,7 @@ namespace Colruyt_DAL
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Lijst_Product
-                    .Where(x => x.Lijst_Product_ID == productInLijst.Lijst_Product_ID)
+                    .Where(x => x.id == productInLijst.id)
                     .SingleOrDefault();
                 return entities.SaveChanges();
             }
@@ -174,7 +174,7 @@ namespace Colruyt_DAL
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Product
-                    .Where(x => x.Product_ID == product.Product_ID)
+                    .Where(x => x.id == product.id)
                     .SingleOrDefault();
                 return entities.SaveChanges();
             }
@@ -189,8 +189,8 @@ namespace Colruyt_DAL
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Categorie
-                    .OrderBy(x => x.Routenummer)
-                    .ThenBy(y => y.Naam);
+                    .OrderBy(x => x.routenummer)
+                    .ThenBy(x => x.naam);
                 return query.ToList();
             }
         }
