@@ -20,9 +20,9 @@ namespace Colruyt_DAL
             this.Product = new HashSet<Product>();
         }
     
-        public int Categorie_ID { get; set; }
-        public string Naam { get; set; }
-        public Nullable<int> Routenummer { get; set; }
+        public int id { get; set; }
+        public string naam { get; set; }
+        public Nullable<int> routenummer { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Product { get; set; }

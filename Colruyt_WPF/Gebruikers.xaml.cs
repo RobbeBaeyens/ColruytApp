@@ -21,7 +21,7 @@ namespace Colruyt_WPF
     public partial class Gebruikers : Window
     {
         //Atributen declareren
-        List<Login> GebruikerLijst;
+        List<Login> GebruikerLijst = new List<Login>();
         private string gebruikersnaam;
         private string wachtwoord;
         private bool checkGebruikersnaam;
@@ -37,23 +37,12 @@ namespace Colruyt_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //Gebruikerslijst initialiseren
-            GebruikerLijst = new List<Login>();
-
-            if (GebruikerLijst.Count == 0)
-            {
-                lblLoginWarnings.Foreground = rood;
-                lblLoginWarnings.Content = "Er zijn nog geen gebruikers toegevoegd! Gelieve u te registreren!";
-            }
-            else
-            {
-                lblLoginWarnings.Foreground = zwart;
-                lblLoginWarnings.Content = "Welkom bij de ColruytApp! Meld u aan om door te gaan!";
-            }
+            GebruikerLijst = DatabaseOperations.OphalenGebruikers();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+
             //Attributen initialiseren
             gebruikersnaam = txtGebruikersnaamLogin.Text;
             wachtwoord = pswWachtwoordLogin.Password;
@@ -77,7 +66,18 @@ namespace Colruyt_WPF
             //Als gebruikersnaam en wachtwoord niet leeg zijn!
             if (!checkGebruikersnaam && !checkWachtwoord)
             {
-
+                foreach (Login gebruiker in GebruikerLijst)
+                {
+                    if (gebruiker.gebruikersnaam == gebruikersnaam)
+                    {
+                        if (gebruiker.wachtwoord == wachtwoord)
+                        {
+                            OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten();
+                            this.Close();
+                            overzichtBoodschappenlijsten.Show();
+                        }
+                    }
+                }
             }
 
         }

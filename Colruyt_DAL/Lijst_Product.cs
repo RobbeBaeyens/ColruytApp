@@ -14,9 +14,9 @@ namespace Colruyt_DAL
     
     public partial class Lijst_Product
     {
-        public int Lijst_Product_ID { get; set; }
-        public Nullable<int> Lijst_ID { get; set; }
-        public Nullable<int> Product_ID { get; set; }
+        public int id { get; set; }
+        public int lijstId { get; set; }
+        public int productId { get; set; }
     
         public virtual Lijst Lijst { get; set; }
         public virtual Product Product { get; set; }

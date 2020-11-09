@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6ec400156f1e46908274127f0d56aa67" Name="Diagram1">
+        <EntityTypeShape EntityType="BoodschappenLijstjeModel.Categorie" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodschappenLijstjeModel.Lijst" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodschappenLijstjeModel.Lijst_Product" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodschappenLijstjeModel.Login" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoodschappenLijstjeModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="BoodschappenLijstjeModel.FK_Categorie_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodschappenLijstjeModel.FK_Lijst_Lijst_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodschappenLijstjeModel.FK_Login_Lijst" ManuallyRouted="false" />
+        <AssociationConnector Association="BoodschappenLijstjeModel.FK_Product_Lijst_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

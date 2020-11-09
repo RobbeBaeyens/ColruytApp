@@ -20,9 +20,9 @@ namespace Colruyt_DAL
             this.Lijst = new HashSet<Lijst>();
         }
     
-        public int Login_ID { get; set; }
-        public string Wachtwoord { get; set; }
-        public string Gebruikersnaam { get; set; }
+        public int id { get; set; }
+        public string gebruikersnaam { get; set; }
+        public string wachtwoord { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lijst> Lijst { get; set; }

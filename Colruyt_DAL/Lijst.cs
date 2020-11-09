@@ -20,13 +20,13 @@ namespace Colruyt_DAL
             this.Lijst_Product = new HashSet<Lijst_Product>();
         }
     
-        public int Lijst_ID { get; set; }
-        public string Naam { get; set; }
-        public Nullable<System.DateTime> DatumAangemaakt { get; set; }
-        public Nullable<int> Login_ID { get; set; }
+        public int id { get; set; }
+        public string naam { get; set; }
+        public Nullable<System.DateTime> datumAangemaakt { get; set; }
+        public int loginId { get; set; }
     
-        public virtual Login Login { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lijst_Product> Lijst_Product { get; set; }
+        public virtual Login Login { get; set; }
     }
 }
