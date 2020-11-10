@@ -26,7 +26,6 @@ namespace Colruyt_WPF
 
         private void btnNieuwBoodschaplijst_Click(object sender, RoutedEventArgs e)
         {
-
             LijstBewerkenToevoegen lijstBewerkenToevoegen = new LijstBewerkenToevoegen();
             this.Hide();
             lijstBewerkenToevoegen.Show();
@@ -34,7 +33,9 @@ namespace Colruyt_WPF
 
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
-
+            Gebruikers gebruikers = new Gebruikers();
+            this.Close();
+            gebruikers.Show();
         }
     }
 }
