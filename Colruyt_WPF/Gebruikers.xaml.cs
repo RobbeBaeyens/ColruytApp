@@ -27,7 +27,9 @@ namespace Colruyt_WPF
         private string wachtwoord;
         private bool checkGebruikersnaam;
         bool checkWachtwoord;
-        
+
+        PasswordHasher secure = new PasswordHasher();
+
         SolidColorBrush rood = new SolidColorBrush(Colors.Red);
         SolidColorBrush groen = new SolidColorBrush(Colors.Green);
         SolidColorBrush zwart = new SolidColorBrush(Colors.Black);
@@ -67,9 +69,9 @@ namespace Colruyt_WPF
                         //Login 
                         foreach (Login gebruiker in GebruikerLijst)
                         {
-                            if (gebruiker.gebruikersnaam.Equals(gebruikersnaam))
+                            if (gebruiker.gebruikersnaam.Equals(gebruikersnaam.ToLower()))
                             {
-                                if (gebruiker.wachtwoord.Equals(wachtwoord))
+                                if (secure.VerifyHashedPassword(gebruiker.wachtwoord, wachtwoord) == PasswordHasher.PasswordVerificationResult.Success)
                                 {
                                     OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten();
                                     this.Close();
