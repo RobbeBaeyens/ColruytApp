@@ -27,6 +27,7 @@ namespace Colruyt_WPF
         private string wachtwoord;
         private bool checkGebruikersnaam;
         bool checkWachtwoord;
+        
         SolidColorBrush rood = new SolidColorBrush(Colors.Red);
         SolidColorBrush groen = new SolidColorBrush(Colors.Green);
         SolidColorBrush zwart = new SolidColorBrush(Colors.Black);
@@ -59,14 +60,14 @@ namespace Colruyt_WPF
             //Als gebruikersnaam en wachtwoord niet leeg zijn!
             if (!checkGebruikersnaam)
             {
-                if (checkWachtwoord)
+                if (!checkWachtwoord)
                 {
                     if (gebruikersNamen.Contains(gebruikersnaam))
                     {
                         //Login 
                         foreach (Login gebruiker in GebruikerLijst)
                         {
-                            if (gebruiker.gebruikersnaam == gebruikersnaam)
+                            if (gebruiker.gebruikersnaam.Equals(gebruikersnaam))
                             {
                                 if (gebruiker.wachtwoord.Equals(wachtwoord))
                                 {
