@@ -19,7 +19,8 @@ namespace Colruyt_DAL
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Login
-                    .OrderBy(x => x.gebruikersnaam)
+                    .OrderBy(x => x.email)
+                    .ThenBy(x => x.gebruikersnaam)
                     .ThenBy(x => x.wachtwoord);
                 return query.ToList();
             }
