@@ -22,6 +22,7 @@ namespace Colruyt_WPF
     {
         //Atributen declareren
         List<Login> GebruikerLijst = new List<Login>();
+        List<string> gebruikersNamen = new List<string>();
         private string gebruikersnaam;
         private string wachtwoord;
         private bool checkGebruikersnaam;
@@ -42,7 +43,6 @@ namespace Colruyt_WPF
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-
             //Attributen initialiseren
             gebruikersnaam = txtGebruikersnaamLogin.Text;
             wachtwoord = pswWachtwoordLogin.Password;
@@ -51,35 +51,47 @@ namespace Colruyt_WPF
 
             lblLoginWarnings.Content = "";
 
-            //Input gebruikersnaam checken
-            if (checkGebruikersnaam) 
+            foreach (Login gebruikerCheck in GebruikerLijst)
             {
-                lblLoginWarnings.Content = "Gebruikersnaam mag niet leeg zijn!\n";
+                gebruikersNamen.Add(gebruikerCheck.gebruikersnaam);
             }
-
-            //Input wachtwoord checken!
-            if (checkWachtwoord)
-            {
-                lblLoginWarnings.Content += "Wachtwoord mag niet leeg zijn!";
-            }
-
+            
             //Als gebruikersnaam en wachtwoord niet leeg zijn!
-            if (!checkGebruikersnaam && !checkWachtwoord)
+            if (!checkGebruikersnaam)
             {
-                foreach (Login gebruiker in GebruikerLijst)
+                if (checkWachtwoord)
                 {
-                    if (gebruiker.gebruikersnaam == gebruikersnaam)
+                    PrintScherm("Wachtwoord mag niet leeg zijn!", zwart);
+                }
+                else
+                {
+                    if (gebruikersNamen.Contains(gebruikersnaam))
                     {
-                        if (gebruiker.wachtwoord == wachtwoord)
+                        //Login 
+                        foreach (Login gebruiker in GebruikerLijst)
                         {
-                            OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten();
-                            this.Close();
-                            overzichtBoodschappenlijsten.Show();
+                            if (gebruiker.gebruikersnaam == gebruikersnaam)
+                            {
+                                if (gebruiker.wachtwoord.Equals(wachtwoord))
+                                {
+                                    OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten();
+                                    this.Close();
+                                    overzichtBoodschappenlijsten.Show();
+                                }
+                                PrintScherm("Wachtwoord klopt niet!", rood);
+                            }
                         }
+                    }
+                    else
+                    {
+                        PrintScherm("Gebruiker bestaat niet. Registreer u!", rood);
                     }
                 }
             }
-
+            else
+            {
+                PrintScherm("Login mag niet leeg zijn!", zwart);
+            }
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
@@ -92,6 +104,12 @@ namespace Colruyt_WPF
         private void txtGebruikersnaamLogin_TextChanged(object sender, TextChangedEventArgs e)
         {
             lblLoginWarnings.Content = "";
+        }
+
+        private void PrintScherm(string zin, SolidColorBrush kleur)
+        {
+            lblLoginWarnings.Foreground = kleur;
+            lblLoginWarnings.Content = zin;
         }
     }
 }
