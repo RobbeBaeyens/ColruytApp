@@ -44,7 +44,7 @@ namespace Colruyt_WPF
                 Login login = new Login();
                 login.gebruikersnaam = txtGebruikersnaam.Text.ToLower();
                 PasswordHasher secure = new PasswordHasher();
-                login.wachtwoord = secure.HashPassword(txtEmail.Text.ToLower());
+                login.email = secure.HashPassword(txtEmail.Text.ToLower());
                 login.wachtwoord = secure.HashPassword(pswWachtwoord.Password);
 
                 if (DatabaseOperations.ToevoegenGebruiker(login) == 1)
