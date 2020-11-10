@@ -7,25 +7,35 @@
         mc:Ignorable="d"
         Title="Colruyt boodschappenlijsten" Width="1500" Height="750" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-
-            <RowDefinition Height="auto"/>
-
-
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="60"/>
-        <Rectangle Grid.Row="1" Grid.ColumnSpan="5" VerticalAlignment="Top" HorizontalAlignment="Stretch" Fill="Black" Height="2"/>
-        <Button x:Name="btnTerug" Content="Terug" Background="{StaticResource Light}" FontSize="20" BorderBrush="{x:Null}" Click="btnTerug_Click"/>
+
+        <Button x:Name="btnTerug"  Click="btnTerug_Click" HorizontalAlignment="Left" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
+            <Image Source="images/cross.png"/>
+        </Button>
+        <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Grid.Column="1" HorizontalAlignment="Center" Width="180"/>
+        <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="0,0.4,0,0" Width="897">
+            <Border Margin="16,20,140,20" BorderBrush="{StaticResource Primary}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
+
+                <Label Name="lblNaamLijst" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600">Maandag 24/3</Label>
+            </Border>
+        </StackPanel>
+        <Button x:Name="btnBewerken" Content="?" Grid.Column="2" Background="{x:Null}" Foreground="{StaticResource Success}" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Height="70" VerticalAlignment="Top" Width="48"/>
+        <Button x:Name="btnVerwijderen" Content="x" Grid.Column="3" Background="{x:Null}" Foreground="{StaticResource Danger}" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Height="70" VerticalAlignment="Top" Width="48"/>
+
+        </Grid>
         <Button x:Name="btnNieuwBoodschaplijst" BorderBrush="{StaticResource Dark}" Foreground="{StaticResource Light}" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.ColumnSpan="6" Height="50" Margin="26,19.6,38,20.4" VerticalContentAlignment="center"
             FontSize="27" Content="Nieuwe boodschappenlijst" Click="btnNieuwBoodschaplijst_Click" Width="598">
             <Button.Resources>
@@ -34,14 +44,5 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="0,0.4,0,0" Width="897">
-            <Border Margin="16,20,140,20" BorderBrush="{StaticResource Primary}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
-
-                <Label Name="lblNaamLijst" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600">Maandag 24/3</Label>
-            </Border>
-        </StackPanel>
-        <Button x:Name="btnBewerken" Content="?" Grid.Column="3" Grid.Row="2" Background="{x:Null}" Foreground="{StaticResource Success}" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}"  Margin="35.2,27.8,10.2,463" Height="70"/>
-        <Button x:Name="btnVerwijderen" Content="x" Grid.Column="4" Grid.Row="2" Background="{x:Null}" Foreground="{StaticResource Danger}" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Margin="136.8,23.8,113.6,0" Height="70" VerticalAlignment="Top" Width="48"/>
-
     </Grid>
 </Window>
