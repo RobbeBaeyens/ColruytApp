@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Colruyt_DAL;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Colruyt_WPF
@@ -27,10 +28,20 @@ namespace Colruyt_WPF
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             if (CheckForm(true)){
-                MessageBox.Show("Succesvol geregistreerd", "Registreer", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
-                Gebruikers gebruikers = new Gebruikers();
-                this.Close();
-                gebruikers.Show();
+                Login login = new Login();
+                login.gebruikersnaam = txtGebruikersnaam.Text;
+                login.wachtwoord = pswWachtwoord.Password;
+                if (DatabaseOperations.ToevoegenGebruiker(login) == 1)
+                {
+                    MessageBox.Show("Succesvol geregistreerd", "Registreer", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
+                    Gebruikers gebruikers = new Gebruikers();
+                    this.Close();
+                    gebruikers.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Fout bij registreren, probeer opnieuw!", "Registreer", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
+                }
             }
         }
 
