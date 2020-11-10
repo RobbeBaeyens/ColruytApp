@@ -24,7 +24,7 @@
             <TextBox x:Name="txtGebruikersnaam" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10"/>
             <Label Content="Wachtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
             <PasswordBox x:Name="pswWachtwoord" Style="{DynamicResource OrangePasswordBox}" PasswordChar="◈" PasswordChanged="pswWachtwoord_PasswordChanged" Margin="0 0 0 10"/>
-            <Label Content="Herhaal achtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+            <Label Content="Herhaal wachtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
             <PasswordBox x:Name="pswWachtwoord2" Style="{DynamicResource OrangePasswordBox}" PasswordChar="◈" PasswordChanged="pswWachtwoord2_PasswordChanged"/>
             <Label x:Name="lblWachtwoordAlert" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center" Foreground="Red" Margin="0 0 0 30"/>
 
