@@ -81,6 +81,7 @@
     <Compile Include="Login.cs">
       <DependentUpon>BoodschappenLijstjeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PasswordHasher.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>BoodschappenLijstjeModel.tt</DependentUpon>
     </Compile>
