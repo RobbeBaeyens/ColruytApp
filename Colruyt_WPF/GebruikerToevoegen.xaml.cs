@@ -29,8 +29,10 @@ namespace Colruyt_WPF
         {
             if (CheckForm(true)){
                 Login login = new Login();
-                login.gebruikersnaam = txtGebruikersnaam.Text;
-                login.wachtwoord = pswWachtwoord.Password;
+                login.gebruikersnaam = txtGebruikersnaam.Text.ToLower();
+                PasswordHasher secure = new PasswordHasher();
+                login.wachtwoord = secure.HashPassword(pswWachtwoord.Password);
+
                 if (DatabaseOperations.ToevoegenGebruiker(login) == 1)
                 {
                     MessageBox.Show("Succesvol geregistreerd", "Registreer", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
