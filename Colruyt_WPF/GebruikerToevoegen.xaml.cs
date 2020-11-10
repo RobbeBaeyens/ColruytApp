@@ -1,4 +1,5 @@
 ﻿using Colruyt_DAL;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media;
 
@@ -30,6 +31,7 @@ namespace Colruyt_WPF
             if (CheckForm(true)){
                 Login login = new Login();
                 login.gebruikersnaam = txtGebruikersnaam.Text.ToLower();
+                login.email = txtEmail.Text.ToLower();
                 PasswordHasher secure = new PasswordHasher();
                 login.wachtwoord = secure.HashPassword(pswWachtwoord.Password);
 
@@ -60,11 +62,12 @@ namespace Colruyt_WPF
         private bool CheckForm(bool register)
         {
             string gebruikersNaam = txtGebruikersnaam.Text;
+            string email = txtEmail.Text;
             bool wwVereisten = false;
 
             if (!string.IsNullOrWhiteSpace(pswWachtwoord.Password))
             {
-                if (pswWachtwoord.Password.Length >= 5)
+                if (pswWachtwoord.Password.Length >= 4)
                 {
                     if (pswWachtwoord.Password == pswWachtwoord2.Password)
                     {
@@ -96,15 +99,23 @@ namespace Colruyt_WPF
                 {
                     if (gebruikersNaam.Length >= 3)
                     {
-                        if (wwVereisten)
+                        if(IsValidEmailAddress(email))
                         {
-                            lblFormAlert.Content = "✔ Succesvol geregistreerd!";
-                            lblFormAlert.Foreground = correct;
-                            return true;
+                            if (wwVereisten)
+                            {
+                                lblFormAlert.Content = "✔ Succesvol geregistreerd!";
+                                lblFormAlert.Foreground = correct;
+                                return true;
+                            }
+                            else
+                            {
+                                lblFormAlert.Content = "❌ Wachtwoord voldoet niet aan vereisten!";
+                                lblFormAlert.Foreground = error;
+                            }
                         }
                         else
                         {
-                            lblFormAlert.Content = "❌ Wachtwoord voldoet niet aan vereisten!";
+                            lblFormAlert.Content = "❌ Geef een geldig emailadres in!";
                             lblFormAlert.Foreground = error;
                         }
                     }
@@ -124,5 +135,10 @@ namespace Colruyt_WPF
             return false;
         }
 
+        public static bool IsValidEmailAddress(this string s)
+        {
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            return regex.IsMatch(s);
+        }
     }
 }
