@@ -19,9 +19,11 @@
         <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Grid.Column="1" HorizontalAlignment="Center" Width="180"/>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
 
-        <StackPanel Grid.Row="1"  Margin="150 130">
+        <StackPanel Grid.Row="1"  Margin="150 80">
             <Label Content="Gebruikersnaam " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="txtGebruikersnaam" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10"/>
+            <Label Content="Email " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="txtEmail" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10"/>
             <Label Content="Wachtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
             <PasswordBox x:Name="pswWachtwoord" Style="{DynamicResource OrangePasswordBox}" PasswordChar="◈" PasswordChanged="pswWachtwoord_PasswordChanged" Margin="0 0 0 10"/>
             <Label Content="Herhaal wachtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
