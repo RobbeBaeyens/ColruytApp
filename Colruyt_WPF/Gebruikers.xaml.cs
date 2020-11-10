@@ -61,10 +61,6 @@ namespace Colruyt_WPF
             {
                 if (checkWachtwoord)
                 {
-                    PrintScherm("Wachtwoord mag niet leeg zijn!", zwart);
-                }
-                else
-                {
                     if (gebruikersNamen.Contains(gebruikersnaam))
                     {
                         //Login 
@@ -78,7 +74,10 @@ namespace Colruyt_WPF
                                     this.Close();
                                     overzichtBoodschappenlijsten.Show();
                                 }
-                                PrintScherm("Wachtwoord klopt niet!", rood);
+                                else
+                                {
+                                    PrintScherm("Wachtwoord klopt niet!", rood);
+                                }
                             }
                         }
                     }
@@ -86,6 +85,10 @@ namespace Colruyt_WPF
                     {
                         PrintScherm("Gebruiker bestaat niet. Registreer u!", rood);
                     }
+                }
+                else
+                {
+                    PrintScherm("Wachtwoord mag niet leeg zijn!", zwart);
                 }
             }
             else
