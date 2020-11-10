@@ -17,8 +17,8 @@
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
 
         <StackPanel Grid.Row="1"  Margin="100">
-            <Label Content="Gebruikersnaam " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
-            <TextBox x:Name="txtGebruikersnaamLogin" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10" TextChanged="txtGebruikersnaamLogin_TextChanged"/>
+            <Label Content="Emailadres " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="txtEmailadresLogin" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10" TextChanged="txtGebruikersnaamLogin_TextChanged"/>
             <Label Content="Wachtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
             <PasswordBox x:Name="pswWachtwoordLogin" Style="{DynamicResource OrangePasswordBox}" PasswordChar="◈" Margin="0 0 0 60"/>
 

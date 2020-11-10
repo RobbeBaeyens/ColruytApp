@@ -23,10 +23,6 @@ namespace Colruyt_WPF
         //Atributen declareren
         List<Login> GebruikerLijst = new List<Login>();
         List<string> gebruikersNamen = new List<string>();
-        private string gebruikersnaam;
-        private string wachtwoord;
-        private bool checkGebruikersnaam;
-        bool checkWachtwoord;
 
         PasswordHasher secure = new PasswordHasher();
 
@@ -44,31 +40,31 @@ namespace Colruyt_WPF
             GebruikerLijst = DatabaseOperations.OphalenGebruikers();
             foreach (Login gebruikerCheck in GebruikerLijst)
             {
-                gebruikersNamen.Add(gebruikerCheck.gebruikersnaam);
+                gebruikersNamen.Add(gebruikerCheck.gebruikersnaam + "");
             }
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             //Attributen initialiseren
-            gebruikersnaam = txtGebruikersnaamLogin.Text;
-            wachtwoord = pswWachtwoordLogin.Password;
-            checkGebruikersnaam = string.IsNullOrWhiteSpace(gebruikersnaam);
-            checkWachtwoord = string.IsNullOrWhiteSpace(wachtwoord);
+            string email = txtEmailadresLogin.Text.ToLower();
+            string wachtwoord = pswWachtwoordLogin.Password;
+            bool checkEmail = string.IsNullOrWhiteSpace(email);
+            bool checkWachtwoord = string.IsNullOrWhiteSpace(wachtwoord);
 
             lblLoginWarnings.Content = "";
             
             //Als gebruikersnaam en wachtwoord niet leeg zijn!
-            if (!checkGebruikersnaam)
+            if (!checkEmail)
             {
                 if (!checkWachtwoord)
                 {
-                    if (gebruikersNamen.Contains(gebruikersnaam))
+                    if (gebruikersNamen.Contains(email))
                     {
                         //Login 
                         foreach (Login gebruiker in GebruikerLijst)
                         {
-                            if (gebruiker.gebruikersnaam.Equals(gebruikersnaam.ToLower()))
+                            if (secure.VerifyHashedPassword(gebruiker.email, email) == PasswordHasher.PasswordVerificationResult.Success)
                             {
                                 if (secure.VerifyHashedPassword(gebruiker.wachtwoord, wachtwoord) == PasswordHasher.PasswordVerificationResult.Success)
                                 {
@@ -95,7 +91,7 @@ namespace Colruyt_WPF
             }
             else
             {
-                PrintScherm("Login mag niet leeg zijn!", zwart);
+                PrintScherm("Email mag niet leeg zijn!", zwart);
             }
         }
 
