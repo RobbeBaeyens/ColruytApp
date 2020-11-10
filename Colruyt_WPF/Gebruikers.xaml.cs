@@ -42,6 +42,10 @@ namespace Colruyt_WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GebruikerLijst = DatabaseOperations.OphalenGebruikers();
+            foreach (Login gebruikerCheck in GebruikerLijst)
+            {
+                gebruikersNamen.Add(gebruikerCheck.gebruikersnaam);
+            }
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -53,11 +57,6 @@ namespace Colruyt_WPF
             checkWachtwoord = string.IsNullOrWhiteSpace(wachtwoord);
 
             lblLoginWarnings.Content = "";
-
-            foreach (Login gebruikerCheck in GebruikerLijst)
-            {
-                gebruikersNamen.Add(gebruikerCheck.gebruikersnaam);
-            }
             
             //Als gebruikersnaam en wachtwoord niet leeg zijn!
             if (!checkGebruikersnaam)

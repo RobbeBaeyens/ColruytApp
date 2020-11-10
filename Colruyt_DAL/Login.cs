@@ -22,6 +22,7 @@ namespace Colruyt_DAL
     
         public int id { get; set; }
         public string gebruikersnaam { get; set; }
+        public string email { get; set; }
         public string wachtwoord { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
