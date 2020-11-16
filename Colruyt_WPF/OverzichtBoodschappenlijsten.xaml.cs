@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Colruyt_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +20,30 @@ namespace Colruyt_WPF
     /// </summary>
     public partial class OverzichtBoodschappenlijsten : Window
     {
+        List<Lijst> boodschappenlijsten = new List<Lijst>();
+        Lijst lijst = new Lijst();
+        List<string> lijstnamen = new List<string>() {"test1", "test2", "test3"};
+
         public OverzichtBoodschappenlijsten()
         {
             InitializeComponent();
         }
 
-        private void btnNieuwBoodschaplijst_Click(object sender, RoutedEventArgs e)
+        public OverzichtBoodschappenlijsten(Login gebruiker)
         {
-            LijstBewerkenToevoegen lijstBewerkenToevoegen = new LijstBewerkenToevoegen();
-            this.Hide();
-            lijstBewerkenToevoegen.Show();
+            InitializeComponent();
+
+            Title = "Colruyt boodschappenlijsten | Welkom " + gebruiker.gebruikersnaam + "!";
+
+            foreach(string naam in lijstnamen)
+            {
+                lijst.naam = naam;
+                lijst.datumAangemaakt = DateTime.Now;
+                lijst.loginId = gebruiker.id;
+                boodschappenlijsten.Add(lijst);
+            }
+            lstBoodschappenlijsten.ItemsSource = lijstnamen;
+            lstBoodschappenlijsten.Items.Refresh();
         }
 
         private void btnTerug_Click(object sender, RoutedEventArgs e)
@@ -36,6 +51,13 @@ namespace Colruyt_WPF
             Gebruikers gebruikers = new Gebruikers();
             this.Close();
             gebruikers.Show();
+        }
+
+        private void btnNieuweBoodschappenlijst_Click(object sender, RoutedEventArgs e)
+        {
+            LijstBewerkenToevoegen lijstBewerkenToevoegen = new LijstBewerkenToevoegen();
+            this.Hide();
+            lijstBewerkenToevoegen.Show();
         }
     }
 }
