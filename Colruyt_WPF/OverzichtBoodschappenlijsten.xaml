@@ -43,6 +43,7 @@
                     </ListBoxItem>
                 </DataTemplate>
             </ListBox.ItemTemplate>
+            test
         </ListBox>
         
         <Button x:Name="btnNieuweBoodschappenlijst" Content="Nieuwe boodschappenlijst" Style="{StaticResource OrangeButton}" Grid.Row="2" Width="700" Click="btnNieuweBoodschappenlijst_Click"/>
