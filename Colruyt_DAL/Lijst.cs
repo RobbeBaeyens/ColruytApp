@@ -24,6 +24,7 @@ namespace Colruyt_DAL
         public string naam { get; set; }
         public Nullable<System.DateTime> datumAangemaakt { get; set; }
         public int loginId { get; set; }
+        public string kleurHex { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lijst_Product> Lijst_Product { get; set; }
