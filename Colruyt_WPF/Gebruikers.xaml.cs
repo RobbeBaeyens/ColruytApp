@@ -27,8 +27,6 @@ namespace Colruyt_WPF
         PasswordHasher secure = new PasswordHasher();
 
         SolidColorBrush rood = new SolidColorBrush(Colors.Red);
-        SolidColorBrush groen = new SolidColorBrush(Colors.Green);
-        SolidColorBrush zwart = new SolidColorBrush(Colors.Black);
 
         public Gebruikers()
         {
@@ -69,29 +67,29 @@ namespace Colruyt_WPF
                         {
                             if (secure.VerifyHashedPassword(gebruiker.wachtwoord, wachtwoord) == PasswordHasher.PasswordVerificationResult.Success)
                             {
-                                OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten();
+                                OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten(gebruiker);
                                 this.Close();
                                 overzichtBoodschappenlijsten.Show();
                             }
                             else
                             {
-                                PrintScherm("Wachtwoord klopt niet!", rood);
+                                PrintScherm("❌ Wachtwoord klopt niet!", rood);
                             }
                         }
                     }
                     else
                     {
-                        PrintScherm("Gebruiker bestaat niet. Registreer u!", rood);
+                        PrintScherm("❌ Gebruiker bestaat niet. Registreer u!", rood);
                     }
                 }
                 else
                 {
-                    PrintScherm("Wachtwoord mag niet leeg zijn!", zwart);
+                    PrintScherm("❌ Wachtwoord mag niet leeg zijn!", rood);
                 }
             }
             else
             {
-                PrintScherm("Email mag niet leeg zijn!", zwart);
+                PrintScherm("❌ Email mag niet leeg zijn!", rood);
             }
         }
 
