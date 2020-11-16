@@ -65,7 +65,7 @@ namespace Colruyt_WPF
                     {
                         foreach (Login gebruiker in GebruikerLijst)
                         {
-                            if (secure.VerifyHashedPassword(gebruiker.wachtwoord, wachtwoord) == PasswordHasher.PasswordVerificationResult.Success)
+                            if ((secure.VerifyHashedPassword(gebruiker.wachtwoord, wachtwoord) == PasswordHasher.PasswordVerificationResult.Success) && (secure.VerifyHashedPassword(gebruiker.email, email) == PasswordHasher.PasswordVerificationResult.Success))
                             {
                                 OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten(gebruiker);
                                 this.Close();
