@@ -59,6 +59,25 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
+        <Style TargetType="ComboBox" x:Key="OrangeComboBox">
+            <Setter Property="Background" Value="{StaticResource Primary}"/>
+            <Setter Property="Foreground" Value="{StaticResource Light}"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0 10"/>
+            <Setter Property="Height" Value="60"/>
+            <Style.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource LighterPrimary}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
         <Style TargetType="Label" x:Key="LabelStyle">
             <Setter Property="Foreground" Value="{StaticResource Dark}"/>

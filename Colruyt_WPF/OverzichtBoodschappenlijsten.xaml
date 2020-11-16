@@ -19,30 +19,32 @@
         <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Grid.Column="1" HorizontalAlignment="Center" Width="180"/>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
 
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Left" Margin="0,0.4,0,0" Width="897">
-            <Border Margin="16,20,140,20" BorderBrush="{StaticResource Primary}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
+        <ListBox x:Name="lstBoodschappenlijsten" Grid.Row="1" HorizontalAlignment="Center" Background="Transparent" BorderThickness="0" MinWidth="700">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ListBoxItem Margin="0 5">
+                        <Border BorderBrush="{StaticResource Primary}" BorderThickness="5" CornerRadius="20">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
 
-                <Label Name="lblNaamLijst" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600">Maandag 24/3</Label>
-            </Border>
-        </StackPanel>
-        <Button x:Name="btnBewerken" Content="?" Grid.Column="2" Background="{x:Null}" Foreground="{StaticResource Success}" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Height="70" VerticalAlignment="Top" Width="48"/>
-        <Button x:Name="btnVerwijderen" Content="x" Grid.Column="3" Background="{x:Null}" Foreground="{StaticResource Danger}" FontSize="30" FontWeight="Black" BorderBrush="{x:Null}" Height="70" VerticalAlignment="Top" Width="48"/>
-
-        </Grid>
-        <Button x:Name="btnNieuwBoodschaplijst" BorderBrush="{StaticResource Dark}" Foreground="{StaticResource Light}" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.ColumnSpan="6" Height="50" Margin="26,19.6,38,20.4" VerticalContentAlignment="center"
-            FontSize="27" Content="Nieuwe boodschappenlijst" Click="btnNieuwBoodschaplijst_Click" Width="598">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+                                <Label Width="700" Height="60" Margin="5" FontSize="40" Grid.Column="0" Content="{Binding}"/>
+                                <Button Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}" Grid.Column="1">
+                                    <Image Width="30" Height="30" Source="images/icon-edit.png"/>
+                                </Button>
+                                <Button Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}" Grid.Column="2">
+                                    <Image Width="30" Height="30" Source="images/icon-delete.png"/>
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </ListBoxItem>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <Button x:Name="btnNieuweBoodschappenlijst" Content="Nieuwe boodschappenlijst" Style="{StaticResource OrangeButton}" Grid.Row="2" Width="700" Click="btnNieuweBoodschappenlijst_Click"/>
     </Grid>
 </Window>
