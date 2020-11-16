@@ -21,6 +21,9 @@ namespace Colruyt_WPF
     /// </summary>
     public partial class GebruikerToevoegen : Window
     {
+        List<Login> GebruikerLijst = new List<Login>();
+        PasswordHasher secure = new PasswordHasher();
+
         SolidColorBrush error = new SolidColorBrush(Colors.Red);
         SolidColorBrush correct = new SolidColorBrush(Colors.Green);
 
@@ -107,6 +110,18 @@ namespace Colruyt_WPF
 
             if (register)
             {
+                GebruikerLijst = DatabaseOperations.OphalenGebruikers();
+
+                //Als email van gebruiker bestaan in databse voeg Succes toe aan lijst
+                foreach (Login gebruikerCheck in GebruikerLijst)
+                {
+                    if(secure.VerifyHashedPassword(gebruikerCheck.email, email) == PasswordHasher.PasswordVerificationResult.Success){
+                        lblFormAlert.Content = "❌ Er bestaat al een account met dit emailadres!";
+                        lblFormAlert.Foreground = error;
+                        return false;
+                    }                    
+                }
+
                 if (!string.IsNullOrWhiteSpace(gebruikersNaam))
                 {
                     if (gebruikersNaam.Length >= 3)
