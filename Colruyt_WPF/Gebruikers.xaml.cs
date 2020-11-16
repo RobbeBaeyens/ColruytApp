@@ -22,7 +22,7 @@ namespace Colruyt_WPF
     {
         //Atributen declareren
         List<Login> GebruikerLijst = new List<Login>();
-        List<string> gebruikersNamen = new List<string>();
+        List<string> gebruikersMailLijst = new List<string>();
 
         PasswordHasher secure = new PasswordHasher();
 
@@ -38,10 +38,6 @@ namespace Colruyt_WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GebruikerLijst = DatabaseOperations.OphalenGebruikers();
-            foreach (Login gebruikerCheck in GebruikerLijst)
-            {
-                gebruikersNamen.Add(gebruikerCheck.gebruikersnaam + "");
-            }
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -52,30 +48,34 @@ namespace Colruyt_WPF
             bool checkEmail = string.IsNullOrWhiteSpace(email);
             bool checkWachtwoord = string.IsNullOrWhiteSpace(wachtwoord);
 
+            //Warnings en gebruikersMAilLijst leegmaken
             lblLoginWarnings.Content = "";
+            gebruikersMailLijst.Clear();
+
+            //Als email van gebruiker bestaan in databse voeg Succes toe aan lijst
+            foreach (Login gebruikerCheck in GebruikerLijst)
+            {
+                gebruikersMailLijst.Add($"{secure.VerifyHashedPassword(gebruikerCheck.email, email)}");
+            }
             
             //Als gebruikersnaam en wachtwoord niet leeg zijn!
             if (!checkEmail)
             {
                 if (!checkWachtwoord)
                 {
-                    if (gebruikersNamen.Contains(email))
+                    if (gebruikersMailLijst.Contains("Success"))
                     {
-                        //Login 
                         foreach (Login gebruiker in GebruikerLijst)
                         {
-                            if (secure.VerifyHashedPassword(gebruiker.email, email) == PasswordHasher.PasswordVerificationResult.Success)
+                            if (secure.VerifyHashedPassword(gebruiker.wachtwoord, wachtwoord) == PasswordHasher.PasswordVerificationResult.Success)
                             {
-                                if (secure.VerifyHashedPassword(gebruiker.wachtwoord, wachtwoord) == PasswordHasher.PasswordVerificationResult.Success)
-                                {
-                                    OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten();
-                                    this.Close();
-                                    overzichtBoodschappenlijsten.Show();
-                                }
-                                else
-                                {
-                                    PrintScherm("Wachtwoord klopt niet!", rood);
-                                }
+                                OverzichtBoodschappenlijsten overzichtBoodschappenlijsten = new OverzichtBoodschappenlijsten();
+                                this.Close();
+                                overzichtBoodschappenlijsten.Show();
+                            }
+                            else
+                            {
+                                PrintScherm("Wachtwoord klopt niet!", rood);
                             }
                         }
                     }
