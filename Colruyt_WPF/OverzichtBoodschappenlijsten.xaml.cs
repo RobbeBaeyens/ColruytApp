@@ -35,7 +35,10 @@ namespace Colruyt_WPF
 
             Title = "Colruyt boodschappenlijsten | Welkom " + gebruiker.gebruikersnaam + "!";
 
-            foreach(string naam in lijstnamen)
+            lstBoodschappenlijsten.Items.Clear();
+            lstBoodschappenlijsten.Items.Refresh();
+
+            foreach (string naam in lijstnamen)
             {
                 lijst.naam = naam;
                 lijst.datumAangemaakt = DateTime.Now;
@@ -56,7 +59,7 @@ namespace Colruyt_WPF
         private void btnNieuweBoodschappenlijst_Click(object sender, RoutedEventArgs e)
         {
             LijstBewerkenToevoegen lijstBewerkenToevoegen = new LijstBewerkenToevoegen();
-            this.Hide();
+            this.Close();
             lijstBewerkenToevoegen.Show();
         }
     }
