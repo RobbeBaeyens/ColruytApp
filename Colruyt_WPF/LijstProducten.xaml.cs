@@ -20,6 +20,11 @@ namespace Colruyt_WPF
     /// </summary>
     public partial class LijstProducten : Window
     {
+        private Login gebruiker = null;
+        private Categorie categorie;
+        private Helper helper = new Helper();
+        private List<Product> productLijst;
+        private List<ProductLijst> productLijstLijst = new List<ProductLijst>();
         public LijstProducten()
         {
             InitializeComponent();
@@ -29,12 +34,41 @@ namespace Colruyt_WPF
         {
             InitializeComponent();
 
-            Title = $"Colruyt lijst producten uit  " + gebruiker.gebruikersnaam + "!";
+            this.gebruiker = gebruiker;
+            this.categorie = categorie;
+
+            Title = $"Colruyt lijst producten uit {categorie.naam}!";
+            Console.WriteLine(categorie.naam);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            productLijst = DatabaseOperations.ProductenOphalen();
+            lblNaamCategorie.Content = categorie.naam;
+
+            foreach (Product productIn in productLijst)
+            {
+                ProductLijst ProductLijst = new ProductLijst();
+                ProductLijst.Afdruk = $"{productIn.naam} {productIn.prijs}";
+                productLijstLijst.Add(ProductLijst);
+            }
+
+            lstProductenLijst.ItemsSource = productLijstLijst;
+            lstProductenLijst.Items.Refresh();
+
         }
 
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
+            //helper.DataPasses(this, new CategorieScherm(gebruiker), gebruiker);
+            CategorieScherm categorieScherm = new CategorieScherm(gebruiker);
+            this.Close();
+            categorieScherm.Show();
+        }
 
+        internal class ProductLijst
+        {
+            public string Afdruk { get; set; }
         }
     }
 }

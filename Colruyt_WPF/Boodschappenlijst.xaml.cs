@@ -23,5 +23,15 @@ namespace Colruyt_WPF
         {
             InitializeComponent();
         }
+
+        private void btnTerug_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnNieuweBoodschappenlijst_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

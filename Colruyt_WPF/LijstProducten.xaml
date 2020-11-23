@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="LijstProducten" Height="750" Width="1500">
+        Title="LijstProducten" Height="850" Width="1200"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Loaded="Window_Loaded">
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -34,8 +34,6 @@
 
             <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Stroke="Black" StrokeThickness="2"/>
 
-
-
             <Button x:Name="btnNieuwProduct" BorderBrush="{StaticResource Dark}" Foreground="{StaticResource Light}" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.ColumnSpan="4" Height="50" Margin="111,24.2,155.2,25.8" VerticalContentAlignment="center"
             FontSize="27" Content="Nieuw product toevoegen">
                 <Button.Resources>
@@ -46,18 +44,23 @@
             </Button>
 
             <StackPanel Grid.Row="2" Grid.ColumnSpan="4">
-                <Border BorderBrush="{StaticResource Dark}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
-
-                    <Label Name="lblNaamLijst" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600">Productnaam    +     Prijs</Label>
-                </Border>
+                <ListBox x:Name="lstProductenLijst" HorizontalAlignment="Center">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ListBoxItem>
+                                <Border BorderBrush="{StaticResource Dark}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
+                                    <DockPanel>
+                                        <Label x:Name="lblNaamLijst" Content="{Binding Afdruk}" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600"/>
+                                        <Button x:Name="btnVerwijderProduct" Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}">
+                                            <Image Width="30" Height="30" Source="images/icon-delete.png"/>
+                                        </Button>
+                                    </DockPanel>
+                                </Border>
+                            </ListBoxItem>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </StackPanel>
-
-
-
-
-
-
-
         </Grid>
     </Grid>
 </Window>
