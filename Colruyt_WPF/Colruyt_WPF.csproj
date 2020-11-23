@@ -75,8 +75,8 @@
     <Compile Include="Boodschappenlijst.xaml.cs">
       <DependentUpon>Boodschappenlijst.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Categorie.xaml.cs">
-      <DependentUpon>Categorie.xaml</DependentUpon>
+    <Compile Include="CategorieScherm.xaml.cs">
+      <DependentUpon>CategorieScherm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Gebruikers.xaml.cs">
       <DependentUpon>Gebruikers.xaml</DependentUpon>
@@ -124,7 +124,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Categorie.xaml">
+    <Page Include="CategorieScherm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
