@@ -72,6 +72,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boodschappenlijst.xaml.cs">
+      <DependentUpon>Boodschappenlijst.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Categorie.xaml.cs">
       <DependentUpon>Categorie.xaml</DependentUpon>
     </Compile>
@@ -117,6 +120,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Boodschappenlijst.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Categorie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
