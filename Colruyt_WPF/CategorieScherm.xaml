@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Categorie" Height="750" Width="1500" Loaded="Window_Loaded">
+        Title="Categorie" Height="850" Width="1200"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Loaded="Window_Loaded">
     <Grid>
 
 
@@ -40,46 +40,64 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label Content="Kies uit een categorie..." Grid.ColumnSpan="6" Grid.Column="3" FontSize="35" Margin="20" Foreground="Orange"/>
+            <Label Content="Kies uit een categorie..." HorizontalContentAlignment="Center"  Grid.ColumnSpan="6" Grid.Column="1" FontSize="35" Margin="20" Foreground="Orange"/>
 
-            <Button x:Name="btnWijn" Grid.Column="1" Grid.Row="1" Click="btnWijn_Click"/>
-            <Image Source="images/cat_1.jpg"   Grid.Column="1" Grid.Row="1"/>
-            <Button x:Name="btnChips" Grid.Column="2" Grid.Row="1" Click="btnChips_Click"/>
-            <Image Source="images/cat_2.jpg"   Grid.Column="2" Grid.Row="1"/>
-            <Button x:Name="btnKoekjes" Grid.Column="3" Grid.Row="1" Click="btnKoekjes_Click"/>
-            <Image Source="images/cat_3.jpg"   Grid.Column="3" Grid.Row="1"/>
-            <Button x:Name="btnDieet" Grid.Column="4" Grid.Row="1" Click="btnDieet_Click"/>
-            <Image Source="images/cat_4.jpg"   Grid.Column="4" Grid.Row="1"/>
-            <Button x:Name="btnLichaamVerzorging" Grid.Column="5" Grid.Row="1" Click="btnLichaamVerzorging_Click"/>
-            <Image Source="images/cat_5.jpg"   Grid.Column="5" Grid.Row="1"/>
-            <Button x:Name="btnHuisdieren" Grid.Column="6" Grid.Row="1" Click="btnHuisdieren_Click"/>
-            <Image Source="images/cat_6.jpg"   Grid.Column="6" Grid.Row="1"/>
+            <Button x:Name="btnWijn" Grid.Column="1" Grid.Row="1" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Wijn - Sterke dranken">
+                <Image Source="images/cat_1.jpg"   Grid.Column="1" Grid.Row="1"/>
+            </Button>
+            <Button x:Name="btnChips" Grid.Column="2" Grid.Row="1" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Chips - Borrelhapjes">
+                <Image Source="images/cat_2.jpg"   Grid.Column="2" Grid.Row="1"/>
+            </Button>
+            <Button x:Name="btnKoekjes" Grid.Column="3" Grid.Row="1" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Koekjes - Chocolade - Snoep">
+                <Image Source="images/cat_3.jpg"   Grid.Column="3" Grid.Row="1"/>
+            </Button>
+            <Button x:Name="btnDieet" Grid.Column="4" Grid.Row="1" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Dieetvoeding - Voedingsupplementen">
+                <Image Source="images/cat_4.jpg"   Grid.Column="4" Grid.Row="1"/>
+            </Button>
+            <Button x:Name="btnLichaamVerzorging" Grid.Column="5" Grid.Row="1" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Lichaamsverzorging - Parfumerie">
+                <Image Source="images/cat_5.jpg"   Grid.Column="5" Grid.Row="1"/>
+            </Button>
+            <Button x:Name="btnHuisdieren" Grid.Column="6" Grid.Row="1" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Huisdieren">
+                <Image Source="images/cat_6.jpg"   Grid.Column="6" Grid.Row="1"/>
+            </Button>
 
-            <Button x:Name="btnOnderhoud" Grid.Column="1" Grid.Row="2" Click="btnOnderhoud_Click"/>
-            <Image Source="images/cat_7.jpg"   Grid.Column="1" Grid.Row="2"/>
-            <Button x:Name="btnNietVoeding" Grid.Column="2" Grid.Row="2" Click="btnNietVoeding_Click"/>
-            <Image Source="images/cat_8.jpg"   Grid.Column="2" Grid.Row="2"/>
-            <Button x:Name="btnGroenten" Grid.Column="3" Grid.Row="2" Click="btnGroenten_Click"/>
-            <Image Source="images/cat_9.jpg"   Grid.Column="3" Grid.Row="2"/>
-            <Button x:Name="btnZuivel" Grid.Column="4" Grid.Row="2" Click="btnZuivel_Click"/>
-            <Image Source="images/cat_10.jpg"   Grid.Column="4" Grid.Row="2"/>
-            <Button x:Name="btnBroodje" Grid.Column="5" Grid.Row="2" Click="btnBroodje_Click"/>
-            <Image Source="images/cat_11.jpg"   Grid.Column="5" Grid.Row="2"/>
-            <Button x:Name="btnKruiden" Grid.Column="6" Grid.Row="2" Click="btnKruiden_Click"/>
-            <Image Source="images/cat_12.jpg"   Grid.Column="6" Grid.Row="2"/>
+            <Button x:Name="btnOnderhoud" Grid.Column="1" Grid.Row="2" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Onderhoud - Huishouden">
+                <Image Source="images/cat_7.jpg"   Grid.Column="1" Grid.Row="2"/>
+            </Button>
+            <Button x:Name="btnNietVoeding" Grid.Column="2" Grid.Row="2" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Niet voeding">
+                <Image Source="images/cat_8.jpg"   Grid.Column="2" Grid.Row="2"/>
+            </Button>
+            <Button x:Name="btnGroenten" Grid.Column="3" Grid.Row="2" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Groenten - fruit ">
+                <Image Source="images/cat_9.jpg"   Grid.Column="3" Grid.Row="2"/>
+            </Button>
+            <Button x:Name="btnZuivel" Grid.Column="4" Grid.Row="2" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Zuivel">
+                <Image Source="images/cat_10.jpg"   Grid.Column="4" Grid.Row="2"/>
+            </Button>
+            <Button x:Name="btnBroodje" Grid.Column="5" Grid.Row="2" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Brood">
+                <Image Source="images/cat_11.jpg"   Grid.Column="5" Grid.Row="2"/>
+            </Button>
+            <Button x:Name="btnKruiden" Grid.Column="6" Grid.Row="2" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Kruidenierswaren/droge voeding">
+                <Image Source="images/cat_12.jpg"   Grid.Column="6" Grid.Row="2"/>
+            </Button>
 
-            <Button x:Name="btnBereiden" Grid.Column="1" Grid.Row="3" Click="btnBereiden_Click"/>
-            <Image Source="images/cat_13.jpg"   Grid.Column="1" Grid.Row="3"/>
-            <Button x:Name="Beenhouwerij" Grid.Column="2" Grid.Row="3" Click="Beenhouwerij_Click"/>
-            <Image Source="images/cat_14.jpg"   Grid.Column="2" Grid.Row="3"/>
-            <Button x:Name="btnConserven" Grid.Column="3" Grid.Row="3" Click="btnConserven_Click"/>
-            <Image Source="images/cat_15.jpg"   Grid.Column="3" Grid.Row="3"/>
-            <Button x:Name="btnBaby" Grid.Column="4" Grid.Row="3" Click="btnBaby_Click"/>
-            <Image Source="images/cat_16.jpg"   Grid.Column="4" Grid.Row="3"/>
-            <Button x:Name="btnDranken" Grid.Column="5" Grid.Row="3" Click="btnDranken_Click"/>
-            <Image Source="images/cat_17.jpg"   Grid.Column="5" Grid.Row="3"/>
-            <Button x:Name="btnDiepvries" Grid.Column="6" Grid.Row="3" Click="btnDiepvries_Click"/>
-            <Image Source="images/cat_18.jpg"   Grid.Column="6" Grid.Row="3"/>
+            <Button x:Name="btnBereiden" Grid.Column="1" Grid.Row="3" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Bereidingen/charcuterie ">
+                <Image Source="images/cat_13.jpg"   Grid.Column="1" Grid.Row="3"/>
+            </Button>
+            <Button x:Name="Beenhouwerij" Grid.Column="2" Grid.Row="3" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Beenhouwerij">
+                <Image Source="images/cat_14.jpg"   Grid.Column="2" Grid.Row="3"/>
+            </Button>
+            <Button x:Name="btnConserven" Grid.Column="3" Grid.Row="3" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Conserven">
+                <Image Source="images/cat_15.jpg"   Grid.Column="3" Grid.Row="3"/>
+            </Button>
+            <Button x:Name="btnBaby" Grid.Column="4" Grid.Row="3" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Baby">
+                <Image Source="images/cat_16.jpg"   Grid.Column="4" Grid.Row="3"/>
+            </Button>
+            <Button x:Name="btnDranken" Grid.Column="5" Grid.Row="3" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Dranken">
+                <Image Source="images/cat_17.jpg"   Grid.Column="5" Grid.Row="3"/>
+            </Button>
+            <Button x:Name="btnDiepvries" Grid.Column="6" Grid.Row="3" Click="btnCategorie_Click" Style="{StaticResource CatButtonSizeStyle}" Tag="Diepvries">
+                <Image Source="images/cat_18.jpg"   Grid.Column="6" Grid.Row="3"/>
+            </Button>
         </Grid>
     </Grid>
 </Window>
