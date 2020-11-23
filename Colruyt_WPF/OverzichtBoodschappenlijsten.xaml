@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Colruyt boodschappenlijsten" Width="1200" Height="850" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Colruyt boodschappenlijsten" Width="1200" Height="850" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -26,16 +26,20 @@
                         <Border BorderBrush="{StaticResource Primary}" BorderThickness="5" CornerRadius="20">
                             <Grid>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Width="700" Height="60" Margin="5" FontSize="40" Grid.Column="0" Content="{Binding}"/>
-                                <Button Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}" Grid.Column="1">
+                                <Border Width="60" Height="60" Background="{Binding HexValue}" Margin="10 0" x:Name="brdrcolor" Grid.Column="0" BorderThickness="0" CornerRadius="60">
+                                    <Label x:Name="lblColorInitial" Content="{Binding ColorInitial}" Foreground="{Binding InvertedHexValue}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+                                </Border>
+                                <Label Width="640" Height="60" Margin="5" FontSize="40" Grid.Column="1" Content="{Binding Lijst.naam}"/>
+                                <Button Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}" Grid.Column="2">
                                     <Image Width="30" Height="30" Source="images/icon-edit.png"/>
                                 </Button>
-                                <Button Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}" Grid.Column="2">
+                                <Button Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}" Grid.Column="3">
                                     <Image Width="30" Height="30" Source="images/icon-delete.png"/>
                                 </Button>
                             </Grid>

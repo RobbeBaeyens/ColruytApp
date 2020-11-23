@@ -65,14 +65,14 @@ namespace Colruyt_DAL
         //_____LIJST_____\\
 
         //Ophalen lijstje
-        public static List<Lijst> OphalenLijstje(Login gebruiker)
+        public static List<Lijst> OphalenLijstjes(Login gebruiker)
         {
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Lijst
-                    .OrderBy(x => x.datumAangemaakt)
                     .Include(x => x.Login)
-                    .Where(x => x.id == gebruiker.id);
+                    .Where(x => x.Login.id == gebruiker.id)
+                    .OrderBy(x => x.datumAangemaakt);
                 return query.ToList();
             }
         }
