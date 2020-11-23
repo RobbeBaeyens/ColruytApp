@@ -13,7 +13,6 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -25,17 +24,17 @@
 
             </Grid.RowDefinitions>
 
-            <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="60"/>
+            <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Margin="5" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="60"/>
             <Rectangle Grid.Row="1" Grid.ColumnSpan="5" VerticalAlignment="Top" HorizontalAlignment="Stretch" Fill="Black" Height="2"/>
-            <Button x:Name="btnTerug" Content="Terug" Background="White" FontSize="20" BorderBrush="{x:Null}"/>
-            <Image x:Name="btnBevestig" Source="images/icons8-checked-48.png" Height="30" Grid.Column="4"/>
-            <Label x:Name="lblNaamCategorie" Content="Groenten en fruit" Grid.Row="1" FontSize="30"/>
+            <Button x:Name="btnTerug"  Click="btnTerug_Click" HorizontalAlignment="Left" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
+                <Image Source="images/cross.png"/>
+            </Button>
+            <Image x:Name="btnBevestig" Source="images/icons8-checked-48.png" Height="30" Grid.Column="3"/>
+            <Label x:Name="lblNaamCategorie" Content="" Grid.Row="1" FontSize="30"/>
 
             <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Stroke="Black" StrokeThickness="2"/>
 
-            <Label x:Name="lblLijst" Content="maandag 24/3" Grid.Column="5" Grid.Row="1" FontSize="25" />
-            <Rectangle Grid.Row="1" Grid.Column="5" Stroke="Black" StrokeThickness="2"/>
-            <Rectangle Grid.Row="2" Grid.RowSpan="2" Grid.Column="5" Stroke="Black" StrokeThickness="2"/>
+
 
             <Button x:Name="btnNieuwProduct" BorderBrush="{StaticResource Dark}" Foreground="{StaticResource Light}" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.ColumnSpan="4" Height="50" Margin="111,24.2,155.2,25.8" VerticalContentAlignment="center"
             FontSize="27" Content="Nieuw product toevoegen">
@@ -45,15 +44,6 @@
                     </Style>
                 </Button.Resources>
             </Button>
-
-            <StackPanel Grid.Row="2" Grid.Column="5">
-                <Border Height="50" Width="295" BorderBrush="{StaticResource Dark}" BorderThickness="1" >
-                    <Label x:Name="lblProductPrijs" FontSize="25">
-
-                        <Button Width="25" Height="25" Margin="250,5,0,0" Content="X" x:Name="btnVerwijder"/>
-                    </Label>
-                </Border>
-            </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.ColumnSpan="4">
                 <Border BorderBrush="{StaticResource Dark}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
@@ -66,9 +56,6 @@
 
 
 
-            <Label Content="Totaal:" Grid.Row="2" Grid.Column="4" VerticalAlignment="Bottom" Height="75" FontSize="25" HorizontalContentAlignment="Left" Margin="57,0,140,0" Grid.RowSpan="2"/>
-            <Label Content="€25.78" Grid.Row="2" Grid.Column="4" VerticalAlignment="Bottom" Height="75" FontSize="25" HorizontalContentAlignment="Right" Margin="107.8,0,63.6,-0.2" Grid.RowSpan="2" />
-            <Rectangle Grid.Row="3" Grid.Column="5" Stroke="Black" StrokeThickness="2" Height="100" VerticalAlignment="Bottom"/>
 
 
         </Grid>

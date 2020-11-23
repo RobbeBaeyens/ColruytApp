@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Colruyt_DAL;
 
 namespace Colruyt_WPF
 {
@@ -22,6 +23,18 @@ namespace Colruyt_WPF
         public LijstProducten()
         {
             InitializeComponent();
+        }
+
+        public LijstProducten(Login gebruiker, Categorie categorie)
+        {
+            InitializeComponent();
+
+            Title = $"Colruyt lijst producten uit  " + gebruiker.gebruikersnaam + "!";
+        }
+
+        private void btnTerug_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
