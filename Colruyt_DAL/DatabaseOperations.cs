@@ -151,7 +151,7 @@ namespace Colruyt_DAL
             }
         }
 
-        
+
         //_____PRODUCT_____\\
 
         //Producten ophalen uit winkel volgens categorie
