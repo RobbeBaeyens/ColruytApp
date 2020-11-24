@@ -22,6 +22,7 @@ namespace Colruyt_WPF
     {
         //Attributen
         Login gebruiker = null;
+        Lijst Lijst = null;
         LijstProducten LijstProducten;
         List<Categorie> categorieLijst = new List<Categorie>();
 
@@ -32,10 +33,11 @@ namespace Colruyt_WPF
             InitializeComponent();
         }
 
-        public CategorieScherm(Login gebruiker)
+        public CategorieScherm(Login gebruiker, Lijst lijst)
         {
             InitializeComponent();
             this.gebruiker = gebruiker;
+            this.Lijst = lijst;
         }
 
 
