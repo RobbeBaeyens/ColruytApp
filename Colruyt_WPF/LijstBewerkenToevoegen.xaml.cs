@@ -15,7 +15,11 @@ namespace Colruyt_WPF
     public partial class LijstBewerkenToevoegen : Window
     {
         private Image _theImage;
-        private string hexValue;
+        private string hexValue = "#FFFFFF";
+
+        SolidColorBrush error = new SolidColorBrush(Colors.Red);
+        SolidColorBrush correct = new SolidColorBrush(Colors.Green);
+
         public Image TheImage
         {
             get
@@ -87,17 +91,36 @@ namespace Colruyt_WPF
 
         private void btnLijstAanmaken_Click(object sender, RoutedEventArgs e)
         {
+            string lijstnaam = txtLijstnaam.Text;
+
             if(gebruiker != null)
             {
-                Lijst nieuweLijst = new Lijst();
-                nieuweLijst.datumAangemaakt = DateTime.Now;
-                nieuweLijst.kleurHex = hexValue;
-                nieuweLijst.naam = txtGebruikersnaam.Text;
-                nieuweLijst.loginId = gebruiker.id;
-                DatabaseOperations.ToevoegenLijstje(nieuweLijst);
-            }
+                if (!string.IsNullOrWhiteSpace(lijstnaam) && lijstnaam.Length >= 3)
+                {
+                    Lijst nieuweLijst = new Lijst();
+                    nieuweLijst.datumAangemaakt = DateTime.Now;
+                    nieuweLijst.kleurHex = hexValue;
+                    nieuweLijst.naam = lijstnaam;
+                    nieuweLijst.loginId = gebruiker.id;
+                    if (DatabaseOperations.ToevoegenLijstje(nieuweLijst) == 1)
+                    {
+                        lblFormAlert.Content = $"✔ {nieuweLijst.naam} aangemaakt!";
+                        lblFormAlert.Foreground = correct;
+                        MessageBox.Show("Succesvol boodschappenlijst aangemaakt", "Boodschappenlijst", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
+                        btnTerug_Click(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fout bij boodschappenlijst aanmaken, probeer opnieuw!", "Boodschappenlijst", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
+                    }
 
-            btnTerug_Click(sender, e);
+                }
+                else
+                {
+                    lblFormAlert.Content = "❌ Vul een naam in voor je boodschappenlijst!";
+                    lblFormAlert.Foreground = error;
+                }
+            }
         }
     }
 }

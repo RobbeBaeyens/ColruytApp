@@ -21,7 +21,7 @@
 
         <StackPanel Grid.Row="1"  Margin="150 50">
             <Label Content="Geef een naam aan je boodschappenlijstje" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
-            <TextBox x:Name="txtGebruikersnaam" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10"/>
+            <TextBox x:Name="txtLijstnaam" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10"/>
             <Label Content="Kies een kleur voor je boodschappenlijstje " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
             <!--<ListBox x:Name="lstColors" Height="300" Width="500" BorderThickness="0" Margin="0 0 0 30" HorizontalContentAlignment="Center">
                 <ListBox.ItemTemplate>
@@ -43,7 +43,7 @@
 
 
             <ContentControl Content="{Binding TheImage}" MouseDown="ContentControl_MouseDown" Width="300" Height="300" Margin="0 0 0 20" BorderThickness="0" BorderBrush="Transparent"/>
-            <Rectangle Width="70" Height="50" Margin="0 0 0 20" Fill="Transparent" x:Name="SelectedColor"/>
+            <Rectangle Width="70" Height="50" Margin="0 0 0 20" Fill="#FFFFFF" x:Name="SelectedColor"/>
 
             <Button Content="Boodschappenijst aanmaken" Style="{DynamicResource OrangeButton}"  x:Name="btnLijstAanmaken" Grid.Column="1" Margin="10 0 0 0" Click="btnLijstAanmaken_Click"/>
             <Label x:Name="lblFormAlert" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center" Foreground="Red"/>

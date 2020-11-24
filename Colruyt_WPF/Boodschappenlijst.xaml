@@ -14,7 +14,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Button x:Name="btnTerug"  Click="btnTerug_Click" HorizontalAlignment="Left" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
+        <Button x:Name="btnTerug" Click="btnTerug_Click" HorizontalAlignment="Left" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
             <Image Source="images/cross.png"/>
         </Button>
         <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Grid.Column="1" HorizontalAlignment="Center" Width="180"/>
