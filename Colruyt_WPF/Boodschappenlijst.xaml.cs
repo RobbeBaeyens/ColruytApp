@@ -43,7 +43,7 @@ namespace Colruyt_WPF
 
         private void btnNieuwProduct_Click(object sender, RoutedEventArgs e)
         {
-            //helperclass.DataPasses(this, new CategorieScherm(gebruiker, lijst), gebruiker);
+            helperclass.DataPasses(this, new CategorieScherm(gebruiker, lijst), gebruiker);
         }
     }
 }
