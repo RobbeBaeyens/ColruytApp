@@ -21,11 +21,9 @@ namespace Colruyt_WPF
     public partial class CategorieScherm : Window
     {
         //Attributen
-        Login Gebruiker;
+        Login gebruiker = null;
         LijstProducten LijstProducten;
         List<Categorie> categorieLijst = new List<Categorie>();
-        Categorie categorie = new Categorie();
-        public string CategorieNaam = "";
 
 
 
@@ -36,7 +34,8 @@ namespace Colruyt_WPF
 
         public CategorieScherm(Login gebruiker)
         {
-            Gebruiker = gebruiker;
+            InitializeComponent();
+            this.gebruiker = gebruiker;
         }
 
 
@@ -53,123 +52,24 @@ namespace Colruyt_WPF
 
 
         //Categorie knoppen
-        private void btnWijn_Click(object sender, RoutedEventArgs e)
+        private void btnCategorie_Click(object sender, RoutedEventArgs e)
         {
-            CategorieNaam = "Wijn";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnChips_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Chips";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnKoekjes_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Koekjes";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnDieet_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Dieetvoeding";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnLichaamVerzorging_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Lichaamsverzorging";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnHuisdieren_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Huisdieren";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnOnderhoud_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Onderhoud";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnNietVoeding_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Niet voeding";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnGroenten_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Groenten";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnZuivel_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "zuivel";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnBroodje_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Brood";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnKruiden_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Kruidenierswaren";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnBereiden_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Bereidingen";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void Beenhouwerij_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Beenhouwerij";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnConserven_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Conserven";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnBaby_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Baby";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnDranken_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Dranken";
-            ZoekCategorie(CategorieNaam);
-        }
-
-        private void btnDiepvries_Click(object sender, RoutedEventArgs e)
-        {
-            CategorieNaam = "Diepvries";
-            ZoekCategorie(CategorieNaam);
+            var categorie = ((Button)sender).Tag;
+            ZoekCategorie(categorie.ToString());
         }
 
 
         //Categorie Zoeken
-        private void ZoekCategorie(string naam)
+        private void ZoekCategorie(string catInput)
         {
-            foreach (Categorie catNaam in categorieLijst)
+            foreach (Categorie cat in categorieLijst)
             {
-                if (catNaam.naam.Contains(naam))
+                //Zowel equals als contains ==> zekere validatie
+                if (cat.naam.Equals(catInput) || cat.naam.Contains(catInput))
                 {
-                    LijstProducten = new LijstProducten(Gebruiker, catNaam);
+                    LijstProducten = new LijstProducten(gebruiker, cat);
+                    this.Close();
+                    LijstProducten.Show();
                 }
             }
         }
