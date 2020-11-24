@@ -37,19 +37,20 @@ namespace Colruyt_WPF
             this.gebruiker = gebruiker;
             this.categorie = categorie;
 
+            productLijst = DatabaseOperations.ProductenOphalen(categorie);
+
             Title = $"Colruyt lijst producten uit {categorie.naam}!";
             Console.WriteLine(categorie.naam);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            productLijst = DatabaseOperations.ProductenOphalen();
             lblNaamCategorie.Content = categorie.naam;
 
             foreach (Product productIn in productLijst)
             {
                 ProductLijst ProductLijst = new ProductLijst();
-                ProductLijst.Afdruk = $"{productIn.naam} {productIn.prijs}";
+                ProductLijst.Afdruk = $"{productIn.naam} : €{productIn.prijs}";
                 productLijstLijst.Add(ProductLijst);
             }
 
@@ -66,6 +67,7 @@ namespace Colruyt_WPF
             categorieScherm.Show();
         }
 
+        //Klasse om lijst te kunnen initialiseren
         internal class ProductLijst
         {
             public string Afdruk { get; set; }
