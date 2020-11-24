@@ -50,9 +50,9 @@
                             <Border BorderBrush="{StaticResource Dark}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
                                 <DockPanel>
                                     <Label x:Name="lblNaamLijst" Content="{Binding Afdruk}" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600"/>
-                                    <ToggleButton x:Name="btnVerwijderProduct" Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}">
+                                    <Button x:Name="btnVerwijderProduct" Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}">
                                         <Image Width="30" Height="30" Source="images/icon-delete.png"/>
-                                    </ToggleButton>
+                                    </Button>
                                 </DockPanel>
                             </Border>
                         </ListBoxItem>
