@@ -21,21 +21,24 @@ namespace Colruyt_WPF
     public partial class LijstProducten : Window
     {
         private Login gebruiker = null;
+        private Lijst lijst = null;
         private Categorie categorie;
         private Helper helper = new Helper();
         private List<Product> productLijst;
         private List<ProductLijst> productLijstLijst = new List<ProductLijst>();
+
         public LijstProducten()
         {
             InitializeComponent();
         }
 
-        public LijstProducten(Login gebruiker, Categorie categorie)
+        public LijstProducten(Login gebruiker, Categorie categorie, Lijst lijst)
         {
             InitializeComponent();
 
             this.gebruiker = gebruiker;
             this.categorie = categorie;
+            this.lijst = lijst;
 
             productLijst = DatabaseOperations.ProductenOphalen(categorie);
 
@@ -50,21 +53,20 @@ namespace Colruyt_WPF
             foreach (Product productIn in productLijst)
             {
                 ProductLijst ProductLijst = new ProductLijst();
-                ProductLijst.Afdruk = $"{productIn.naam} : €{productIn.prijs}";
+                ProductLijst.Afdruk = $"{productIn.naam}";
                 productLijstLijst.Add(ProductLijst);
             }
 
             lstProductenLijst.ItemsSource = productLijstLijst;
             lstProductenLijst.Items.Refresh();
-
         }
 
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
-            //helper.DataPasses(this, new CategorieScherm(gebruiker), gebruiker);
-            CategorieScherm categorieScherm = new CategorieScherm(gebruiker);
-            this.Close();
-            categorieScherm.Show();
+            if (lijst != null)
+            {
+                helper.DataPasses(this, new CategorieScherm(gebruiker, lijst), gebruiker);
+            }
         }
 
         //Klasse om lijst te kunnen initialiseren

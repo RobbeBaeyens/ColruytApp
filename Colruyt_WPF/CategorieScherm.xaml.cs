@@ -22,8 +22,10 @@ namespace Colruyt_WPF
     {
         //Attributen
         Login gebruiker = null;
+        Lijst lijst = null;
         LijstProducten LijstProducten;
         List<Categorie> categorieLijst = new List<Categorie>();
+        Helper helper = new Helper();
 
 
 
@@ -32,10 +34,11 @@ namespace Colruyt_WPF
             InitializeComponent();
         }
 
-        public CategorieScherm(Login gebruiker)
+        public CategorieScherm(Login gebruiker, Lijst lijst)
         {
             InitializeComponent();
             this.gebruiker = gebruiker;
+            this.lijst = lijst;
         }
 
 
@@ -46,7 +49,10 @@ namespace Colruyt_WPF
 
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
-
+            if (lijst != null)
+            {
+                helper.DataPasses(this, new Boodschappenlijst(gebruiker, lijst), gebruiker);
+            }
         }
 
 
@@ -67,9 +73,10 @@ namespace Colruyt_WPF
                 //Zowel equals als contains ==> zekere validatie
                 if (cat.naam.Equals(catInput) || cat.naam.Contains(catInput))
                 {
-                    LijstProducten = new LijstProducten(gebruiker, cat);
-                    this.Close();
-                    LijstProducten.Show();
+                    if (lijst != null)
+                    {
+                        helper.DataPasses(this, new LijstProducten(gebruiker, cat, lijst), gebruiker);
+                    }
                 }
             }
         }
