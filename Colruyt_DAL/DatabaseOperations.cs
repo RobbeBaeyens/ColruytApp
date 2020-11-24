@@ -146,16 +146,18 @@ namespace Colruyt_DAL
             }
         }
 
-        
+
         //_____PRODUCT_____\\
 
         //Producten ophalen uit winkel
-        public static List<Product> ProductenOphalen()
+        public static List<Product> ProductenOphalen(Categorie categorie)
         {
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Product
-                    .OrderBy(x => x.Categorie);
+                    .Include(x => x.Categorie)
+                    .Where(x => x.categorieId == categorie.id)
+                    .OrderBy(x => x.Categorie.id);
                 return query.ToList();
             }
         }
