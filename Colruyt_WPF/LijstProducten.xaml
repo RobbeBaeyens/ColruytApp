@@ -30,7 +30,7 @@
                 <Image Source="images/cross.png"/>
             </Button>
             <Image x:Name="btnBevestig" Source="images/icons8-checked-48.png" Height="30" Grid.Column="3"/>
-            <Label x:Name="lblNaamCategorie" Content="" Grid.Row="1" FontSize="30"/>
+            <Label x:Name="lblNaamCategorie" Content="" Grid.Row="1" Grid.ColumnSpan="5" FontSize="30"/>
 
             <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Stroke="Black" StrokeThickness="2"/>
 
@@ -43,24 +43,22 @@
                 </Button.Resources>
             </Button>
 
-            <StackPanel Grid.Row="2" Grid.ColumnSpan="4">
-                <ListBox x:Name="lstProductenLijst" HorizontalAlignment="Center">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <ListBoxItem>
-                                <Border BorderBrush="{StaticResource Dark}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
-                                    <DockPanel>
-                                        <Label x:Name="lblNaamLijst" Content="{Binding Afdruk}" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600"/>
-                                        <Button x:Name="btnVerwijderProduct" Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}">
-                                            <Image Width="30" Height="30" Source="images/icon-delete.png"/>
-                                        </Button>
-                                    </DockPanel>
-                                </Border>
-                            </ListBoxItem>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </StackPanel>
+            <ListBox x:Name="lstProductenLijst" Grid.Row="2" Grid.ColumnSpan="4" HorizontalAlignment="Center">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ListBoxItem>
+                            <Border BorderBrush="{StaticResource Dark}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
+                                <DockPanel>
+                                    <Label x:Name="lblNaamLijst" Content="{Binding Afdruk}" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600"/>
+                                    <ToggleButton x:Name="btnVerwijderProduct" Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}">
+                                        <Image Width="30" Height="30" Source="images/icon-delete.png"/>
+                                    </ToggleButton>
+                                </DockPanel>
+                            </Border>
+                        </ListBoxItem>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </Grid>
 </Window>
