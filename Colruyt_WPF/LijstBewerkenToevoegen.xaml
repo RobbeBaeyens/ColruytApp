@@ -46,6 +46,7 @@
             <Rectangle Width="70" Height="50" Margin="0 0 0 20" Fill="#FFFFFF" x:Name="SelectedColor"/>
 
             <Button Content="Boodschappenijst aanmaken" Style="{DynamicResource OrangeButton}"  x:Name="btnLijstAanmaken" Grid.Column="1" Margin="10 0 0 0" Click="btnLijstAanmaken_Click"/>
+            <Button Content="Boodschappenijst bewerken" Style="{DynamicResource OrangeButton}"  x:Name="btnLijstBewerken" Grid.Column="1" Margin="10 0 0 0" Click="btnLijstBewerken_Click"/>
             <Label x:Name="lblFormAlert" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center" Foreground="Red"/>
         </StackPanel>
         <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="1816,409,-422,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>

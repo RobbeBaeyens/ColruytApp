@@ -34,20 +34,40 @@ namespace Colruyt_WPF
         }
 
         Login gebruiker = null;
+        Lijst lijst = null;
         Helper helperClass = new Helper();
 
         public LijstBewerkenToevoegen()
         {
             InitializeComponent();
             CreateColorPicker();
+            btnLijstAanmaken.Visibility = Visibility.Visible;
+            btnLijstBewerken.Visibility = Visibility.Collapsed;
         }
 
         public LijstBewerkenToevoegen(Login gebruiker)
         {
             InitializeComponent();
             CreateColorPicker();
+            btnLijstAanmaken.Visibility = Visibility.Visible;
+            btnLijstBewerken.Visibility = Visibility.Collapsed;
 
             this.gebruiker = gebruiker;
+        }
+
+        public LijstBewerkenToevoegen(Login gebruiker, Lijst lijst)
+        {
+            InitializeComponent();
+            CreateColorPicker();
+            btnLijstAanmaken.Visibility = Visibility.Collapsed;
+            btnLijstBewerken.Visibility = Visibility.Visible;
+
+            this.gebruiker = gebruiker;
+            this.lijst = lijst;
+
+            txtLijstnaam.Text = lijst.naam;
+            hexValue = lijst.kleurHex;
+            SelectedColor.Fill = (SolidColorBrush)(new BrushConverter().ConvertFrom(hexValue));
         }
 
         private void CreateColorPicker()
@@ -112,6 +132,38 @@ namespace Colruyt_WPF
                     else
                     {
                         MessageBox.Show("Fout bij boodschappenlijst aanmaken, probeer opnieuw!", "Boodschappenlijst", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
+                    }
+
+                }
+                else
+                {
+                    lblFormAlert.Content = "❌ Vul een naam in voor je boodschappenlijst!";
+                    lblFormAlert.Foreground = error;
+                }
+            }
+        }
+
+        private void btnLijstBewerken_Click(object sender, RoutedEventArgs e)
+        {
+            string lijstnaam = txtLijstnaam.Text;
+
+            if (gebruiker != null)
+            {
+                if (!string.IsNullOrWhiteSpace(lijstnaam) && lijstnaam.Length >= 3)
+                {
+                    Lijst updateLijst = DatabaseOperations.OphalenLijst(lijst.id);
+                    updateLijst.kleurHex = hexValue;
+                    updateLijst.naam = lijstnaam;
+                    if (DatabaseOperations.AanpassenLijstje(updateLijst) == 1)
+                    {
+                        lblFormAlert.Content = $"✔ {updateLijst.naam} geupdate!";
+                        lblFormAlert.Foreground = correct;
+                        MessageBox.Show("Succesvol boodschappenlijst geupdate", "Boodschappenlijst", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
+                        btnTerug_Click(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fout bij boodschappenlijst updaten, probeer opnieuw!", "Boodschappenlijst", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
                     }
 
                 }
