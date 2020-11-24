@@ -39,24 +39,33 @@ namespace Colruyt_WPF
 
             Title = "Colruyt boodschappenlijsten | Welkom " + gebruiker.gebruikersnaam + "!";
 
+            LoadLijsten(gebruiker);
+        }
+
+        private void LoadLijsten(Login gebruiker)
+        {
             lstBoodschappenlijsten.Items.Clear();
             lstBoodschappenlijsten.Items.Refresh();
 
             boodschappenlijsten = DatabaseOperations.OphalenLijstjes(gebruiker);
 
-            foreach(Lijst lijst in boodschappenlijsten)
+            foreach (Lijst lijst in boodschappenlijsten)
             {
                 CustomLijst customLijst = new CustomLijst();
                 customLijst.Lijst = lijst;
                 customLijst.HexValue = (SolidColorBrush)(new BrushConverter().ConvertFrom(lijst.kleurHex));
-                customLijst.InvertedHexValue = invertColor(lijst.kleurHex);
-                customLijst.ColorInitial = lijst.naam.Substring(0, 1).ToUpper();
+                System.Drawing.Color color = HexToColor(lijst.kleurHex);
+                double colorBrightness = color.GetBrightness();
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(colorBrightness);
+                customLijst.ColorInitial = (colorBrightness > .49) ? (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000")) : (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFFFFF"));
+                customLijst.Initial = lijst.naam.Substring(0, 1).ToUpper();
+                customLijst.Id = lijst.id.ToString();
                 customLijstLijst.Add(customLijst);
             }
 
             lstBoodschappenlijsten.ItemsSource = customLijstLijst;
             lstBoodschappenlijsten.Items.Refresh();
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -73,8 +82,30 @@ namespace Colruyt_WPF
             helperClass.DataPasses(this, new LijstBewerkenToevoegen(gebruiker), gebruiker);
         }
 
+        private void lijstBewerken_Click(object sender, RoutedEventArgs e)
+        {
 
-        private static Color HexToColor(string hexColor)
+        }
+
+        private void lijstVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+            int id = int.Parse(((Button)sender).Tag.ToString());
+            Lijst lijst = DatabaseOperations.OphalenLijst(id);
+            if (DatabaseOperations.VerwijderenLijstje(lijst) == 1)
+            {
+                LoadLijsten(gebruiker);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("verwijder " + id);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("verwijder " + id + " mislukt");
+            }
+        }
+
+
+        private static System.Drawing.Color HexToColor(string hexColor)
         {
             //Remove # if present
             if (hexColor.IndexOf('#') != -1)
@@ -105,20 +136,7 @@ namespace Colruyt_WPF
                 blue = byte.Parse(hexColor[2].ToString() + hexColor[2].ToString(), NumberStyles.AllowHexSpecifier);
             }
 
-            return Color.FromRgb(red, green, blue);
-        }
-        private SolidColorBrush invertColor(string value)
-        {
-            if (value != null)
-            {
-                Color ColorToConvert = HexToColor(value);
-                Color invertedColor = Color.FromRgb((byte)~ColorToConvert.R, (byte)~ColorToConvert.G, (byte)~ColorToConvert.B);
-                return new SolidColorBrush(invertedColor);
-            }
-            else
-            {
-                return new SolidColorBrush(Color.FromRgb(0, 0, 0));
-            }
+            return System.Drawing.Color.FromArgb(1, red, green, blue);
         }
     }
 }

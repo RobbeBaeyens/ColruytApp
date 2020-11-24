@@ -9,9 +9,10 @@ namespace Colruyt_DAL
 {
     public class CustomLijst
     {
+        public string Id { get; set; }
         public Lijst Lijst { get; set; }
         public SolidColorBrush HexValue { get; set; }
-        public SolidColorBrush InvertedHexValue { get; set; }
-        public string ColorInitial { get; set; }
+        public SolidColorBrush ColorInitial { get; set; }
+        public string Initial { get; set; }
     }
 }

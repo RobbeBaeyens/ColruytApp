@@ -64,7 +64,7 @@ namespace Colruyt_DAL
 
         //_____LIJST_____\\
 
-        //Ophalen lijstje
+        //Ophalen lijstjes
         public static List<Lijst> OphalenLijstjes(Login gebruiker)
         {
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
@@ -74,6 +74,17 @@ namespace Colruyt_DAL
                     .Where(x => x.Login.id == gebruiker.id)
                     .OrderBy(x => x.datumAangemaakt);
                 return query.ToList();
+            }
+        }
+        
+        //Ophalen lijst
+        public static Lijst OphalenLijst(int id)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Lijst
+                    .Where(x => x.id == id);
+                return query.SingleOrDefault();
             }
         }
 
@@ -98,13 +109,13 @@ namespace Colruyt_DAL
         }
 
         //Verwijderen lijstje
-        public static int VerwijderenLijstje(Lijst lijstje)
+        public static int VerwijderenLijstje(Lijst lijst)
         {
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Lijst
                     .Include(x => x.Lijst_Product)
-                    .Where(x => x.id == lijstje.id)
+                    .Where(x => x.id == lijst.id)
                     .SingleOrDefault();
                 return entities.SaveChanges();
             }

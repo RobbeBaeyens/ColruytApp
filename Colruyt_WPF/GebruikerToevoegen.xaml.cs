@@ -98,7 +98,7 @@ namespace Colruyt_WPF
                 }
                 else
                 {
-                    lblWachtwoordAlert.Content = "❌ Wachtwoord moet minstens 5 tekens bevatten!";
+                    lblWachtwoordAlert.Content = "❌ Wachtwoord moet minstens 4 tekens bevatten!";
                     lblWachtwoordAlert.Foreground = error;
                 }
             }
