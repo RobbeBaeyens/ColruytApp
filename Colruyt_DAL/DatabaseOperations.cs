@@ -117,6 +117,11 @@ namespace Colruyt_DAL
                     .Include(x => x.Lijst_Product)
                     .Where(x => x.id == lijst.id)
                     .SingleOrDefault();
+                foreach(Lijst_Product product in query.Lijst_Product)
+                {
+                    entities.Lijst_Product.Remove(product);
+                }
+                entities.Lijst.Remove(query);
                 return entities.SaveChanges();
             }
         }
@@ -149,13 +154,15 @@ namespace Colruyt_DAL
         
         //_____PRODUCT_____\\
 
-        //Producten ophalen uit winkel
-        public static List<Product> ProductenOphalen()
+        //Producten ophalen uit winkel volgens categorie
+        public static List<Product> ProductenOphalen(Categorie categorie)
         {
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
                 var query = entities.Product
-                    .OrderBy(x => x.Categorie);
+                    .Include(x => x.Categorie)
+                    .Where(x => x.categorieId == categorie.id)
+                    .OrderBy(x => x.Categorie.id);
                 return query.ToList();
             }
         }

@@ -44,6 +44,8 @@ namespace Colruyt_WPF
 
         private void LoadLijsten(Login gebruiker)
         {
+            lstBoodschappenlijsten.ItemsSource = null;
+            customLijstLijst.Clear();
             lstBoodschappenlijsten.Items.Clear();
             lstBoodschappenlijsten.Items.Refresh();
 
@@ -84,23 +86,41 @@ namespace Colruyt_WPF
 
         private void lijstBewerken_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                int id = int.Parse(((Button)sender).Tag.ToString());
+                Lijst lijst = DatabaseOperations.OphalenLijst(id);
+                helperClass.DataPasses(this, new LijstBewerkenToevoegen(gebruiker, lijst), gebruiker);
+            }
+            catch(Exception error)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(error);
+            }
         }
 
         private void lijstVerwijderen_Click(object sender, RoutedEventArgs e)
         {
-            int id = int.Parse(((Button)sender).Tag.ToString());
-            Lijst lijst = DatabaseOperations.OphalenLijst(id);
-            if (DatabaseOperations.VerwijderenLijstje(lijst) == 1)
+            try
             {
-                LoadLijsten(gebruiker);
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("verwijder " + id);
+                int id = int.Parse(((Button)sender).Tag.ToString());
+                Lijst lijst = DatabaseOperations.OphalenLijst(id);
+                if (DatabaseOperations.VerwijderenLijstje(lijst) == 1)
+                {
+                    LoadLijsten(gebruiker);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("verwijder " + id);
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("verwijder " + id + " mislukt");
+                }
             }
-            else
+            catch (Exception error)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("verwijder " + id + " mislukt");
+                Console.WriteLine(error);
             }
         }
 

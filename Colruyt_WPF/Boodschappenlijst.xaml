@@ -54,6 +54,6 @@
           
         </ListBox>
         <Label x:Name="lblTotaalprijs" Grid.Row="2" FontSize="20">Totaalprijs : € 0.00 </Label>
-        <Button x:Name="btnNieuweBoodschappenlijst" Content="Product toevoegen aan mijn lijstje" Style="{StaticResource OrangeButton}" Grid.Row="3" Width="700" Click="btnNieuweBoodschappenlijst_Click"/>
+        <Button x:Name="btnNieuwProduct" Content="Product toevoegen aan mijn lijstje" Style="{StaticResource OrangeButton}" Grid.Row="3" Width="700" Click="btnNieuwProduct_Click"/>
     </Grid>
 </Window>

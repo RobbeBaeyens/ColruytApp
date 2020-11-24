@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Colruyt_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,19 +20,30 @@ namespace Colruyt_WPF
     /// </summary>
     public partial class Boodschappenlijst : Window
     {
+        Helper helperclass = new Helper();
+        Login gebruiker = null;
+        Lijst lijst = null;
+
         public Boodschappenlijst()
         {
             InitializeComponent();
         }
+        public Boodschappenlijst(Login gebruiker, Lijst lijst)
+        {
+            InitializeComponent();
+
+            this.gebruiker = gebruiker;
+            this.lijst = lijst;
+        }
 
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
-
+            helperclass.DataPasses(this, new OverzichtBoodschappenlijsten(gebruiker), gebruiker);
         }
 
-        private void btnNieuweBoodschappenlijst_Click(object sender, RoutedEventArgs e)
+        private void btnNieuwProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            //helperclass.DataPasses(this, new CategorieScherm(gebruiker, lijst), gebruiker);
         }
     }
 }
