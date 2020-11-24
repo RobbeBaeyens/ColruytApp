@@ -124,7 +124,6 @@ namespace Colruyt_WPF
             }
         }
 
-
         private static System.Drawing.Color HexToColor(string hexColor)
         {
             //Remove # if present
@@ -157,6 +156,37 @@ namespace Colruyt_WPF
             }
 
             return System.Drawing.Color.FromArgb(1, red, green, blue);
+        }
+
+        private void LijstSelect_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(((Button)sender).Tag.ToString());
+                Lijst lijst = DatabaseOperations.OphalenLijst(id);
+                helperClass.DataPasses(this, new Boodschappenlijst(gebruiker, lijst), gebruiker);
+            }
+            catch (Exception error)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(error);
+            }
+        }
+
+        private void lstBoodschappenlijsten_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                int index = lstBoodschappenlijsten.SelectedIndex;
+                int lijstId = customLijstLijst[index].Lijst.id;
+                Lijst lijst = DatabaseOperations.OphalenLijst(lijstId);
+                helperClass.DataPasses(this, new Boodschappenlijst(gebruiker, lijst), gebruiker);
+            }
+            catch (Exception error)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(error);
+            }
         }
     }
 }
