@@ -89,6 +89,7 @@
       <DependentUpon>BoodschappenLijstjeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RememberMeData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

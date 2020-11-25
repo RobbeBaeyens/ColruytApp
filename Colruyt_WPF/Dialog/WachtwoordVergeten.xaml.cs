@@ -22,6 +22,8 @@ namespace Colruyt_WPF.Dialog
     {
         Helper helperClass = new Helper();
         List<Login> gebruikers;
+        Login gebruiker = null;
+        Login gebruikerAangepast = null;
 
         PasswordHasher secure = new PasswordHasher();
 
@@ -52,7 +54,9 @@ namespace Colruyt_WPF.Dialog
             }
             catch(Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex);
+                Console.ForegroundColor = ConsoleColor.White;
                 this.Close();
             }
         }
@@ -66,6 +70,9 @@ namespace Colruyt_WPF.Dialog
                 {
                     if (secure.VerifyHashedPassword(gebruiker.email, email) == PasswordHasher.PasswordVerificationResult.Success)
                     {
+                        this.gebruiker = gebruiker;
+                        this.gebruikerAangepast = gebruiker;
+
                         groupEmail.Visibility = Visibility.Collapsed;
                         groupHerstelcode.Visibility = Visibility.Visible;
                         txtRestoreCode.Focus();
@@ -75,7 +82,7 @@ namespace Colruyt_WPF.Dialog
                         this.Height = 320;
                         timeCodeCreated = DateTime.Now;
                         changeWWCode = generateID(1, email);
-                        MessageBoxResult result = MessageBox.Show($"Code:\n{changeWWCode}\nSent to:\n{email}\n\nThis code is invalid after 5 minutes!\nDo you want to copy the code to clipboard?", "Email placeholder example", MessageBoxButton.YesNo, MessageBoxImage.Information, MessageBoxResult.No);
+                        MessageBoxResult result = MessageBox.Show($"Code:\n{changeWWCode}\nSent to:\n{email}\n\nThis code is invalid after 5 minutes!\nDo you want to copy the code to clipboard?", "Email placeholder example", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
                         if (result == MessageBoxResult.Yes)
                             Clipboard.SetText(changeWWCode);
                     }
@@ -119,19 +126,90 @@ namespace Colruyt_WPF.Dialog
             }
             else
             {
-                lblCodeAlert.Text = "❌ Herstelcode incorrect!";
+                lblCodeAlert.Text = "❌ Herstelcode ongeldig!";
                 lblCodeAlert.Foreground = error;
             }
         }
 
         private void btnWijzigWw_Click(object sender, RoutedEventArgs e)
         {
-
+            if (checkForm(true))
+            {
+                try
+                {
+                    if (DatabaseOperations.AanpassenGebruiker(gebruikerAangepast) == 1)
+                    {
+                        MessageBox.Show("Wachtwoord succesvol gewijzigd!", "Wachtwoord vergeten", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Er is een fout opgetreden bij het wijzigen van je wachtwoord, probeer het opnieuw!", "Wachtwoord vergeten", MessageBoxButton.OK, MessageBoxImage.Error);
+                        this.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(ex);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    this.Close();
+                }
+            }
         }
 
         private void ww_PasswordChanged(object sender, RoutedEventArgs e)
         {
+            checkForm(false);
+        }
 
+        private bool checkForm(bool pasAan)
+        {
+            string ww1 = txtww1.Password;
+            string ww2 = txtww2.Password;
+            bool wwVereisten = false;
+
+            if (!string.IsNullOrWhiteSpace(ww1))
+            {
+                if (ww1.Length >= 4)
+                {
+                    if (ww1 == ww2)
+                    {
+                        if (secure.VerifyHashedPassword(gebruiker.wachtwoord, ww1) != PasswordHasher.PasswordVerificationResult.Success)
+                        {
+                            if (pasAan)
+                            {
+                                gebruikerAangepast.wachtwoord = secure.HashPassword(ww1);
+                            }
+
+                            lblWWAlert.Content = "✔ Nieuw wachtwoord geldig!";
+                            lblWWAlert.Foreground = correct;
+                            wwVereisten = true;
+                        }
+                        else
+                        {
+                            lblWWAlert.Content = "❌ Dit is je huidige wachtwoord!";
+                            lblWWAlert.Foreground = error;
+                        }
+                    }
+                    else
+                    {
+                        lblWWAlert.Content = "❌ Wachtwoorden komen niet overeen!";
+                        lblWWAlert.Foreground = error;
+                    }
+                }
+                else
+                {
+                    lblWWAlert.Content = "❌ Wachtwoord moet minstens 4 tekens bevatten!";
+                    lblWWAlert.Foreground = error;
+                }
+            }
+            else
+            {
+                lblWWAlert.Content = "❌ Wachtwoord mag niet leeg zijn!";
+                lblWWAlert.Foreground = error;
+            }
+            return wwVereisten;
         }
 
         public string generateID(int generatorType, string sourceUrl = "") // 0: Guid(long)  |  1: GuidWithSourceHash(long)  |  else: timeTickHex(short)
