@@ -73,9 +73,20 @@ namespace Colruyt_WPF
             txtLijstnaam.Focus();
 
             CreateColorPicker();
+        }
 
-            btnLijstAanmaken.Visibility = Visibility.Collapsed;
-            btnLijstBewerken.Visibility = Visibility.Visible;
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (bewerken)
+            {
+                btnLijstAanmaken.Visibility = Visibility.Collapsed;
+                btnLijstBewerken.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnLijstAanmaken.Visibility = Visibility.Visible;
+                btnLijstBewerken.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void CreateColorPicker()
@@ -159,19 +170,27 @@ namespace Colruyt_WPF
             {
                 if (!string.IsNullOrWhiteSpace(lijstnaam) && lijstnaam.Length >= 3)
                 {
-                    Lijst updateLijst = DatabaseOperations.OphalenLijst(lijst.id);
-                    updateLijst.kleurHex = hexValue;
-                    updateLijst.naam = lijstnaam;
-                    if (DatabaseOperations.AanpassenLijstje(updateLijst) == 1)
+                    try
                     {
-                        lblFormAlert.Content = $"✔ {updateLijst.naam} geupdate!";
-                        lblFormAlert.Foreground = correct;
-                        MessageBox.Show("Succesvol boodschappenlijst geupdate", "Boodschappenlijst", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
-                        btnTerug_Click(sender, e);
+                        Lijst updateLijst = DatabaseOperations.OphalenLijst(lijst.id);
+                        updateLijst.kleurHex = hexValue;
+                        updateLijst.naam = lijstnaam;
+                        if (DatabaseOperations.AanpassenLijstje(updateLijst) == 1)
+                        {
+                            lblFormAlert.Content = $"✔ {updateLijst.naam} geupdate!";
+                            lblFormAlert.Foreground = correct;
+                            MessageBox.Show("Succesvol boodschappenlijst geupdate", "Boodschappenlijst", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
+                            btnTerug_Click(sender, e);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Fout bij boodschappenlijst updaten, probeer opnieuw!", "Boodschappenlijst", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
+                        }
                     }
-                    else
+                    catch(Exception ex)
                     {
-                        MessageBox.Show("Fout bij boodschappenlijst updaten, probeer opnieuw!", "Boodschappenlijst", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.None);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(ex);
                     }
 
                 }
