@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Colruyt boodschappenlijsten" Width="1200" Height="850" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Colruyt boodschappenlijsten" Width="1200" Height="850" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -21,7 +21,7 @@
 
         <StackPanel Grid.Row="1"  Margin="150 50">
             <Label Content="Geef een naam aan je boodschappenlijstje" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
-            <TextBox x:Name="txtLijstnaam" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10"/>
+            <TextBox x:Name="txtLijstnaam" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10" KeyDown="txt_KeyDown"/>
             <Label Content="Kies een kleur voor je boodschappenlijstje " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
             <!--<ListBox x:Name="lstColors" Height="300" Width="500" BorderThickness="0" Margin="0 0 0 30" HorizontalContentAlignment="Center">
                 <ListBox.ItemTemplate>
@@ -45,8 +45,8 @@
             <ContentControl Content="{Binding TheImage}" MouseDown="ContentControl_MouseDown" Width="300" Height="300" Margin="0 0 0 20" BorderThickness="0" BorderBrush="Transparent"/>
             <Rectangle Width="70" Height="50" Margin="0 0 0 20" Fill="#FFFFFF" x:Name="SelectedColor"/>
 
-            <Button Content="Boodschappenijst aanmaken" Style="{DynamicResource OrangeButton}"  x:Name="btnLijstAanmaken" Grid.Column="1" Margin="10 0 0 0" Click="btnLijstAanmaken_Click"/>
-            <Button Content="Boodschappenijst bewerken" Style="{DynamicResource OrangeButton}"  x:Name="btnLijstBewerken" Grid.Column="1" Margin="10 0 0 0" Click="btnLijstBewerken_Click"/>
+            <Button Content="Boodschappenlijst aanmaken" Style="{DynamicResource OrangeButton}"  x:Name="btnLijstAanmaken" Grid.Column="1" Margin="10 0 0 0" Click="btnLijstAanmaken_Click"/>
+            <Button Content="Boodschappenlijst bewerken" Style="{DynamicResource OrangeButton}"  x:Name="btnLijstBewerken" Grid.Column="1" Margin="10 0 0 0" Click="btnLijstBewerken_Click"/>
             <Label x:Name="lblFormAlert" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center" Foreground="Red"/>
         </StackPanel>
         <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="1816,409,-422,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
