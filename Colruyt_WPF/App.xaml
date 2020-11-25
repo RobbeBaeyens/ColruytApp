@@ -85,6 +85,12 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Height" Value="40"/>
         </Style>
+        
+        <Style TargetType="TextBlock" x:Key="TextblockStyle">
+            <Setter Property="Foreground" Value="{StaticResource Dark}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
 
         <Style TargetType="TextBox" x:Key="OrangeTextBox">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -190,6 +196,79 @@
         <Style x:Key="CatButtonSizeStyle" TargetType="{x:Type Button}">
             <Setter Property="Height" Value="110"/>
             <Setter Property="Width" Value="145"/>
+        </Style>
+
+        <Style x:Key="Hyperlink" TargetType="{x:Type Hyperlink}">
+            <Setter Property="Foreground" Value="{StaticResource Success}" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="{StaticResource Primary}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="Checkbox" TargetType="{x:Type CheckBox}">
+            <Setter Property="Background" Value="{StaticResource Light}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <BulletDecorator Background="Transparent">
+                            <BulletDecorator.Bullet>
+                                <Border x:Name="Border"  
+              Width="13" 
+              Height="13" 
+              CornerRadius="0" 
+              Background="{StaticResource Light}"
+              BorderThickness="1"
+              BorderBrush="{StaticResource Dark}">
+                                    <Path 
+                Width="7" Height="7" 
+                x:Name="CheckMark"
+                SnapsToDevicePixels="False" 
+                Stroke="{StaticResource Dark}"
+                StrokeThickness="2"
+                Data="M 0 0 L 7 7 M 0 7 L 7 0" />
+                                </Border>
+                            </BulletDecorator.Bullet>
+                            <ContentPresenter Margin="4,0,0,0"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            RecognizesAccessKey="True"/>
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="false">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource LighterPrimary}" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="{x:Null}">
+                                <Setter TargetName="CheckMark" Property="Data" Value="M 0 7 L 7 0" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource Secondary}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Dark}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource Primary}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Dark}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource LighterPrimary}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Dark}" />
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource LighterPrimary}" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
     </Application.Resources>

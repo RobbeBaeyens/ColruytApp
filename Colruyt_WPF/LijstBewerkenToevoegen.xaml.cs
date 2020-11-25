@@ -6,6 +6,7 @@ using System.Windows.Media.Imaging;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using Colruyt_DAL;
+using System.Windows.Input;
 
 namespace Colruyt_WPF
 {
@@ -16,6 +17,8 @@ namespace Colruyt_WPF
     {
         private Image _theImage;
         private string hexValue = "#FFFFFF";
+
+        private bool bewerken = false;
 
         SolidColorBrush error = new SolidColorBrush(Colors.Red);
         SolidColorBrush correct = new SolidColorBrush(Colors.Green);
@@ -39,35 +42,40 @@ namespace Colruyt_WPF
 
         public LijstBewerkenToevoegen()
         {
-            InitializeComponent();
-            CreateColorPicker();
-            btnLijstAanmaken.Visibility = Visibility.Visible;
-            btnLijstBewerken.Visibility = Visibility.Collapsed;
+            init();
         }
 
         public LijstBewerkenToevoegen(Login gebruiker)
         {
-            InitializeComponent();
-            CreateColorPicker();
-            btnLijstAanmaken.Visibility = Visibility.Visible;
-            btnLijstBewerken.Visibility = Visibility.Collapsed;
+            init();
 
             this.gebruiker = gebruiker;
         }
 
         public LijstBewerkenToevoegen(Login gebruiker, Lijst lijst)
         {
-            InitializeComponent();
-            CreateColorPicker();
-            btnLijstAanmaken.Visibility = Visibility.Collapsed;
-            btnLijstBewerken.Visibility = Visibility.Visible;
+            init();
 
             this.gebruiker = gebruiker;
             this.lijst = lijst;
 
+            bewerken = true;
+
             txtLijstnaam.Text = lijst.naam;
             hexValue = lijst.kleurHex;
             SelectedColor.Fill = (SolidColorBrush)(new BrushConverter().ConvertFrom(hexValue));
+        }
+
+        public void init()
+        {
+            InitializeComponent();
+
+            txtLijstnaam.Focus();
+
+            CreateColorPicker();
+
+            btnLijstAanmaken.Visibility = Visibility.Collapsed;
+            btnLijstBewerken.Visibility = Visibility.Visible;
         }
 
         private void CreateColorPicker()
@@ -171,6 +179,28 @@ namespace Colruyt_WPF
                 {
                     lblFormAlert.Content = "❌ Vul een naam in voor je boodschappenlijst!";
                     lblFormAlert.Foreground = error;
+                }
+            }
+        }
+
+        private bool hitEnter(KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                return true;
+            return false;
+        }
+
+        private void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (hitEnter(e))
+            {
+                if (bewerken)
+                {
+                    btnLijstBewerken_Click(sender, e);
+                }
+                else
+                {
+                    btnLijstAanmaken_Click(sender, e);
                 }
             }
         }

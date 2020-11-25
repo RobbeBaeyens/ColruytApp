@@ -27,9 +27,12 @@ namespace Colruyt_WPF
         SolidColorBrush error = new SolidColorBrush(Colors.Red);
         SolidColorBrush correct = new SolidColorBrush(Colors.Green);
 
+        Helper helperClass = new Helper();
+
         public GebruikerToevoegen()
         {
             InitializeComponent();
+            txtGebruikersnaam.Focus();
             lblWachtwoordAlert.Content = "❌ Wachtwoord mag niet leeg zijn!";
         }
 
@@ -126,7 +129,7 @@ namespace Colruyt_WPF
                 {
                     if (gebruikersNaam.Length >= 3)
                     {
-                        if (IsValidEmailAddress(email))
+                        if (helperClass.IsValidEmailAddress(email))
                         {
                             if (wwVereisten)
                             {
@@ -162,10 +165,17 @@ namespace Colruyt_WPF
             return false;
         }
 
-        public bool IsValidEmailAddress(string s)
+        private bool hitEnter(KeyEventArgs e)
         {
-            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
-            return regex.IsMatch(s);
+            if (e.Key == Key.Enter)
+                return true;
+            return false;
+        }
+
+        private void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (hitEnter(e))
+                btnRegister_Click(sender, e);
         }
     }
 }

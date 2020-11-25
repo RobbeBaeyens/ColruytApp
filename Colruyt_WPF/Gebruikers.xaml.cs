@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Colruyt_DAL;
+using Colruyt_WPF.Dialog;
 
 namespace Colruyt_WPF
 {
@@ -31,6 +32,7 @@ namespace Colruyt_WPF
         public Gebruikers()
         {
             InitializeComponent();
+            txtEmailadresLogin.Focus();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -109,6 +111,28 @@ namespace Colruyt_WPF
         {
             lblLoginWarnings.Foreground = kleur;
             lblLoginWarnings.Content = zin;
+        }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new WachtwoordVergeten();
+            if (dialog.ShowDialog() == true)
+            {
+                MessageBox.Show("You said: " + dialog.ResponseText);
+            }
+        }
+
+        private bool hitEnter(KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                return true;
+            return false;
+        }
+
+        private void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (hitEnter(e))
+                btnLogin_Click(sender, e);
         }
     }
 }
