@@ -16,11 +16,27 @@
         <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Grid.Column="1" HorizontalAlignment="Center" Width="180"/>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
 
-        <StackPanel Grid.Row="1"  Margin="100">
+        <StackPanel Grid.Row="1"  Margin="100" VerticalAlignment="Center">
             <Label Content="Emailadres " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
-            <TextBox x:Name="txtEmailadresLogin" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10" TextChanged="txtGebruikersnaamLogin_TextChanged"/>
+            <TextBox x:Name="txtEmailadresLogin" Style="{DynamicResource OrangeTextBox}" Margin="0 0 0 10" TextChanged="txtGebruikersnaamLogin_TextChanged" KeyDown="txt_KeyDown"/>
             <Label Content="Wachtwoord " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
-            <PasswordBox x:Name="pswWachtwoordLogin" Style="{DynamicResource OrangePasswordBox}" PasswordChar="◈" Margin="0 0 0 60"/>
+            <PasswordBox x:Name="pswWachtwoordLogin" Style="{DynamicResource OrangePasswordBox}" PasswordChar="◈" KeyDown="txt_KeyDown"/>
+            <DockPanel Margin="40 10 40 40">
+                <CheckBox x:Name="cbxHerinner" VerticalAlignment="Center" Background="{StaticResource LighterPrimary}" Style="{StaticResource Checkbox}">
+                    <CheckBox.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1.9" ScaleY="2" />
+                            <SkewTransform AngleX="-30"/>
+                        </TransformGroup>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <Label Content="Mij herinneren" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Hyperlink Click="Hyperlink_Click" FontSize="20" FontWeight="Bold" Style="{StaticResource Hyperlink}">
+                        <TextBlock Text="Wachtwoord vergeten?"/>
+                    </Hyperlink>
+                </TextBlock>
+            </DockPanel>
 
             <Grid Margin="0 0 0 50">
                 <Grid.ColumnDefinitions>

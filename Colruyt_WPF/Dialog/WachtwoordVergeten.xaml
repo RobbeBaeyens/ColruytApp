@@ -1,0 +1,40 @@
+﻿<Window x:Class="Colruyt_WPF.Dialog.WachtwoordVergeten"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Colruyt_WPF.Dialog"
+        mc:Ignorable="d"
+        Title="Wachtwoord vergeten" Height="1000" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+    <Grid>
+        <StackPanel Margin="20" VerticalAlignment="Center">
+            <StackPanel x:Name="groupEmail">
+                <Label Content="Emailadres " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="txtEmail" Style="{DynamicResource OrangeTextBox}" KeyDown="txtEmail_KeyDown"/>
+                <Button Content="Mail me de herstelcode" Style="{DynamicResource OrangeButton}" x:Name="btnGetWwRestoreCode" Click="btnGetWwRestoreCode_Click"/>
+                <Label x:Name="lblEmailAlert" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center" Foreground="Red"/>
+            </StackPanel>
+
+            <StackPanel x:Name="groupHerstelcode">
+                <Label Content="Herstelcode " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="txtRestoreCode" Style="{DynamicResource OrangeTextBox}" KeyDown="txtRestoreCode_KeyDown"/>
+                <DockPanel>
+                    <Button Style="{DynamicResource OrangeButton}" x:Name="btnBack" Click="btnBack_Click" Width="100" Margin="0 0 10 0">
+                        <Image Source="/images/icon_back.png" Margin="10"/>
+                    </Button>
+                    <Button Content="Check code" Style="{DynamicResource OrangeButton}" x:Name="btnCheckCode" Click="btnCheckCode_Click"/>
+                </DockPanel>
+                <TextBlock x:Name="lblCodeAlert" Style="{DynamicResource TextblockStyle}" HorizontalAlignment="Center" Foreground="Red" MaxWidth="300" TextWrapping="WrapWithOverflow" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel x:Name="groupHerstelww">
+                <Label Content="Nieuw wachtwoord" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+                <PasswordBox x:Name="txtww1" Style="{DynamicResource OrangePasswordBox}" PasswordChar="◈" PasswordChanged="ww_PasswordChanged" KeyDown="txtww_KeyDown"/>
+                <Label Content="Herhaal nieuw wachtwoord" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+                <PasswordBox x:Name="txtww2" Style="{DynamicResource OrangePasswordBox}" PasswordChar="◈" PasswordChanged="ww_PasswordChanged" KeyDown="txtww_KeyDown"/>
+                <Button Content="Wijzig wachtwoord" Style="{DynamicResource OrangeButton}" x:Name="btnWijzigWw" Click="btnWijzigWw_Click"/>
+                <Label x:Name="lblWWAlert" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center" Foreground="Red"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
