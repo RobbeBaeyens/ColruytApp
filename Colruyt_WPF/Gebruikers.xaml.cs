@@ -67,6 +67,9 @@ namespace Colruyt_WPF
             bool checkEmail = string.IsNullOrWhiteSpace(email);
             bool checkWachtwoord = string.IsNullOrWhiteSpace(wachtwoord);
 
+
+            GebruikerLijst = DatabaseOperations.OphalenGebruikers();
+
             //Warnings en gebruikersMAilLijst leegmaken
             lblLoginWarnings.Content = "";
             gebruikersMailLijst.Clear();
