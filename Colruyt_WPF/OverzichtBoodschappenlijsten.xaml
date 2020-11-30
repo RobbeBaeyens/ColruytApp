@@ -36,7 +36,7 @@
                                     <Border Width="60" Height="60" Background="{Binding HexValue}" Margin="10 0" x:Name="brdrcolor" Grid.Column="0" BorderThickness="0" CornerRadius="60">
                                         <Label x:Name="lblColorInitial" Content="{Binding Initial}" Foreground="{Binding ColorInitial}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold"/>
                                     </Border>
-                                        <Label Width="640" Height="60" Margin="5" FontSize="40" Grid.Column="1" Content="{Binding Lijst.naam}"/>
+                                        <Label Width="640" Height="60" Margin="5" FontSize="36" VerticalAlignment="Center" Grid.Column="1" Content="{Binding Lijst.naam}"/>
                                     </DockPanel>
                                 </Button>
                                 <Button x:Name="lijstBewerken" Tag="{Binding Id}" Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}" Grid.Column="1" Click="lijstBewerken_Click">

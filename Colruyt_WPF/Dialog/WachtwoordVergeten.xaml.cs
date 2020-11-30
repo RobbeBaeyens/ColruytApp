@@ -79,7 +79,7 @@ namespace Colruyt_WPF.Dialog
                         groupHerstelww.Visibility = Visibility.Collapsed;
                         lblCodeAlert.Text = $"❗ Email met code verzonden naar {email}!";
                         lblCodeAlert.Foreground = info;
-                        this.Height = 320;
+                        this.Height = 350;
                         timeCodeCreated = DateTime.Now;
                         changeWWCode = generateID(1, email);
                         MessageBoxResult result = MessageBox.Show($"Code:\n{changeWWCode}\nSent to:\n{email}\n\nThis code is invalid after 5 minutes!\nDo you want to copy the code to clipboard?", "Email placeholder example", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
