@@ -177,6 +177,21 @@
     <Resource Include="images\alert.png" />
     <Resource Include="images\check.png" />
     <Resource Include="images\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icons8-checked-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon-edit.png" />
+    <Resource Include="images\icon-delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\colorpicker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon_back.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="images\cat_1.jpg" />
     <Resource Include="images\cat_10.jpg" />
     <Resource Include="images\cat_11.jpg" />
@@ -195,19 +210,6 @@
     <Resource Include="images\cat_7.jpg" />
     <Resource Include="images\cat_8.jpg" />
     <Resource Include="images\cat_9.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\icons8-checked-48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\icon-edit.png" />
-    <Resource Include="images\icon-delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\colorpicker.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\icon_back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
