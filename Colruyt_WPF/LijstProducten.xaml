@@ -29,13 +29,20 @@
             <Button x:Name="btnTerug"  Click="btnTerug_Click" HorizontalAlignment="Left" Foreground="{StaticResource Danger}" Height="50" Width="50" Background="Transparent" BorderThickness="0" Margin="10">
                 <Image Source="images/cross.png"/>
             </Button>
-            <Image x:Name="btnBevestig" Source="images/icons8-checked-48.png" Height="30" Grid.Column="3"/>
             <Label x:Name="lblNaamCategorie" Content="" Grid.Row="1" Grid.ColumnSpan="5" FontSize="30"/>
 
             <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Stroke="Black" StrokeThickness="2"/>
 
-            <Button x:Name="btnNieuwProduct" BorderBrush="{StaticResource Dark}" Foreground="{StaticResource Light}" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.ColumnSpan="4" Height="50" Margin="111,24.2,155.2,25.8" VerticalContentAlignment="center"
-            FontSize="27" Content="Nieuw product toevoegen">
+            <Button x:Name="btnNieuwProduct" BorderBrush="{StaticResource Dark}" Foreground="{StaticResource Light}" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.ColumnSpan="2" Height="50" Margin="111,24.2,155.2,25.8" VerticalContentAlignment="center"
+            FontSize="27" Content="Nieuw product aanmaken" Click="btnNieuwProduct_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btnProductToevoegen" BorderBrush="{StaticResource Dark}" Foreground="{StaticResource Light}" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="50" Margin="111,24.2,155.2,25.8" VerticalContentAlignment="center"
+            FontSize="27" Content="Selectie toevoegen" Click="btnProductToevoegen_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -43,17 +50,19 @@
                 </Button.Resources>
             </Button>
 
-            <ListBox x:Name="lstProductenLijst" Grid.Row="2" Grid.ColumnSpan="4" HorizontalAlignment="Center">
+            <ListBox x:Name="lstProductenLijst" Grid.Row="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" SelectionChanged="lstProductenLijst_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <ListBoxItem>
-                            <Border BorderBrush="{StaticResource Dark}" BorderThickness="5" Background="White" Width="700" CornerRadius="10">
-                                <DockPanel>
-                                    <Label x:Name="lblNaamLijst" Content="{Binding Afdruk}" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600"/>
-                                    <Button x:Name="btnVerwijderProduct" Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}">
-                                        <Image Width="30" Height="30" Source="images/icon-delete.png"/>
-                                    </Button>
-                                </DockPanel>
+                            <Border BorderBrush="{StaticResource Dark}" BorderThickness="5" Background="White" Width="720" CornerRadius="10">
+                                <ToggleButton x:Name="tgbSelecteerProduct" Tag="{Binding id}" Checked="tgbSelecteerProduct_Checked">
+                                    <DockPanel>
+                                        <Label x:Name="lblNaamLijst" Content="{Binding naam}" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600"/>
+                                        <Button x:Name="btnVerwijderProduct" Tag="{Binding id}" Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}" Click="btnVerwijderProduct_Click">
+                                            <Image Width="30" Height="30" Source="images/icon-delete.png"/>
+                                        </Button>
+                                    </DockPanel>
+                                </ToggleButton>
                             </Border>
                         </ListBoxItem>
                     </DataTemplate>

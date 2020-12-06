@@ -23,6 +23,16 @@ namespace Colruyt_WPF
         Helper helperclass = new Helper();
         Login gebruiker = null;
         Lijst lijst = null;
+        List<Lijst_Product> productenInBoodschappenLijst = new List<Lijst_Product>();
+        List<Product> productenInWinkel = new List<Product>();
+        Product product = new Product();
+
+        decimal? TotaalPrijs;
+        CustomProduct customproduct;
+        List<CustomProduct> productDisplayLijst;
+
+
+
 
         public Boodschappenlijst()
         {
@@ -36,6 +46,11 @@ namespace Colruyt_WPF
             this.lijst = lijst;
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            RefreshList();
+        }
+
         private void btnTerug_Click(object sender, RoutedEventArgs e)
         {
             helperclass.DataPasses(this, new OverzichtBoodschappenlijsten(gebruiker), gebruiker);
@@ -45,5 +60,62 @@ namespace Colruyt_WPF
         {
             helperclass.DataPasses(this, new CategorieScherm(gebruiker, lijst), gebruiker);
         }
+
+        private void btnProductVerwijderen_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            int id = int.Parse(button.Tag.ToString());
+            Lijst_Product product = new Lijst_Product();
+            product.id = id;
+            DatabaseOperations.VerwijderenProductInLijst(product);
+            RefreshList();
+        }
+
+        public void RefreshList()
+        {
+            TotaalPrijs = 0;
+            productenInBoodschappenLijst = DatabaseOperations.ProductenOphalenOpLijst(lijst);
+            productenInWinkel = DatabaseOperations.ProductenOphalen();
+            productDisplayLijst = new List<CustomProduct>();
+
+            foreach (Lijst_Product pInLijst in productenInBoodschappenLijst)
+            {
+                foreach (Product pInWinkel in productenInWinkel)
+                {
+                    if (pInLijst.productId == pInWinkel.id)
+                    {
+                        customproduct = new CustomProduct();
+                        customproduct.Naam = pInWinkel.naam;
+                        customproduct.Id = pInLijst.id;
+                        customproduct.Prijs = pInWinkel.prijs;
+                        productDisplayLijst.Add(customproduct);
+                    }
+                }
+            }
+
+            foreach (CustomProduct CPprijs in productDisplayLijst)
+            {
+                TotaalPrijs += CPprijs.Prijs;
+
+                Console.WriteLine($"\n{CPprijs.Id}\n{CPprijs.Naam}\n");
+            }
+
+            lblTotaalprijs.Content = $"€ {TotaalPrijs}";
+
+            lstBoodschappenlijsten.ItemsSource = null;
+            lstBoodschappenlijsten.Items.Clear();
+            lstBoodschappenlijsten.ItemsSource = productDisplayLijst;
+            lstBoodschappenlijsten.Items.Refresh();
+        }
+
+        internal class CustomProduct
+        {
+            public Product Product { get; set; }
+            public string Naam { get; set; }
+            public int Id { get; set; }
+            public decimal? Prijs { get; set; }
+            public int Aantal { get; set; }
+        }
+
     }
 }

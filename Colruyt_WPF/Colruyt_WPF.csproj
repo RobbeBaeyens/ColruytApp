@@ -85,6 +85,9 @@
     <Compile Include="CategorieScherm.xaml.cs">
       <DependentUpon>CategorieScherm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialog\ProductToevoegen.xaml.cs">
+      <DependentUpon>ProductToevoegen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\WachtwoordVergeten.xaml.cs">
       <DependentUpon>WachtwoordVergeten.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CategorieScherm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\ProductToevoegen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

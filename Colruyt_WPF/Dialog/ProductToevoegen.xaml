@@ -1,0 +1,21 @@
+﻿<Window x:Class="Colruyt_WPF.Dialog.ProductToevoegen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Colruyt_WPF.Dialog"
+        mc:Ignorable="d"
+        Title="Product Toevoegen" Height="400" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+
+    <Grid>
+        <StackPanel>
+            <Label Content="Productnaam " Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="txtProductnaam" Style="{DynamicResource OrangeTextBox}"/>
+
+            <Label Content="Prijs " Style="{DynamicResource LabelStyle}" Margin="0 30 0 0" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="txtPrijs" Style="{DynamicResource OrangeTextBox}"/>
+
+            <Button Content="Voeg product toe" Style="{DynamicResource OrangeButton}" Margin="0 60 0 0" x:Name="btnWijzigWw" Click="btnWijzigWw_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
