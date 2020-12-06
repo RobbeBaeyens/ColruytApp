@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colruyt_WPF"
         mc:Ignorable="d"
-        Title="Boodschappenlijst" Height="850" Width="1200"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Boodschappenlijst" Height="850" Width="1200"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -20,12 +20,7 @@
         <Image x:Name="ImgLogo" Source="images/colruytlogo.jpg" Grid.Column="1" HorizontalAlignment="Center" Width="180"/>
         <Rectangle Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="5" Fill="Black" Height="2"/>
 
-        
-        
-        
-        
         <ListBox x:Name="lstBoodschappenlijsten" Grid.Row="1" HorizontalAlignment="Center" Background="Transparent" BorderThickness="0" MinWidth="700">
-         
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <ListBoxItem Margin="0 5">
@@ -36,23 +31,21 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
-                            
-                                    <Label Width="320" Height="60" Margin="5" FontSize="40" Grid.Column="0" Content="{Binding }"/>
-                                    <Label Width="320" Height="60" Margin="5" FontSize="40" Grid.Column="1" HorizontalContentAlignment="Right" Content="{Binding }"/>
 
-                                    <Button Width="60" Height="60" HorizontalAlignment="Right" Margin="5" Style="{StaticResource OrangeButton}" Grid.Column="2">
-                                        <Image Width="30" Height="30" Source="images/icon-delete.png"/>
-                                    </Button>
-                          
-                                
+                                <Label Width="320" Height="60" Margin="5" FontSize="40" Grid.Column="0" Content="{Binding Naam}"/>
+                                <Label Width="320" Height="60" Margin="5" FontSize="40" Grid.Column="1" HorizontalContentAlignment="Right" Content="{Binding Prijs}"/>
+
+                                <Button x:Name="btnProductVerwijderen" Tag="{Binding Id}" Width="60" Height="60" HorizontalAlignment="Right" Margin="5" Style="{StaticResource OrangeButton}" Grid.Column="2" Click="btnProductVerwijderen_Click">
+                                    <Image Width="30" Height="30" Source="images/icon-delete.png"/>
+                                </Button>
                             </Grid>
                         </Border>
                     </ListBoxItem>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-                 test
-          
+            test1
         </ListBox>
+        
         <Label x:Name="lblTotaalprijs" Grid.Row="2" FontSize="20">Totaalprijs : € 0.00 </Label>
         <Button x:Name="btnNieuwProduct" Content="Product toevoegen aan mijn lijstje" Style="{StaticResource OrangeButton}" Grid.Row="3" Width="700" Click="btnNieuwProduct_Click"/>
     </Grid>

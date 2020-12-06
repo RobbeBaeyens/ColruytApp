@@ -129,6 +129,17 @@ namespace Colruyt_DAL
 
         //____LIJST_PRODUCT_____\\
 
+        //Ophalen producten uit lijst
+        public static List<Lijst_Product> ProductenOphalenOpLijst(Lijst lijst)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Lijst_Product
+                    .Where(x => x.lijstId == lijst.id);
+                return query.ToList();
+            }
+        }
+
         //Toevoegen product in lijst
         public static int ToevoegenProductInLijst(Lijst_Product productInLijst)
         {
@@ -140,19 +151,28 @@ namespace Colruyt_DAL
         }
 
         //Verwijderen product in lijst
-        public static int VerwijderenProductInLijst(Lijst_Product productInLijst)
+        public static int VerwijderenProductInLijst(Lijst_Product product)
         {
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
-                var query = entities.Lijst_Product
-                    .Where(x => x.id == productInLijst.id)
-                    .SingleOrDefault();
+                entities.Entry(product).State = EntityState.Deleted;
                 return entities.SaveChanges();
             }
         }
 
 
         //_____PRODUCT_____\\
+
+        //Alle Producten ophalen uit winkel
+        public static List<Product> ProductenOphalen()
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Product
+                    .OrderBy(x => x.naam);
+                return query.ToList();
+            }
+        }
 
         //Producten ophalen uit winkel volgens categorie
         public static List<Product> ProductenOphalen(Categorie categorie)
@@ -164,6 +184,18 @@ namespace Colruyt_DAL
                     .Where(x => x.categorieId == categorie.id)
                     .OrderBy(x => x.Categorie.id);
                 return query.ToList();
+            }
+        }
+
+        //Product ophalen op id
+        public static Product ProductOphalenOpId(int id)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Product
+                    .Where(x => x.id == id)
+                    .SingleOrDefault();
+                return query;
             }
         }
 
@@ -192,9 +224,7 @@ namespace Colruyt_DAL
         {
             using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
             {
-                var query = entities.Product
-                    .Where(x => x.id == product.id)
-                    .SingleOrDefault();
+                entities.Entry(product).State = EntityState.Deleted;
                 return entities.SaveChanges();
             }
         }
