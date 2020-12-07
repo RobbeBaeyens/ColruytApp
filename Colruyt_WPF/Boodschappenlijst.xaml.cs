@@ -2,16 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Colruyt_WPF
 {
@@ -24,15 +16,10 @@ namespace Colruyt_WPF
         Login gebruiker = null;
         Lijst lijst = null;
         List<Lijst_Product> productenInBoodschappenLijst = new List<Lijst_Product>();
-        List<Product> productenInWinkel = new List<Product>();
-        Product product = new Product();
 
         decimal? TotaalPrijs;
         CustomProduct customproduct;
         List<CustomProduct> productDisplayLijst;
-
-
-
 
         public Boodschappenlijst()
         {
@@ -65,9 +52,8 @@ namespace Colruyt_WPF
         {
             Button button = (Button)sender;
             int id = int.Parse(button.Tag.ToString());
-            Lijst_Product product = new Lijst_Product();
-            product.id = id;
-            DatabaseOperations.VerwijderenProductInLijst(product);
+            Lijst_Product lijstproduct = DatabaseOperations.ProductenOphalenOpLijstMetPId(lijst, id)[0];
+            DatabaseOperations.VerwijderenProductInLijst(lijstproduct);
             RefreshList();
         }
 
@@ -75,28 +61,36 @@ namespace Colruyt_WPF
         {
             TotaalPrijs = 0;
             productenInBoodschappenLijst = DatabaseOperations.ProductenOphalenOpLijst(lijst);
-            productenInWinkel = DatabaseOperations.ProductenOphalen();
+            List<int> productIdLijst = new List<int>();
             productDisplayLijst = new List<CustomProduct>();
 
             foreach (Lijst_Product pInLijst in productenInBoodschappenLijst)
             {
-                foreach (Product pInWinkel in productenInWinkel)
-                {
-                    if (pInLijst.productId == pInWinkel.id)
-                    {
-                        customproduct = new CustomProduct();
-                        customproduct.Naam = pInWinkel.naam;
-                        customproduct.Id = pInLijst.id;
-                        customproduct.Optelprijs = pInWinkel.prijs;
-                        customproduct.Prijs = $"€ {pInWinkel.prijs}";
-                        productDisplayLijst.Add(customproduct);
-                    }
-                }
+                productIdLijst.Add(pInLijst.productId);
+                productIdLijst = productIdLijst.Distinct().ToList();
+            }
+
+            foreach (int id in productIdLijst)
+            {
+                Console.WriteLine("productIdLijst:" + id);
+            }
+
+            foreach (int productId in productIdLijst)
+            {
+                Product pInWinkel = DatabaseOperations.ProductOphalenOpId(productId);
+                customproduct = new CustomProduct();
+                customproduct.Aantal = DatabaseOperations.ProductenOphalenOpLijstMetPId(lijst, pInWinkel.id).Count();
+                customproduct.Naam = "(" + customproduct.Aantal + ") " + pInWinkel.naam;
+                customproduct.Id = pInWinkel.id;
+                customproduct.Optelprijs = pInWinkel.prijs;
+                customproduct.Prijs = $"€ {pInWinkel.prijs}";
+                Console.WriteLine(customproduct.Naam + "(" + customproduct.Aantal + ")");
+                productDisplayLijst.Add(customproduct);
             }
 
             foreach (CustomProduct CPprijs in productDisplayLijst)
             {
-                TotaalPrijs += CPprijs.Optelprijs;
+                TotaalPrijs += CPprijs.Optelprijs * CPprijs.Aantal;
             }
 
             lblTotaalprijs.Content = $"Totaalprijs: € {TotaalPrijs}";
@@ -109,7 +103,6 @@ namespace Colruyt_WPF
 
         internal class CustomProduct
         {
-            public Product Product { get; set; }
             public string Naam { get; set; }
             public int Id { get; set; }
             public string Prijs { get; set; }
