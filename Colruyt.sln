@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colruyt_WPF", "Colruyt_WPF\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colruyt_DAL", "Colruyt_DAL\Colruyt_DAL.csproj", "{AAB6C055-E59A-412F-95E4-5D268A408762}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colruyt_TEST", "Colruyt_TEST\Colruyt_TEST.csproj", "{D3E423A7-4EED-4780-88CF-81D8D3335CEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AAB6C055-E59A-412F-95E4-5D268A408762}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAB6C055-E59A-412F-95E4-5D268A408762}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAB6C055-E59A-412F-95E4-5D268A408762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E423A7-4EED-4780-88CF-81D8D3335CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E423A7-4EED-4780-88CF-81D8D3335CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E423A7-4EED-4780-88CF-81D8D3335CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E423A7-4EED-4780-88CF-81D8D3335CEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
