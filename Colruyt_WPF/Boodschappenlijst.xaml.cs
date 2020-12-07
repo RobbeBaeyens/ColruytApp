@@ -87,7 +87,8 @@ namespace Colruyt_WPF
                         customproduct = new CustomProduct();
                         customproduct.Naam = pInWinkel.naam;
                         customproduct.Id = pInLijst.id;
-                        customproduct.Prijs = pInWinkel.prijs;
+                        customproduct.Optelprijs = pInWinkel.prijs;
+                        customproduct.Prijs = $"€ {pInWinkel.prijs}";
                         productDisplayLijst.Add(customproduct);
                     }
                 }
@@ -95,12 +96,10 @@ namespace Colruyt_WPF
 
             foreach (CustomProduct CPprijs in productDisplayLijst)
             {
-                TotaalPrijs += CPprijs.Prijs;
-
-                Console.WriteLine($"\n{CPprijs.Id}\n{CPprijs.Naam}\n");
+                TotaalPrijs += CPprijs.Optelprijs;
             }
 
-            lblTotaalprijs.Content = $"€ {TotaalPrijs}";
+            lblTotaalprijs.Content = $"Totaalprijs: € {TotaalPrijs}";
 
             lstBoodschappenlijsten.ItemsSource = null;
             lstBoodschappenlijsten.Items.Clear();
@@ -113,7 +112,8 @@ namespace Colruyt_WPF
             public Product Product { get; set; }
             public string Naam { get; set; }
             public int Id { get; set; }
-            public decimal? Prijs { get; set; }
+            public string Prijs { get; set; }
+            public decimal? Optelprijs { get; set; }
             public int Aantal { get; set; }
         }
 

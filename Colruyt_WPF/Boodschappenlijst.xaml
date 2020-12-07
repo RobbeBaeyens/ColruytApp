@@ -32,8 +32,8 @@
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Width="320" Height="60" Margin="5" FontSize="40" Grid.Column="0" Content="{Binding Naam}"/>
-                                <Label Width="320" Height="60" Margin="5" FontSize="40" Grid.Column="1" HorizontalContentAlignment="Right" Content="{Binding Prijs}"/>
+                                <Label Width="800" Height="80" Margin="5" FontSize="40" Grid.Column="0" Content="{Binding Naam}"/>
+                                <Label Width="140" Height="80" Margin="5" FontSize="40" Grid.Column="1" HorizontalContentAlignment="Right" Content="{Binding Prijs}"/>
 
                                 <Button x:Name="btnProductVerwijderen" Tag="{Binding Id}" Width="60" Height="60" HorizontalAlignment="Right" Margin="5" Style="{StaticResource OrangeButton}" Grid.Column="2" Click="btnProductVerwijderen_Click">
                                     <Image Width="30" Height="30" Source="images/icon-delete.png"/>
@@ -46,7 +46,7 @@
             test1
         </ListBox>
         
-        <Label x:Name="lblTotaalprijs" Grid.Row="2" FontSize="20">Totaalprijs : € 0.00 </Label>
+        <Label x:Name="lblTotaalprijs" Grid.Row="2" FontSize="40">Totaalprijs : € 0.00 </Label>
         <Button x:Name="btnNieuwProduct" Content="Product toevoegen aan mijn lijstje" Style="{StaticResource OrangeButton}" Grid.Row="3" Width="700" Click="btnNieuwProduct_Click"/>
     </Grid>
 </Window>
