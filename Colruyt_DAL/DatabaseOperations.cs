@@ -139,6 +139,18 @@ namespace Colruyt_DAL
                 return query.ToList();
             }
         }
+        
+        //Ophalen producten uit lijst met productId
+        public static List<Lijst_Product> ProductenOphalenOpLijstMetPId(Lijst lijst, int productId)
+        {
+            using (BoodschappenLijstjeEntities entities = new BoodschappenLijstjeEntities())
+            {
+                var query = entities.Lijst_Product
+                    .Where(x => x.lijstId == lijst.id)
+                    .Where(x => x.productId == productId);
+                return query.ToList();
+            }
+        }
 
         //Toevoegen product in lijst
         public static int ToevoegenProductInLijst(Lijst_Product productInLijst)
