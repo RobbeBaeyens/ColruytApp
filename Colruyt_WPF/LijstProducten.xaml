@@ -33,7 +33,7 @@
 
             <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Stroke="Black" StrokeThickness="2"/>
 
-            <Button x:Name="btnNieuwProduct" BorderBrush="{StaticResource Dark}" Foreground="{StaticResource Light}" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.ColumnSpan="2" Height="50" Margin="111,24.2,155.2,25.8" VerticalContentAlignment="center"
+            <Button x:Name="btnNieuwProduct" Style="{StaticResource OrangeButton}" Grid.Row="3" Grid.ColumnSpan="2" Height="50" Margin="100,24.2,144.2,25.8" VerticalContentAlignment="center"
             FontSize="27" Content="Nieuw product aanmaken" Click="btnNieuwProduct_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -41,7 +41,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="btnProductToevoegen" BorderBrush="{StaticResource Dark}" Foreground="{StaticResource Light}" BorderThickness="3" Background="{StaticResource Primary}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="50" Margin="111,24.2,155.2,25.8" VerticalContentAlignment="center"
+            <Button x:Name="btnProductToevoegen" Style="{StaticResource OrangeButton}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="50" Margin="100,24.2,144.2,25.8" VerticalContentAlignment="center"
             FontSize="27" Content="Selectie toevoegen" Click="btnProductToevoegen_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -55,12 +55,12 @@
                     <DataTemplate>
                         <ListBoxItem>
                             <Border BorderBrush="{StaticResource Dark}" BorderThickness="5" Background="White" Width="720" CornerRadius="10">
-                                <ToggleButton x:Name="tgbSelecteerProduct" Tag="{Binding id}" Checked="tgbSelecteerProduct_Checked">
+                                <ToggleButton x:Name="tgbSelecteerProduct" Tag="{Binding id}" Checked="tgbSelecteerProduct_Checked" Unchecked="tgbSelecteerProduct_Checked">
                                     <DockPanel>
                                         <Label x:Name="lblNaamLijst" Content="{Binding naam}" Foreground="{StaticResource Dark}" FontSize="30" FontWeight="Black" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Margin="14,0,9,0" Width="600"/>
-                                        <Button x:Name="btnVerwijderProduct" Tag="{Binding id}" Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}" Click="btnVerwijderProduct_Click">
+                                        <!--<Button x:Name="btnVerwijderProduct" Tag="{Binding id}" Width="60" Height="60" Margin="5" Style="{StaticResource OrangeButton}" Click="btnVerwijderProduct_Click">
                                             <Image Width="30" Height="30" Source="images/icon-delete.png"/>
-                                        </Button>
+                                        </Button>-->
                                     </DockPanel>
                                 </ToggleButton>
                             </Border>

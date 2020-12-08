@@ -29,6 +29,7 @@ namespace Colruyt_WPF
         private List<Product> productLijst = new List<Product>();
 
         private List<Product> geselecteerdeProducten = new List<Product>();
+        private List<int> geselecteerdeProductIds = new List<int>();
 
         public LijstProducten()
         {
@@ -65,10 +66,10 @@ namespace Colruyt_WPF
 
         private void btnProductToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Product product in geselecteerdeProducten)
+            foreach (int productId in geselecteerdeProductIds)
             {
                 Lijst_Product lijst_Product = new Lijst_Product();
-                lijst_Product.productId = product.id;
+                lijst_Product.productId = productId;
                 lijst_Product.lijstId = lijst.id;
                 DatabaseOperations.ToevoegenProductInLijst(lijst_Product);
             }
@@ -89,15 +90,22 @@ namespace Colruyt_WPF
 
             if (tgb.IsChecked == true)
             {
-                geselecteerdeProducten.Add(product);
+                Console.WriteLine("CHECKED");
+                geselecteerdeProductIds.Add(product.id);
             }
             else
             {
-                if (geselecteerdeProducten.Contains(product))
-                {
-                    geselecteerdeProducten.Remove(product);
-                }
+                Console.WriteLine("UNCHECKED");
+                geselecteerdeProductIds.Remove(product.id);
             }
+
+            Console.WriteLine("\n");
+            foreach (int productId in geselecteerdeProductIds)
+            {
+                Console.Write(productId + ", ");
+            }
+            Console.WriteLine("\n");
+
         }
 
         private void btnNieuwProduct_Click(object sender, RoutedEventArgs e)
